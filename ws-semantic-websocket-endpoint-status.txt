@@ -1,7 +1,0 @@
-ExitCode=0
-OutputBytes=12019911
-StderrBytes=0
-Launcher=C:\Users\tttt0\AppData\Roaming\npm\rea.ps1
-PowerShellHost=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
-OutputFile=D:\Natisha-Research-Evidence\ws-semantic-websocket-endpoint.raw.json
-StderrFile=D:\Natisha-Research-Evidence\ws-semantic-websocket-endpoint.stderr.txt
