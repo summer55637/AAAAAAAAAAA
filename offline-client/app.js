@@ -362,7 +362,7 @@ function openSocket(token, onReady) {
   if (!token) { resume.sequenced = false; resume.last = 0; resume.acked = 0; resume.ackFrames = 0; resume.ackBytes = 0; }
   const viaRelay = wsHost() !== location.host;
   // b = 這一頁的程式版本:gateway 用來發現「還在跑舊版程式的網頁」(R2-01 / R1-17)
-  const ws = new WebSocket(`${location.protocol === 'https:' ? 'wss' : 'ws'}://${wsHost()}/ws?b=${encodeURIComponent(window.AV?.build || '')}${token ? `&resume=${token}` : ''}${WSBATCH ? '&bt=1' : ''}${!token || resume.sequenced ? `&rs=1${token ? `&ra=${resume.last}` : ''}` : ''}`);
+  const ws = window.NATISHA_OFFLINE && window.NatishaLocalSocket ? new window.NatishaLocalSocket() : new WebSocket(`${location.protocol === 'https:' ? 'wss' : 'ws'}://${wsHost()}/ws?b=${encodeURIComponent(window.AV?.build || '')}${token ? `&resume=${token}` : ''}${WSBATCH ? '&bt=1' : ''}${!token || resume.sequenced ? `&rs=1${token ? `&ra=${resume.last}` : ''}` : ''}`);
   st.ws = ws;
   ws.addEventListener('open', () => { try { ws.send(JSON.stringify(botHello())); } catch (e) { /* 送不出去就算了 */ } }); // 機器人跡象紀錄:版本 + 瀏覽器環境(gateway 沒開就不記)
   // 合併框:gateway 對宣告 bt=1 的連線可能把 100 ms 內的事件合成一個 JSON 陣列框;單筆事件仍是物件。catchUp 以事件數計。
@@ -1565,6 +1565,17 @@ function googleToken(prompt, then) {
 }
 $('#login-form').addEventListener('submit', (e) => {
   e.preventDefault();
+  if (window.NATISHA_OFFLINE) {
+    const localLogin = () => {
+      $('#login-msg').textContent = '';
+      login.retried = false;
+      login.last = { t: 'localLogin' };
+      send(login.last);
+    };
+    if (st.ws && st.ws.readyState === 1) localLogin();
+    else connect(localLogin);
+    return;
+  }
   const go = async (msg) => {
     await deviceTokenReady;
     let device = null;
@@ -2240,6 +2251,11 @@ function loadMap(id, name, instance, box) {
   mini.base = null;
   L1MAP.ready(id); // 地圖區塊表、縮小版和通行資料一起開始抓,不用等 /map 下載完(R1-33)
   ovMeta(id);
+
+  if (window.NATISHA_OFFLINE && window.NatishaOfflineAPI) {
+    applyWalk(id, key, window.NatishaOfflineAPI.createWalkMapBuffer(), box);
+    return;
+  }
   // 網址帶通行資料的內容雜湊(gateway 給):資料一改網址就變,不會用到手機上的舊資料
   const url = st.mapVer ? `/map/${id}?v=${st.mapVer}` : `/map/${id}`;
   let tries = 0;
