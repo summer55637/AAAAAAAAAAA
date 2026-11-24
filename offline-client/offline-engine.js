@@ -275,7 +275,7 @@
         portals: []
       });
       this.emitPlayerObject();
-      this.spawnSlime(Math.min(60, this.player.x + 4), this.player.y);
+      this.spawnSlime(Math.min(32763, this.player.x + 4), this.player.y);
       this.emitEvent({ t: 'inventory', items: copy(this.inventory) });
       this.emitEvent({ t: 'addskill', ids: character.type === 3 ? [1, 4] : [] });
       this.emitEvent({ t: 'bookmarks', list: copy(this.save.bookmarks || []) });
@@ -455,7 +455,7 @@
           this.respawnHandle = setTimeout(() => {
             this.emitEvent({ t: 'remove', id: deadId });
             this.monsters.delete(deadId);
-            if (this.character) this.spawnSlime(Math.min(60, this.player.x + 4), this.player.y);
+            if (this.character) this.spawnSlime(Math.min(32763, this.player.x + 4), this.player.y);
           }, 1800);
         }
         this.persist();
