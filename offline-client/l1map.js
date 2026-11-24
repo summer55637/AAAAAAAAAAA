@@ -153,7 +153,7 @@ const L1MAP = (() => {
       if (groups.get(g) === p) groups.delete(g); // 失敗的不要留著(以前一次失敗整個 session 都缺這組)
       const fl = groupFail.get(g) || { n: 0, at: 0 };
       fl.n++;
-      fl.at = performance.now() + backoff(fl.n - 1);
+      fl.at = window.NATISHA_OFFLINE ? Infinity : performance.now() + backoff(fl.n - 1);
       groupFail.set(g, fl);
     });
     return p;
@@ -236,9 +236,12 @@ const L1MAP = (() => {
     const n = (segTries.get(sk) || 0) + 1;
     segTries.set(sk, n);
     s.failed = true;
-    s.retryAt = performance.now() + backoff(n - 1);
+    s.retryAt = window.NATISHA_OFFLINE ? Infinity : performance.now() + backoff(n - 1);
   }
-  function retryLater(s) { s.partial = (s.partial || 0) + 1; s.retryAt = performance.now() + backoff(s.partial - 1); }
+  function retryLater(s) {
+    s.partial = (s.partial || 0) + 1;
+    s.retryAt = window.NATISHA_OFFLINE ? Infinity : performance.now() + backoff(s.partial - 1);
+  }
   function startTile(key, sk, s) {
     getJSON(`${TBASE}seg/${key}.json${SEGVER}`).then((d) => {
       if (!d || !Array.isArray(d.p) || !Array.isArray(d.f) || !Array.isArray(d.o)) throw new Error('bad segment');

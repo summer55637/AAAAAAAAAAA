@@ -5,6 +5,7 @@
   const CLASS_GFX = [[0, 1], [61, 48], [138, 37], [734, 1186], [2786, 2796], [6658, 6661], [6671, 6650]];
   const CLASS_HP = [14, 18, 14, 10, 14, 16, 12];
   const CLASS_MP = [8, 4, 10, 12, 8, 10, 12];
+  const HOSTILE_SKILL_IDS = new Set([29, 39, 40, 64, 71, 87, 152, 167, 173, 183, 188, 193, 20007, 20011]);
   // Mirror hostile-target corrections applied by the original HUD.
   const HOSTILE_SKILLS = new Set([29, 36, 39, 40, 44, 64, 71, 76, 87, 133, 152, 153, 157, 167, 173, 174, 183, 188, 193]);
   function normalizeGameData(data) {
@@ -481,8 +482,9 @@
         return;
       }
       const targetId = asNumber(command.target, this.playerId);
+      const hostile = skill.hostile === true || HOSTILE_SKILL_IDS.has(id);
       let monster = null;
-      if (skill.hostile) {
+      if (hostile) {
         monster = this.monsters.get(targetId);
         if (!monster || monster.dead) {
           this.emitEvent({ t: 'error', msg: '找不到可施法的怪物目標' });
@@ -515,7 +517,7 @@
       this.emitEvent({ t: 'mp', mp: this.character.mp, maxMp: this.character.maxMp });
       if (hpCost) this.emitEvent({ t: 'hp', hp: this.character.hp, maxHp: this.character.maxHp });
 
-      if (skill.hostile) {
+      if (hostile) {
         const damage = Math.max(1, Math.floor(asNumber(this.character.int, 10) / 2) + 3);
         this.damageMonster(monster, damage, asNumber(skill.gfx, 0), asNumber(skill.action, 18));
         this.persist();

@@ -41,3 +41,5 @@ node offline-socket.test.cjs` 執行。
 - 同步完成後，遊戲只讀取本機 `assets` 和 `map/0`；若原站某個檔案取不到，會回退本機替代繪圖與全可通行測試遮罩。
 - 首次啟動需要網路下載素材；之後已存在的檔案會略過。要強制重抓可在專案根目錄執行 `node sync-original-assets.cjs --refresh`。
 - 原版畫面入口：`http://127.0.0.1:8000/original-client.html`。
+
+- 自動素材同步會依原版 L1S 索引選擇一般 SPR、75% 壓縮圖集與 50% 圖集；離線模式不會對缺失圖集／區塊持續重試。

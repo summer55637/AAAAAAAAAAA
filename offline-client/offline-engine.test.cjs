@@ -102,8 +102,13 @@ mage.command({ t: 'move', x: 32593, y: 32922, heading: 2 });
 mage.command({ t: 'useskill', skill: 4, target: mageMob.id, x: mageMob.x, y: mageMob.y });
 assert.ok(mageEvents.some((event) => event.t === 'attack' && event.gfx === 167));
 // Original HUD marks this hostile skill as hostile, but the exported table does not.
+const beforeSlowMp = mage.character.mp;
 mage.command({ t: 'useskill', skill: 29, target: mageMob.id, x: mageMob.x, y: mageMob.y });
 assert.ok(mageEvents.some((event) => event.t === 'attack' && event.gfx === 752));
+assert.equal(mage.character.mp, beforeSlowMp - 20);
+const afterSlowMp = mage.character.mp;
+mage.command({ t: 'useskill', skill: 29, target: 999999, x: 0, y: 0 });
+assert.equal(mage.character.mp, afterSlowMp);
 mage.close();
 
 const map = createWalkMap();

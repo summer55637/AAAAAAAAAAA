@@ -206,17 +206,39 @@ async function syncCharacterAndUI() {
   }
 
   const sprites = await loadJson('assets/spr/index.json?v=7', 'assets/spr/index.json', true);
+  const packed = await loadJson('assets/sprs/index.json', 'assets/sprs/index.json', true) || {};
+  const small = await loadJson('assets/sprs50/index.json', 'assets/sprs50/index.json', true) || {};
   if (Array.isArray(sprites)) {
     const available = new Set(sprites.map(String));
     const gfxList = CLASS_GFX.filter((gfx) => available.has(String(gfx)));
     await pool(gfxList, 3, async (gfx) => {
-      const jsonPath = 'assets/spr/' + gfx + '.json';
-      const meta = await loadJson(jsonPath + '?v=8', jsonPath, true);
-      if (!meta) return;
-      const pages = Math.max(1, Math.min(32, Number(meta.pages) || 1));
-      for (let page = 0; page < pages; page++) {
-        const suffix = page ? '-' + page : '';
-        await saveBuffer('assets/spr/' + gfx + suffix + '.webp?v=7');
+      const packedHash = packed[String(gfx)];
+      const base = packedHash
+        ? (String(packedHash).startsWith('s75-') ? 'assets/sprs75/' : 'assets/sprs/')
+        : 'assets/spr/';
+      const jsonPath = base + gfx + '.json';
+      const meta = await loadJson(jsonPath + '?v=' + (packedHash || '8'), jsonPath, true);
+      if (meta) {
+        const pages = Math.max(1, Math.min(32, Number(meta.pages) || 1));
+        for (let page = 0; page < pages; page++) {
+          const suffix = page ? '-' + page : '';
+          await saveBuffer(base + gfx + suffix + '.webp?v=' + (packedHash || '7'),
+            base + gfx + suffix + '.webp', true);
+        }
+      }
+      const smallHash = small[String(gfx)];
+      if (smallHash) {
+        const smallBase = 'assets/sprs50/';
+        const smallJson = smallBase + gfx + '.json';
+        const smallMeta = await loadJson(smallJson + '?v=' + smallHash, smallJson, true);
+        if (smallMeta) {
+          const pages = Math.max(1, Math.min(32, Number(smallMeta.pages) || 1));
+          for (let page = 0; page < pages; page++) {
+            const suffix = page ? '-' + page : '';
+            await saveBuffer(smallBase + gfx + suffix + '.webp?v=' + smallHash,
+              smallBase + gfx + suffix + '.webp', true);
+          }
+        }
       }
     });
   } else {
@@ -228,8 +250,6 @@ async function syncCharacterAndUI() {
   await pool(UI182, 5, async (name) => {
     await saveBuffer('assets/ui182/' + name + '.webp?v=1', 'assets/ui182/' + name + '.webp', true);
   });
-  await saveBuffer('assets/sprs/index.json', 'assets/sprs/index.json', true);
-  await saveBuffer('assets/sprs50/index.json', 'assets/sprs50/index.json', true);
 }
 
 async function main() {
