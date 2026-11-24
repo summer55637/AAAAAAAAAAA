@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#0b0a08">
+<title>娜緹夏天堂｜原版客戶端離線接線測試</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  body { background:#0b0a08; }
+  #game { min-height:100%; }
+  .offline-shell-card { width:min(94vw,680px); max-height:92vh; overflow:auto; padding:22px; border:1px solid #75613c; border-radius:12px; background:rgba(20,17,12,.96); box-shadow:0 18px 70px #000b; }
+  .offline-shell-title { margin:0 0 10px; color:#efd28c; letter-spacing:2px; font-size:22px; }
+  .offline-shell-note { color:#b7aa91; font-size:13px; margin:8px 0 16px; }
+  #screen-login,#screen-chars { position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center; padding:14px; background:radial-gradient(ellipse at center,#262117 0%,#080806 75%); }
+  #screen-login.hidden,#screen-chars.hidden { display:none !important; }
+  #screen-login .offline-shell-card { text-align:center; }
+  #login-form { display:grid; gap:12px; }
+  #login-form button[type=submit] { min-height:48px; font-size:17px; }
+  #login-msg,#chars-msg,#nc-msg { min-height:1.4em; color:#e5bf72; }
+  #g-current,#g-signin { display:none !important; }
+  #char-list { list-style:none; margin:12px 0; padding:0; display:grid; gap:8px; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); }
+  #char-list li { border:1px solid #615033; background:#17150f; border-radius:7px; padding:10px; cursor:pointer; }
+  #char-list li.selected { border-color:#e4c17a; background:#302719; }
+  #char-list button { margin:3px; }
+  #newchar-form { border-top:1px solid #655337; margin-top:15px; padding-top:15px; }
+  #newchar-form.hidden { display:none !important; }
+  #newchar-form .fig { width:92px; height:122px; margin:8px auto; background-repeat:no-repeat; background-position:0 0; image-rendering:pixelated; }
+  #newchar-form .sym { margin:3px; }
+  #newchar-form .sym.on { outline:2px solid #d6b66b; }
+  #newchar-form input[name=name] { width:100%; max-width:320px; min-height:40px; padding:8px; color:#f5e8cd; background:#090907; border:1px solid #75613c; border-radius:5px; }
+  #hud { position:fixed; inset:0; z-index:10; pointer-events:none; }
+  #hud.hidden { display:none !important; }
+  #hud button,#hud input,#hud .panel,#hud .dialog,#hud #hotbar,#hud #minimap-box,#hud #chat-form,#hud #side-buttons { pointer-events:auto; }
+  #status { position:absolute; top:8px; left:8px; display:grid; grid-template-columns:54px minmax(150px,250px); gap:8px; padding:8px; background:#14120ddd; border:1px solid #5a4626; border-radius:8px; pointer-events:auto; }
+  #portrait-canvas { width:48px; height:48px; image-rendering:pixelated; background:#211b12; }
+  #status-data { min-width:0; display:grid; gap:3px; font-size:12px; }
+  #status-line { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+  .bar { height:9px; background:#080808; border:1px solid #4a4439; border-radius:8px; overflow:hidden; }
+  .bar i { display:block; height:100%; width:100%; }
+  .bar.hp i { background:linear-gradient(90deg,#791f1c,#e25b4b); }
+  .bar.mp i { background:linear-gradient(90deg,#173b77,#589ce5); }
+  #exp-bar { height:7px; background:#080808; border:1px solid #4a4439; border-radius:8px; overflow:hidden; position:relative; }
+  #exp-bar i { display:block; height:100%; width:0; background:#d0ad55; }
+  #exp-bar b { position:absolute; inset:0; text-align:center; font-size:9px; line-height:7px; }
+  #minimap-box { position:absolute; top:8px; right:8px; width:142px; padding:6px; background:#14120ddd; border:1px solid #5a4626; border-radius:8px; pointer-events:auto; }
+  #minimap { display:block; width:128px; height:128px; }
+  #map-plate { font-size:11px; text-align:center; }
+  #daynight { position:absolute; right:160px; top:12px; }
+  #side-buttons { position:absolute; right:8px; bottom:calc(74px + env(safe-area-inset-bottom)); display:flex; flex-direction:column; gap:5px; align-items:flex-end; }
+  #side-buttons button { padding:7px 10px; min-width:78px; font-size:12px; }
+  #hotbar { position:absolute; left:50%; bottom:calc(10px + env(safe-area-inset-bottom)); transform:translateX(-50%); display:flex; gap:4px; padding:5px; border:1px solid #5a4626; border-radius:8px; background:#14120ddd; pointer-events:auto; }
+  #hotbar .slot { width:42px; height:42px; min-width:42px; padding:2px; }
+  #chat-area { position:absolute; left:8px; bottom:calc(68px + env(safe-area-inset-bottom)); width:min(48vw,360px); max-height:28vh; display:flex; flex-direction:column; pointer-events:auto; }
+  #chat-log { overflow:auto; font-size:12px; text-shadow:0 1px 2px #000; background:#10100ca8; padding:5px; }
+  #chat-form { display:flex; gap:4px; }
+  #chat-input { flex:1; min-width:0; }
+  #panel { position:absolute; right:160px; top:68px; width:min(390px,48vw); max-height:70vh; overflow:auto; padding:10px; background:#17140ff2; border:1px solid #75613c; border-radius:8px; pointer-events:auto; }
+  #dialog { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:min(420px,90vw); max-height:80vh; overflow:auto; padding:14px; background:#17140ff5; border:1px solid #75613c; border-radius:8px; pointer-events:auto; }
+  #dead { position:absolute; inset:0; display:grid; place-content:center; gap:12px; background:#0800009c; pointer-events:auto; text-align:center; }
+  #dead.hidden,#panel.hidden,#dialog.hidden,#learn.hidden { display:none !important; }
+  #toast { position:absolute; left:50%; top:20%; transform:translateX(-50%); padding:7px 14px; background:#17140fee; border:1px solid #75613c; border-radius:6px; }
+  #buffbar { position:absolute; top:160px; left:8px; display:flex; gap:4px; }
+  #hunt-stats { position:absolute; bottom:68px; right:8px; font-size:11px; }
+  #learn { position:absolute; inset:10%; background:#17140ff5; border:1px solid #75613c; z-index:120; pointer-events:auto; }
+  #offline-aux { display:none !important; }
+  @media(max-width:700px) {
+    #status { grid-template-columns:42px minmax(120px,1fr); max-width:58vw; }
+    #portrait-canvas { width:38px; height:38px; }
+    #minimap-box { width:104px; }
+    #minimap { width:90px; height:90px; }
+    #side-buttons button { min-width:62px; padding:5px; }
+    #panel { right:8px; top:165px; width:min(92vw,390px); max-height:53vh; }
+    #chat-area { width:65vw; bottom:70px; }
+    #hotbar .slot { width:36px; height:36px; min-width:36px; }
+  }
+</style>
+<script>
+  window.AV = { build: 'offline-shell', ui: {}, spr: {}, charsel: {} };
+  window.ROYAL_SWORD_FX_ENABLED = false;
+</script>
+<script defer src="offline-engine.js"></script>
+<script defer src="modules/sprites.js"></script>
+<script defer src="modules/flare.js"></script>
+<script defer src="modules/sound.js"></script>
+<script defer src="modules/sprite-engine.js"></script>
+<script defer src="modules/gamedex.js"></script>
+<script defer src="l1map.js"></script>
+<script defer src="modules/offline-preload.js"></script>
+<script defer src="app.js"></script>
+<script defer src="modules/daily-quest.js"></script>
+<script defer src="modules/eva.js"></script>
+<script defer src="modules/poly-menu.js"></script>
+<script defer src="hud.js"></script>
+<script defer src="modules/layout-a.js"></script>
+<script defer src="modules/layout-b.js"></script>
+<script defer src="modules/layout-c.js"></script>
+</head>
+<body>
+<canvas id="world" aria-label="遊戲世界"></canvas>
+<div id="game">
+  <section id="screen-login" class="screen">
+    <div class="offline-shell-card">
+      <h1 class="offline-shell-title">娜緹夏天堂</h1>
+      <div class="offline-shell-note">單機離線測試入口｜角色與設定儲存在本機瀏覽器</div>
+      <form id="login-form">
+        <div id="g-current"></div><div id="g-signin"></div>
+        <button type="submit">進入單機世界</button>
+        <p id="login-msg"></p>
+      </form>
+      <div id="app-version">OFFLINE</div>
+      <p class="offline-shell-note">此頁使用本機模擬器；線上帳號、交易、市集與伺服器功能不會連線。</p>
+    </div>
+  </section>
+
+  <section id="screen-chars" class="screen hidden">
+    <div class="offline-shell-card">
+      <h2 class="offline-shell-title">選擇角色</h2>
+      <p id="chars-msg"></p>
+      <ul id="char-list"></ul>
+      <div id="char-others"></div>
+      <div class="offline-row">
+        <button id="btn-enter" type="button">進入世界</button>
+        <button id="btn-new-char" type="button">建立角色</button>
+        <button id="btn-del-char" type="button">刪除角色</button>
+      </div>
+      <form id="newchar-form" class="hidden">
+        <h3>建立新角色</h3>
+        <div class="fig"></div>
+        <div class="offline-row">
+          <button class="sym on" type="button" data-type="0">王族</button>
+          <button class="sym" type="button" data-type="1">騎士</button>
+          <button class="sym" type="button" data-type="2">妖精</button>
+          <button class="sym" type="button" data-type="3">法師</button>
+        </div>
+        <div class="offline-row">
+          <button class="sym on" type="button" data-sex="0">男</button>
+          <button class="sym" type="button" data-sex="1">女</button>
+        </div>
+        <label>角色名稱 <input id="nc-name" name="name" type="text" maxlength="12" autocomplete="off" required></label>
+        <div id="nc-stats"></div>
+        <p id="nc-left"></p>
+        <p id="nc-msg"></p>
+        <button type="submit">確定建立</button>
+        <button id="nc-cancel" type="button">取消</button>
+      </form>
+      <div id="del-confirm" class="hidden">
+        <p id="del-ask">確定刪除角色？</p>
+        <p id="del-roster-note"></p>
+        <span id="del-count"></span><span id="del-left"></span>
+        <button id="del-ok" type="button">確定</button>
+        <button id="del-cancel" type="button">取消</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="hud" class="hidden">
+    <div id="status">
+      <canvas id="portrait-canvas" width="96" height="96"></canvas>
+      <div id="status-data">
+        <div id="status-line"><b id="hud-name"></b><span id="hud-lv">Lv.1</span><span id="hud-map"></span><span id="hud-pos"></span></div>
+        <div class="bar hp"><i></i><b></b></div>
+        <div class="bar mp"><i></i><b></b></div>
+        <div id="exp-bar"><i></i><b>0%</b></div>
+        <div>AC <b id="st-ac">10</b>｜MR <b id="st-mr">0</b>｜<span id="st-lawful-wrap"><span id="st-lawful-label">正義</span> <b id="st-lawful">0</b></span>｜金幣 <b id="st-gold">0</b></div>
+      </div>
+    </div>
+
+    <div id="minimap-box">
+      <canvas id="minimap" width="128" height="128"></canvas>
+      <div id="map-plate">說話之島</div>
+      <span id="daynight">☀</span>
+    </div>
+
+    <div id="side-buttons">
+      <button id="btn-auto" type="button">AUTO</button>
+      <button id="btn-home" type="button">回村</button>
+      <button id="btn-pvp" type="button">PK</button>
+      <button id="btn-stats" type="button">人物</button>
+      <button id="btn-collection" type="button">圖鑑</button>
+      <button id="btn-dailyquest" type="button">每日任務</button>
+      <button id="btn-eva" type="button">伊娃寶藏</button>
+      <button id="btn-more" type="button">更多</button>
+      <button id="btn-charmarket" type="button" class="hidden">角色市集</button>
+      <button id="btn-auction" type="button" class="hidden">拍賣</button>
+      <button id="btn-dutch" type="button" class="hidden">鑽石拍賣</button>
+      <button id="btn-mail" type="button" class="hidden">郵件</button>
+      <button id="btn-deathlog" type="button" class="hidden">死亡紀錄</button>
+      <div id="side-drawer" class="hidden"></div>
+    </div>
+
+    <div id="buffbar"></div>
+    <div id="hunt-stats"></div>
+    <div id="chat-area">
+      <div id="chat-tabs"></div>
+      <div id="chat-log"></div>
+      <form id="chat-form"><input id="chat-input" autocomplete="off" placeholder="輸入訊息或指令"><button type="submit">送出</button></form>
+      <button id="land-chat-btn" type="button" class="hidden">聊天</button>
+    </div>
+
+    <div id="hotbar">
+      <button class="slot" data-slot="0" type="button"></button>
+      <button class="slot" data-slot="1" type="button"></button>
+      <button class="slot" data-slot="2" type="button"></button>
+      <button class="slot" data-slot="3" type="button"></button>
+      <button class="slot" data-slot="4" type="button"></button>
+      <button class="slot" data-slot="5" type="button"></button>
+      <button class="slot" data-slot="6" type="button"></button>
+      <button class="slot" data-slot="7" type="button"></button>
+      <span id="hotbar-pick-hint"></span>
+    </div>
+
+    <div id="panel" class="hidden">
+      <header><b id="panel-title"></b><button id="panel-close" type="button">關閉</button></header>
+      <nav id="panel-tabs"></nav>
+      <div id="panel-body"></div>
+      <footer id="panel-foot"></footer>
+    </div>
+
+    <div id="dialog" class="hidden">
+      <h3 id="dlg-title"></h3><p id="dlg-note"></p><div id="dlg-body"></div>
+      <footer id="dlg-foot"></footer><button id="dlg-close" type="button">關閉</button>
+    </div>
+
+    <div id="dead" class="hidden">
+      <h2>角色死亡</h2><button id="btn-restart" type="button">復活</button>
+    </div>
+    <div id="learn" class="hidden">
+      <h3 id="learn-npc"></h3><p id="learn-gold"></p><ul id="learn-list"></ul><button id="learn-close" type="button">關閉</button>
+    </div>
+    <div id="toast" class="hidden"></div>
+    <div id="is-body" class="hidden"><b id="is-title"></b><button id="is-close" type="button">關閉</button></div>
+  </section>
+</div>
+
+<div id="offline-aux"></div>
+<script>
+(function () {
+  const ids = ["login-msg","screen-chars","dialog","dlg-body","btn-auto","chars-msg","nc-msg","newchar-form","dlg-title","hud","g-current","g-signin","login-form","btn-del-char","char-others","btn-enter","char-list","btn-new-char","changelog","otp-pop","otp-msg","otp-send","changelog-pop","app-version","del-confirm","del-roster-note","del-ask","del-count","del-ok","del-left","del-cancel","nc-cancel","nc-stats","nc-left","hud-name","hud-map","dead","btn-restart","dlg-note","dlg-foot","dlg-close","offline-report","learn","learn-npc","learn-gold","learn-list","learn-close","world","hotbar","btn-pvp","chat-input","minimap","minimap-box","daynight","hud-pos","panel-foot","itemsheet","reconnect","conn-lost","stats-pop","numpad","world-gl","hud-lv","btn-charmarket","btn-auction","st-ac","st-mr","st-lawful-label","st-lawful","st-lawful-wrap","st-gold","exp-bar","portrait-canvas","toast","chat-tabs","chat-log","chat-form","btn-home","inv-search","panel-title","btn-dutch","panel","btn-mail","btn-deathlog","panel-close","panel-tabs","panel-body","nav-mail","is-body","is-title","desk-mode-row","desk-res-row","hotbar-pick-hint","is-close","eh-timer","map-plate","catchup-status","buffbar","buff-tip","hunt-stats","btn-stats","side-drawer","btn-more","catchup-dialog","catchup-body","catchup-close","catchup-cool","catchup-points","catchup-remaining","equip-quick","hotbar-lock","btn-collection","btn-dailyquest","dq-reroll-dialog","dq-skip-dialog","btn-eva","side-buttons","land-chat-btn","game","desk-mode"];
+  const root = document.getElementById('offline-aux');
+  for (const id of ids) {
+    if (document.getElementById(id)) continue;
+    let tag = 'div';
+    if (id === 'itemsheet') tag = 'canvas';
+    else if (id === 'inv-search' || id === 'numpad') tag = 'input';
+    else if (id === 'otp-send' || id === 'otp-send' || id === 'catchup-close' || id === 'otp-send' || id === 'catchup-cool' || id === 'btn-restart') tag = 'button';
+    else if (id.startsWith('btn-') || id.endsWith('-close') || id === 'del-ok' || id === 'del-left') tag = 'button';
+    const node = document.createElement(tag);
+    node.id = id;
+    node.className = 'hidden';
+    if (tag === 'button') node.type = 'button';
+    root.appendChild(node);
+  }
+})();
+</script>
+</body>
+</html>
