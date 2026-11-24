@@ -107,7 +107,7 @@ let camera={x:24,y:24},nextId=10,keys={},panelOpen='';
 const $=id=>document.getElementById(id),dist=(a,b)=>Math.max(Math.abs(a.x-b.x),Math.abs(a.y-b.y));
 function message(s){$('notice').textContent=s;$('notice').classList.add('show');clearTimeout(message.t);message.t=setTimeout(()=>$('notice').classList.remove('show'),1500)}
 function save(){if(!hero)return;try{localStorage.setItem(SAVE,JSON.stringify({hero,mobs,drops,obstacles:[...obstacles]}));$('saveState').textContent='已儲存 '+new Date().toLocaleTimeString('zh-TW')}catch(e){$('saveState').textContent='無法儲存'}}
-function load(){try{const d=JSON.parse(localStorage.getItem(SAVE)||'null');if(d&&d.hero){hero=d.hero;mobs=d.mobs||[];drops=d.drops||[];obstacles=new Set(d.obstacles||[]);return true}}catch(e){}return false}
+function load(){try{const d=JSON.parse(localStorage.getItem(SAVE)||'null');if(d&&d.hero){hero=d.hero;mobs=d.mobs||[];drops=d.drops||[];obstacles=new Set(d.obstacles||[]);nextId=Math.max(9,...mobs.map(x=>x.id||0),...drops.map(x=>x.id||0))+1;return true}}catch(e){}return false}
 function makeWorld(){if(obstacles.size)return;for(let y=4;y<45;y++)for(let x=4;x<45;x++){const v=(x*17+y*31+x*y*3)%97;if(v<4&&dist({x,y},{x:24,y:24})>5)obstacles.add(x+','+y)}}
 function spawnMob(x,y){mobs.push({id:nextId++,name:'史萊姆',gfx:31,x,y,hp:30,maxHp:30,exp:28,alive:true,atkAt:0,walkAt:0})}
 function newGame(name,type,sex){const c=classes[type];hero={name:name||'冒險者',type,sex,level:1,exp:0,gold:100,hp:100,maxHp:100,mp:30,maxMp:30,str:c.str,dex:c.dex,con:c.con,int:c.int,ac:10,potions:20,x:24,y:24,heading:0,statPoints:0};mobs=[];drops=[];obstacles.clear();makeWorld();[[18,20],[28,19],[20,29],[30,28],[14,26],[33,23],[26,34],[36,31]].forEach(p=>spawnMob(p[0],p[1]));}
