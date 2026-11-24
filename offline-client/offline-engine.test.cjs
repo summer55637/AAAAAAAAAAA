@@ -89,7 +89,7 @@ const mage = new LocalGameEngine((event) => mageEvents.push(event), {
   gameData: { expTable: [0, 125], skills: {
     1: { name: '初級治癒術', mp: 4, hostile: false, dur: 0, action: 19 },
     4: { name: '光箭', mp: 3, hostile: true, range: 10, gfx: 167, action: 18 },
-    29: { name: '緩速術', mp: 2, hostile: false, range: 0, gfx: 752, dur: 64, action: 19 }
+    29: { name: '緩速術', mp: 20, hostile: false, range: 0, gfx: 752, dur: 64, action: 19 }
   } }
 });
 mage.command({ t: 'newchar', name: '測試法師', type: 3, str: 10, dex: 10, con: 10, wis: 12, cha: 10, int: 13 });
@@ -102,6 +102,8 @@ mage.command({ t: 'move', x: 32593, y: 32922, heading: 2 });
 mage.command({ t: 'useskill', skill: 4, target: mageMob.id, x: mageMob.x, y: mageMob.y });
 assert.ok(mageEvents.some((event) => event.t === 'attack' && event.gfx === 167));
 // Original HUD marks this hostile skill as hostile, but the exported table does not.
+mage.character.maxMp = 30;
+mage.character.mp = 30;
 const beforeSlowMp = mage.character.mp;
 mage.command({ t: 'useskill', skill: 29, target: mageMob.id, x: mageMob.x, y: mageMob.y });
 assert.ok(mageEvents.some((event) => event.t === 'attack' && event.gfx === 752));
