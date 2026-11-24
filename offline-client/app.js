@@ -2416,6 +2416,7 @@ let currentOpenArea = null, openAreaRequest = 0;
 function loadCurrentOpenArea(id, key) {
   const request = ++openAreaRequest;
   currentOpenArea = null; // 換圖先當整張開放,不能沿用上一張地監的遮罩
+  if (window.NATISHA_OFFLINE) return;
   if (id === 4 || st.inInstance) return;
   const version = st.mapVer || window.AV?.build || 1;
   fetch('/openarea/' + id + '.bin?v=' + encodeURIComponent(version)).then(async (res) => {
@@ -5584,6 +5585,7 @@ const OV_VER = 'o1';
 const ov = { meta: {}, imgs: {}, fail: {}, tileFail: {} };
 const ovBackoff = (n) => Math.min(30000, 1000 * 2 ** Math.min(n - 1, 5));
 function ovMeta(id) {
+  if (window.NATISHA_OFFLINE) { ov.meta[id] = null; return null; }
   const f = ov.fail[id];
   if (f && f.at && performance.now() >= f.at) { f.at = 0; delete ov.meta[id]; } // 上次暫時失敗:時間到再抓
   if (!(id in ov.meta)) {

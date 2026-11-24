@@ -676,10 +676,10 @@
     revive() {
       if (!this.character) return;
       this.character.hp = this.character.maxHp;
-      this.player.x = 32;
-      this.player.y = 32;
-      this.character.x = 32;
-      this.character.y = 32;
+      this.player.x = 32593;
+      this.player.y = 32922;
+      this.character.x = 32593;
+      this.character.y = 32922;
       this.emitPlayerObject();
       this.emitEvent({
         t: 'hp', hp: this.character.hp, maxHp: this.character.maxHp
