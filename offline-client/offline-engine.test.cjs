@@ -42,9 +42,9 @@ assert.ok(events.some((event) => event.t === 'object' && event.kind === 'monster
 assert.equal(engine.snapshot().activeCharacter, '離線測試');
 
 // 原版 C_Move: x/y 是送出前座標，heading 表示移動方向。
-engine.command({ t: 'move', x: 32, y: 32, heading: 2 });
-engine.command({ t: 'move', x: 33, y: 32, heading: 2 });
-assert.equal(engine.snapshot().player.x, 34);
+engine.command({ t: 'move', x: 32593, y: 32922, heading: 2 });
+engine.command({ t: 'move', x: 32594, y: 32922, heading: 2 });
+assert.equal(engine.snapshot().player.x, 32595);
 
 const monster = engine.snapshot().monsters[0];
 engine.command({ t: 'attack', id: monster.id });
@@ -85,14 +85,14 @@ mage.character.hp = 1;
 mage.command({ t: 'useskill', skill: 1, target: mage.playerId, x: 32, y: 32 });
 assert.ok(mage.character.hp > 1);
 const mageMob = mage.snapshot().monsters[0];
-mage.command({ t: 'move', x: 32, y: 32, heading: 2 });
+mage.command({ t: 'move', x: 32593, y: 32922, heading: 2 });
 mage.command({ t: 'useskill', skill: 4, target: mageMob.id, x: mageMob.x, y: mageMob.y });
 assert.ok(mageEvents.some((event) => event.t === 'attack' && event.gfx === 167));
 mage.close();
 
 const map = createWalkMap();
-assert.equal(map.byteLength, 16 + 64 * 64);
-assert.deepEqual(Array.from(new Int32Array(map, 0, 4)), [0, 63, 0, 63]);
+assert.equal(map.byteLength, 16 + 512 * 512);
+assert.deepEqual(Array.from(new Int32Array(map, 0, 4)), [32256, 32767, 32768, 33279]);
 assert.equal(new Uint8Array(map, 16)[0], 15);
 
 const restored = new LocalGameEngine(() => {}, {

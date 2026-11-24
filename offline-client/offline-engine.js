@@ -14,7 +14,8 @@
     return JSON.parse(JSON.stringify(value));
   }
   function makeWalkMap() {
-    const x0 = 0, x1 = 63, y0 = 0, y1 = 63;
+    // 原版說話之島 map 0 的索引範圍：chunk x=504..511、y=512..519，每塊 64 格。
+    const x0 = 32256, x1 = 32767, y0 = 32768, y1 = 33279;
     const width = x1 - x0 + 1, height = y1 - y0 + 1;
     const buffer = new ArrayBuffer(16 + width * height);
     new Int32Array(buffer, 0, 4).set([x0, x1, y0, y1]);
@@ -37,7 +38,7 @@
       this.character = null;
       this.playerId = 1;
       this.nextObjectId = 1000;
-      this.player = { x: 32, y: 32, heading: 2 };
+      this.player = { x: 32593, y: 32922, heading: 2 };
       this.monsters = new Map();
       this.drops = new Map();
       this.inventory = [];
@@ -229,8 +230,8 @@
         maxHp: maxHp,
         mp: maxMp,
         maxMp: maxMp,
-        x: 32,
-        y: 32,
+        x: 32593,
+        y: 32922,
         map: 0,
         inventory: [
           { id: 10001, itemId: 40010, name: '紅色藥水', count: 10 },
@@ -253,8 +254,8 @@
       this.character = character;
       this.playerId = 1;
       this.player = {
-        x: asNumber(character.x, 32),
-        y: asNumber(character.y, 32),
+        x: asNumber(character.x, 32593),
+        y: asNumber(character.y, 32922),
         heading: 2
       };
       this.inventory = copy(character.inventory || []);
@@ -358,8 +359,8 @@
         if (!dx && !dy) return;
         this.player.heading = this.heading(dx, dy);
       }
-      x = Math.max(0, Math.min(63, x));
-      y = Math.max(0, Math.min(63, y));
+      x = Math.max(32256, Math.min(32767, x));
+      y = Math.max(32768, Math.min(33279, y));
       if (x === this.player.x && y === this.player.y) return;
       this.player.x = x;
       this.player.y = y;
@@ -545,10 +546,10 @@
 
     returnHome() {
       if (!this.character) return;
-      this.player.x = 32;
-      this.player.y = 32;
-      this.character.x = 32;
-      this.character.y = 32;
+      this.player.x = 32593;
+      this.player.y = 32922;
+      this.character.x = 32593;
+      this.character.y = 32922;
       this.emitEvent({
         t: 'mapid', map: 0, name: '說話之島',
         mapVer: 'offline-map-1', portals: []
