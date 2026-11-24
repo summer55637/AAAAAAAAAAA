@@ -39,7 +39,9 @@ assert.ok(events.some((event) => event.t === 'inventory'));
 assert.ok(events.some((event) => event.t === 'object' && event.kind === 'monster'));
 assert.equal(engine.snapshot().activeCharacter, '離線測試');
 
-engine.command({ t: 'move', x: 34, y: 32 });
+// 原版 C_Move: x/y 是送出前座標，heading 表示移動方向。
+engine.command({ t: 'move', x: 32, y: 32, heading: 2 });
+engine.command({ t: 'move', x: 33, y: 32, heading: 2 });
 assert.equal(engine.snapshot().player.x, 34);
 
 const monster = engine.snapshot().monsters[0];

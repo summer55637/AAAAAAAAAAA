@@ -315,12 +315,27 @@
 
     movePlayer(command) {
       if (!this.character) return;
-      const x = Math.max(0, Math.min(63, Math.round(asNumber(command.x, this.player.x))));
-      const y = Math.max(0, Math.min(63, Math.round(asNumber(command.y, this.player.y))));
-      const dx = x - this.player.x;
-      const dy = y - this.player.y;
-      if (!dx && !dy) return;
-      this.player.heading = this.heading(dx, dy);
+      let x, y, dx, dy;
+      // 原版 C_Move 封包是「出發座標 + heading」，並非目的座標。
+      // app.js 在送出前才更新玩家本機座標，因此以本機引擎自己的權威位置走一格。
+      const heading = asNumber(command.heading, -1) | 0;
+      if (heading >= 0 && heading <= 7) {
+        const stepX = [0, 1, 1, 1, 0, -1, -1, -1][heading];
+        const stepY = [-1, -1, 0, 1, 1, 1, 0, -1][heading];
+        x = this.player.x + stepX;
+        y = this.player.y + stepY;
+        this.player.heading = heading;
+      } else {
+        x = Math.round(asNumber(command.x, this.player.x));
+        y = Math.round(asNumber(command.y, this.player.y));
+        dx = x - this.player.x;
+        dy = y - this.player.y;
+        if (!dx && !dy) return;
+        this.player.heading = this.heading(dx, dy);
+      }
+      x = Math.max(0, Math.min(63, x));
+      y = Math.max(0, Math.min(63, y));
+      if (x === this.player.x && y === this.player.y) return;
       this.player.x = x;
       this.player.y = y;
       this.character.x = x;
@@ -608,6 +623,7 @@
       this.listeners = Object.create(null);
       this.closed = false;
       this.engine = new LocalGameEngine((event) => this.deliver(event), options);
+      root.__natishaLocalSocket = this;
       setTimeout(() => {
         if (this.closed) return;
         this.readyState = 1;
