@@ -21,6 +21,59 @@
   function copy(value) {
     return JSON.parse(JSON.stringify(value));
   }
+  let cachedWalkMapBuffer = null;
+  let localWalkMapReady = null;
+
+  function parseWalkMapBuffer(buffer) {
+    try {
+      if (!(buffer instanceof ArrayBuffer) || buffer.byteLength < 16) return null;
+      const [x0, x1, y0, y1] = new Int32Array(buffer, 0, 4);
+      const w = x1 - x0 + 1;
+      const h = y1 - y0 + 1;
+      const cells = w * h;
+      if (!Number.isSafeInteger(cells) || w < 1 || h < 1 || cells > 16777216 || buffer.byteLength < 16 + cells) return null;
+      return { x0, x1, y0, y1, w, h, tiles: new Uint8Array(buffer, 16, cells) };
+    } catch (_) {
+      return null;
+    }
+  }
+
+  // The sync script downloads the original map/0 binary before the game starts.
+  // Load it once, then fall back to the open test mask when it is unavailable.
+  if (typeof window !== 'undefined' && typeof root.fetch === 'function') {
+    localWalkMapReady = root.fetch('map/0')
+      .then((response) => response.ok ? response.arrayBuffer() : null)
+      .then((buffer) => {
+        if (parseWalkMapBuffer(buffer)) cachedWalkMapBuffer = buffer;
+        return cachedWalkMapBuffer;
+      })
+      .catch(() => null);
+  }
+
+  function walkPassable(map, x, y, heading) {
+    if (!map || !Number.isInteger(heading) || heading < 0 || heading > 7) return false;
+    const DX = [0, 1, 1, 1, 0, -1, -1, -1];
+    const DY = [-1, -1, 0, 1, 1, 1, 0, -1];
+    const tile = (tx, ty) => {
+      if (tx < map.x0 || tx > map.x1 || ty < map.y0 || ty > map.y1) return 0;
+      return map.tiles[(ty - map.y0) * map.w + (tx - map.x0)] || 0;
+    };
+    const t1 = tile(x, y);
+    const t2 = tile(x + DX[heading], y + DY[heading]);
+    if (!(t2 & 3)) return false;
+    switch (heading) {
+      case 0: return (t1 & 2) !== 0;
+      case 1: return (tile(x, y - 1) & 1) !== 0 || (tile(x + 1, y) & 2) !== 0;
+      case 2: return (t1 & 1) !== 0;
+      case 3: return (tile(x, y + 1) & 1) !== 0;
+      case 4: return (t2 & 2) !== 0;
+      case 5: return (t2 & 3) !== 0;
+      case 6: return (t2 & 1) !== 0;
+      case 7: return (tile(x - 1, y) & 2) !== 0;
+      default: return false;
+    }
+  }
+
   function makeWalkMap() {
     // 原版說話之島 map 0 的索引範圍：chunk x=504..511、y=512..519，每塊 64 格。
     const x0 = 32256, x1 = 32767, y0 = 32768, y1 = 33279;
@@ -40,6 +93,8 @@
       this.gameData = normalizeGameData(settings.gameData || null);
       this.timersEnabled = settings.enableTimers !== false;
       this.tickMs = Math.max(250, asNumber(settings.tickMs, 800));
+      this.walkMapReady = localWalkMapReady;
+      this.walkMap = parseWalkMapBuffer(cachedWalkMapBuffer || makeWalkMap());
       this.save = this.readSave();
       this.save.settings ||= {};
       this.save.bookmarks ||= [];
@@ -258,7 +313,20 @@
         this.emitEvent({ t: 'error', msg: '請先建立角色' });
         return;
       }
+      const activate = () => {
+        if (this.closed) return;
+        this.walkMap = parseWalkMapBuffer(cachedWalkMapBuffer || makeWalkMap());
+        this.activateCharacter(character);
+      };
+      // Do not publish mapid or world objects until the local original walk mask is ready.
+      if (this.walkMapReady) {
+        this.walkMapReady.then(activate);
+        return;
+      }
+      activate();
+    }
 
+    activateCharacter(character) {
       this.stopTimers();
       this.character = character;
       this.dead = asNumber(character.hp, 0) <= 0;
@@ -373,6 +441,7 @@
       x = Math.max(32256, Math.min(32767, x));
       y = Math.max(32768, Math.min(33279, y));
       if (x === this.player.x && y === this.player.y) return;
+      if (!walkPassable(this.walkMap, this.player.x, this.player.y, this.player.heading)) return;
       this.player.x = x;
       this.player.y = y;
       this.character.x = x;
@@ -682,7 +751,8 @@
           const nextX = Math.max(32256, Math.min(32767, monster.x + Math.sign(dx)));
           const nextY = Math.max(32768, Math.min(33279, monster.y + Math.sign(dy)));
           const occupied = Array.from(this.monsters.values()).some((other) => other !== monster && !other.dead && other.x === nextX && other.y === nextY);
-          if ((nextX !== this.player.x || nextY !== this.player.y) && !occupied && (nextX !== monster.x || nextY !== monster.y)) {
+          const moveHeading = this.heading(nextX - monster.x, nextY - monster.y);
+          if ((nextX !== this.player.x || nextY !== this.player.y) && !occupied && (nextX !== monster.x || nextY !== monster.y) && walkPassable(this.walkMap, monster.x, monster.y, moveHeading)) {
             monster.x = nextX;
             monster.y = nextY;
             this.emitEvent({
@@ -871,7 +941,7 @@
   root.NATISHA_OFFLINE = true;
   root.NatishaLocalSocket = LocalSocket;
   root.NatishaOfflineAPI = {
-    createWalkMapBuffer: makeWalkMap,
+    createWalkMapBuffer: function () { return cachedWalkMapBuffer || makeWalkMap(); },
     snapshot: function () {
       return root.__natishaLocalSocket && root.__natishaLocalSocket.engine
         ? root.__natishaLocalSocket.engine.snapshot() : null;
@@ -887,7 +957,9 @@
     module.exports = {
       LocalGameEngine: LocalGameEngine,
       LocalSocket: LocalSocket,
-      createWalkMap: makeWalkMap
+      createWalkMap: makeWalkMap,
+      parseWalkMap: parseWalkMapBuffer,
+      isWalkableStep: walkPassable
     };
   }
 })(typeof window !== 'undefined' ? window : globalThis);

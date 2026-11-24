@@ -21,8 +21,7 @@
 - 已保存原版 `app.js`、`hud.js`、`l1map.js` 與 `style.css`，並提供原版遊戲資料快照。
 - 已新增 `offline-engine.js`：模擬本機登入、角色建立／儲存、移動、史萊姆戰鬥、EXP、金幣拾取與紅色藥水回血。
 - `app.js` 的 WebSocket 建立點已可切換至本機相容連線；離線登入會跳過 Google 與裝置驗證。
-- `offline-engine.test.cjs`：Node.js 測試，應以 `node offline-engine.test.cjs
-node offline-socket.test.cjs` 執行。
+- 本機核心測試：在 `offline-client` 目錄執行 `node offline-engine.test.cjs` 和 `node offline-socket.test.cjs`。
 
 **目前尚未完成：** 原版 HTML／完整 HUD DOM、原始地圖與圖集／SPR／UI 音效素材，以及完整服務端遊戲規則的本機化。現在的 `index.html` 仍是第一階段佔位原型，不能視為原版畫面已經接好。
 
@@ -30,7 +29,7 @@ node offline-socket.test.cjs` 執行。
 - 啟動本機伺服器後另開 `http://127.0.0.1:8000/original-client.html`。
 - `index.html` 保留第一階段獨立原型；`original-client.html` 是原版 app/HUD 接線測試入口。
 - `original-client.html` 已加入 Content Security Policy：只允許本機同源資料與素材，封鎖外部 API、Google 登入資源及遠端 WebSocket 連線。
-- 離線版地圖模組已停用線上地圖索引重試，地面以本機 walk mask 與替代圖磚顯示。
+- 離線版地圖模組已停用線上地圖索引重試；本機引擎會先讀取素材同步器下載的 `map/0` 原版通行遮罩，並以替代遮罩作後備。玩家與怪物移動都會驗證方向通行旗標。
 - 目前已在隔離環境測試引擎協定與 JavaScript 語法；尚未在你的 Windows 瀏覽器實際驗證頁面視覺與全部按鈕行為。
 
 - 出生點已校正為原版預載資料中的說話之島 `map=0, x=32593, y=32922`；本機 walk mask 使用地圖索引涵蓋的 512×512 座標範圍。此遮罩目前全可通行，尚未套用原版障礙物遮罩。

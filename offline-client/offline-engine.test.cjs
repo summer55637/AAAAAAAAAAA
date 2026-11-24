@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('node:assert/strict');
-const { LocalGameEngine, createWalkMap } = require('./offline-engine.js');
+const { LocalGameEngine, createWalkMap, parseWalkMap, isWalkableStep } = require('./offline-engine.js');
 
 class MemoryStorage {
   constructor() { this.values = new Map(); }
@@ -9,6 +9,18 @@ class MemoryStorage {
   setItem(key, value) { this.values.set(key, String(value)); }
   removeItem(key) { this.values.delete(key); }
 }
+
+// The original server mask format is header [x0,x1,y0,y1] followed by directional tiles.
+const maskBuffer = new ArrayBuffer(16 + 9);
+new Int32Array(maskBuffer, 0, 4).set([10, 12, 20, 22]);
+const maskTiles = new Uint8Array(maskBuffer, 16);
+maskTiles[0] = 0x01; // East edge is open from the source tile.
+maskTiles[1] = 0x03; // Destination tile can be occupied.
+const parsedMask = parseWalkMap(maskBuffer);
+assert.ok(parsedMask);
+assert.equal(isWalkableStep(parsedMask, 10, 20, 2), true);
+maskTiles[1] = 0x00;
+assert.equal(isWalkableStep(parsedMask, 10, 20, 2), false);
 
 const storage = new MemoryStorage();
 const events = [];
