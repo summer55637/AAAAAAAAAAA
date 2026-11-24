@@ -54,8 +54,12 @@ const L1MAP = (() => {
   const idxFail = {}; // id -> { n, at }:區塊表暫時抓不到(斷線、5xx、逾時),at 之後再抓;at = Infinity 表示正在重抓
   function loadMapInfo(id) {
     if (window.NATISHA_OFFLINE === true) {
-      maps[id] = null; // 離線模式明確使用 app.js 的本機遮罩與替代地磚，不發出網路請求。
-      mapLoads[id] ||= Promise.resolve(null);
+      if (!(id in mapLoads)) {
+        maps[id] = undefined;
+        mapLoads[id] = getJSON(`${TBASE}${id}.json${tver(id)}`)
+          .then((j) => { maps[id] = { byPos: new Map(Object.entries(j)), t: true }; })
+          .catch(() => { maps[id] = null; }); // 沒有同步到本機的地圖索引：改用 app.js 的替代地磚。
+      }
       return mapLoads[id];
     }
     const f = idxFail[id];

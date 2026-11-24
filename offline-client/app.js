@@ -2253,7 +2253,22 @@ function loadMap(id, name, instance, box) {
   ovMeta(id);
 
   if (window.NATISHA_OFFLINE && window.NatishaOfflineAPI) {
-    applyWalk(id, key, window.NatishaOfflineAPI.createWalkMapBuffer(), box);
+    const localWalkUrl = st.mapVer
+      ? '/map/' + id + '?v=' + encodeURIComponent(st.mapVer)
+      : '/map/' + id;
+    const fallbackWalk = () => {
+      if (request === walkRequest && st.mapKey === key) {
+        applyWalk(id, key, window.NatishaOfflineAPI.createWalkMapBuffer(), box);
+      }
+    };
+    fetch(localWalkUrl).then((response) => {
+      if (!response.ok) return null;
+      return response.arrayBuffer();
+    }).then((buffer) => {
+      if (request !== walkRequest || st.mapKey !== key) return;
+      if (buffer && buffer.byteLength >= 16) applyWalk(id, key, buffer, box);
+      else fallbackWalk();
+    }).catch(fallbackWalk);
     return;
   }
   // 網址帶通行資料的內容雜湊(gateway 給):資料一改網址就變,不會用到手機上的舊資料
