@@ -21,7 +21,8 @@
 - 已保存原版 `app.js`、`hud.js`、`l1map.js` 與 `style.css`，並提供原版遊戲資料快照。
 - 已新增 `offline-engine.js`：模擬本機登入、角色建立／儲存、移動、史萊姆戰鬥、EXP、金幣拾取與紅色藥水回血。
 - `app.js` 的 WebSocket 建立點已可切換至本機相容連線；離線登入會跳過 Google 與裝置驗證。
-- `offline-engine.test.cjs`：Node.js 測試，應以 `node offline-engine.test.cjs` 執行。
+- `offline-engine.test.cjs`：Node.js 測試，應以 `node offline-engine.test.cjs
+node offline-socket.test.cjs` 執行。
 
 **目前尚未完成：** 原版 HTML／完整 HUD DOM、原始地圖與圖集／SPR／UI 音效素材，以及完整服務端遊戲規則的本機化。現在的 `index.html` 仍是第一階段佔位原型，不能視為原版畫面已經接好。
 
