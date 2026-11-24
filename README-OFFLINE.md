@@ -3,7 +3,7 @@
 ## 啟動
 1. 安裝 Node.js 18 或更新版本。
 2. 執行 `node server.cjs`，或雙擊 `start-local.bat`。
-3. 開啟 http://127.0.0.1:8000。
+3. 開啟 http://127.0.0.1:8000（預設進入原版客戶端）；第一階段簡易原型仍可由 `/index.html` 開啟。
 
 ## 已實作
 - 離線角色建立，資料儲存在本機瀏覽器。
@@ -27,7 +27,7 @@
 
 ## 原版相容畫面預覽
 - 啟動本機伺服器後另開 `http://127.0.0.1:8000/original-client.html`。
-- `index.html` 保留第一階段獨立原型；`original-client.html` 是原版 app/HUD 接線測試入口。
+- 根網址 `/` 與 `/original-client.html` 都進入原版客戶端離線入口；`/index.html` 保留第一階段獨立原型。
 - `original-client.html` 已加入 Content Security Policy：只允許本機同源資料與素材，封鎖外部 API、Google 登入資源及遠端 WebSocket 連線。
 - 離線版地圖模組已停用線上地圖索引重試；本機引擎會先讀取素材同步器下載的 `map/0` 原版通行遮罩，並以替代遮罩作後備。玩家與怪物移動都會驗證方向通行旗標。
 - 目前已在隔離環境測試引擎協定與 JavaScript 語法；尚未在你的 Windows 瀏覽器實際驗證頁面視覺與全部按鈕行為。
