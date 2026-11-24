@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>娜緹夏天堂｜單機冒險原型</title>
+<style>
+:root{color-scheme:dark;--gold:#d6b66b;--gold2:#8d6b35;--panel:#1c1a16;--edge:#75613c;--ink:#e8dfc8;--red:#b8443f;--green:#6e9a54;--blue:#5787b8}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#090c09;color:var(--ink);font-family:Georgia,"Noto Serif TC","Microsoft JhengHei",serif}
+button,input,select{font:inherit}button{cursor:pointer;color:var(--ink);background:linear-gradient(#49402e,#211d16);border:1px solid var(--edge);border-radius:5px;padding:8px 12px;box-shadow:inset 0 1px #8f7b54,0 2px 4px #0008}button:hover{filter:brightness(1.2)}button:disabled{opacity:.45;cursor:default}
+#app{height:100%;display:grid;grid-template-rows:auto 1fr auto;max-width:1600px;margin:auto;background:#10120f}
+header{display:flex;align-items:center;gap:14px;padding:8px 12px;background:linear-gradient(#29251d,#13120e);border-bottom:2px solid #725b35;min-height:68px;flex-wrap:wrap}
+.brand{font-size:19px;color:#efd28c;letter-spacing:2px;text-shadow:0 2px 3px #000;white-space:nowrap}
+.hud{display:flex;align-items:center;gap:10px;flex:1;min-width:230px}
+.portrait{width:42px;height:42px;border:2px solid #8d784e;background:radial-gradient(#7d6746,#211c14);border-radius:5px;display:grid;place-items:center;font-size:24px}
+.stats{min-width:175px;display:grid;gap:4px;font-size:12px}
+.statrow{display:flex;justify-content:space-between;gap:9px}
+.bar{height:9px;background:#080808;border:1px solid #4a4439;border-radius:8px;overflow:hidden}
+.bar i{display:block;height:100%;width:100%;transition:width .15s}
+#hpbar{background:linear-gradient(90deg,#791f1c,#e25c4d)}#mpbar{background:linear-gradient(90deg,#183b71,#5c9dd8)}
+.topinfo{display:flex;gap:14px;font-size:13px;align-items:center}
+.gold{color:#efcf76}.dim{color:#a99b7d}
+#worldwrap{position:relative;min-height:0;background:radial-gradient(ellipse at center,#293c2c,#111a13 72%);overflow:hidden}
+#world{width:100%;height:100%;display:block;image-rendering:pixelated;touch-action:none}
+#mapname{position:absolute;left:12px;top:10px;padding:6px 12px;background:#100e0bd9;border:1px solid #75613c;border-radius:4px;color:#ead18d;font-size:14px;pointer-events:none}
+#coords{position:absolute;right:12px;top:10px;padding:6px 10px;background:#100e0bd9;border:1px solid #59482d;border-radius:4px;font-size:12px;color:#d9c89d;pointer-events:none}
+#hint{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);padding:6px 12px;background:#0c0c0bd9;border:1px solid #55482f;border-radius:5px;font-size:12px;color:#d9c89d;white-space:nowrap;pointer-events:none}
+#righttools{position:absolute;right:12px;top:52px;display:grid;gap:7px}
+.tool{min-width:82px;background:#17150fd9;font-size:12px}
+footer{display:flex;gap:8px;justify-content:center;align-items:center;flex-wrap:wrap;padding:9px;background:linear-gradient(#1e1a13,#0b0a08);border-top:2px solid #715936;min-height:66px}
+footer button{min-width:88px}
+#targetlabel{font-size:12px;color:#edcf80;min-width:100px;text-align:center}
+.overlay{position:fixed;inset:0;background:#000b;display:grid;place-items:center;padding:16px;z-index:10}
+.card{width:min(430px,96vw);max-height:90vh;overflow:auto;background:linear-gradient(145deg,#30291c,#17140f);border:2px solid #927344;box-shadow:0 15px 60px #000;border-radius:9px;padding:22px}
+.card h1,.card h2{margin:0 0 14px;color:#f0d18b;text-align:center;letter-spacing:3px}
+.card p{color:#c5b99d;font-size:13px;line-height:1.6}
+.field{display:grid;gap:6px;margin:12px 0;font-size:13px;color:#d8cba9}
+input,select{background:#0e0d0b;color:#f0e4c8;border:1px solid #76603b;padding:10px;border-radius:4px;width:100%}
+.row{display:flex;gap:8px}.row>*{flex:1}
+.classgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:12px 0}
+.classpick{padding:9px 3px;font-size:12px}.classpick.active{border-color:#f2d48d;background:linear-gradient(#76603a,#352918);color:#ffe3a1}
+.primary{background:linear-gradient(#92703a,#49351b);border-color:#c29b51;color:#fff0c6;font-weight:bold}
+#message{min-height:18px;color:#e5b66d;font-size:12px;text-align:center}
+#panel{position:fixed;right:14px;bottom:86px;width:min(330px,92vw);max-height:55vh;overflow:auto;background:#15130ff2;border:1px solid #907343;box-shadow:0 8px 30px #000;border-radius:7px;padding:14px;z-index:5}
+#panel h3{margin:0 0 10px;color:#e8c77e}
+.item{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #403625;font-size:13px}
+#notice{position:fixed;left:50%;top:78px;transform:translateX(-50%);background:#17130deF;border:1px solid #a17a3f;border-radius:5px;padding:8px 18px;z-index:20;opacity:0;pointer-events:none;transition:opacity .15s;color:#f1d28c}
+#notice.show{opacity:1}
+.smallnote{font-size:11px;color:#958a70}
+@media(max-width:620px){header{gap:7px;padding:6px}.brand{font-size:15px}.hud{gap:6px;min-width:180px}.topinfo{font-size:11px;gap:7px}.portrait{width:36px;height:36px}.stats{min-width:145px}footer{gap:5px;padding:7px}footer button{min-width:0;flex:1;padding:9px 5px;font-size:12px}#hint{font-size:10px;max-width:90%;white-space:normal;text-align:center}#righttools{right:7px;top:48px}.tool{min-width:68px;padding:6px 4px;font-size:11px}}
+</style>
+</head>
+<body>
+<div id="app">
+<header>
+ <div class="brand">娜緹夏天堂</div>
+ <div class="hud">
+  <div class="portrait" id="portrait">⚔</div>
+  <div class="stats">
+   <div class="statrow"><b id="heroName">冒險者</b><span id="level">Lv.1</span><span id="ac">AC 10</span></div>
+   <div class="bar"><i id="hpbar"></i></div>
+   <div class="bar"><i id="mpbar"></i></div>
+  </div>
+ </div>
+ <div class="topinfo"><span class="gold">金幣 <b id="gold">100</b></span><span>EXP <b id="exp">0 / 100</b></span><span id="saveState" class="dim">本機存檔</span></div>
+</header>
+<div id="worldwrap">
+ <canvas id="world"></canvas>
+ <div id="mapname">說話之島</div><div id="coords">座標 24,24</div>
+ <div id="righttools"><button class="tool" id="statsBtn">角色狀態</button><button class="tool" id="bagBtn">背包</button><button class="tool" id="autoBtn">AUTO：關</button></div>
+ <div id="hint">點擊地面移動 · 點擊怪物攻擊 · WASD／方向鍵移動</div>
+</div>
+<footer>
+ <span id="targetlabel">尚未選取目標</span>
+ <button id="attackBtn" class="primary">攻擊</button>
+ <button id="potionBtn">治癒藥水 ×20</button>
+ <button id="homeBtn">回到村莊</button>
+ <button id="saveBtn">儲存</button>
+</footer>
+</div>
+<div id="notice"></div>
+<div id="panel" hidden></div>
+<div class="overlay" id="create">
+ <div class="card">
+  <h1>天堂</h1><h2>單機冒險</h2>
+  <p>建立你的本機角色。角色、等級、經驗、金幣與背包都儲存在這台裝置，不需要帳號或連線。</p>
+  <label class="field">角色名稱<input id="nameInput" maxlength="12" value="冒險者"></label>
+  <div class="field">選擇職業</div>
+  <div class="classgrid" id="classGrid">
+   <button class="classpick active" data-class="0">王族</button><button class="classpick" data-class="1">騎士</button><button class="classpick" data-class="2">妖精</button><button class="classpick" data-class="3">法師</button>
+  </div>
+  <label class="field">性別<select id="sexInput"><option value="0">男</option><option value="1">女</option></select></label>
+  <div id="message"></div>
+  <button class="primary" id="startBtn" style="width:100%;padding:12px">進入冒險</button>
+  <p class="smallnote">目前為第一階段單機原型：已實作基本移動、史萊姆戰鬥、升級及存檔；原版素材與完整規則仍待移植。</p>
+ </div>
+</div>
+<div class="overlay" id="dead" hidden><div class="card"><h1>你已倒下</h1><p>在村莊恢復體力後重新出發。</p><button class="primary" id="respawn" style="width:100%">重新開始</button></div></div>
+<script>
+(function(){
+'use strict';
+const SAVE='natisha-offline-prototype-v1',canvas=document.getElementById('world'),ctx=canvas.getContext('2d');
+const TW=48,TH=24,DX=[0,1,1,1,0,-1,-1,-1],DY=[-1,-1,0,1,1,1,0,-1];
+const classes=[{name:'王族',str:13,dex:10,con:10,int:10},{name:'騎士',str:16,dex:12,con:14,int:8},{name:'妖精',str:11,dex:12,con:12,int:12},{name:'法師',str:8,dex:7,con:12,int:12}];
+let hero=null,mobs=[],drops=[],obstacles=new Set(),target=null,path=[],pathKind='',nextMove=0,nextAtk=0,auto=false,lastSave=0,lastDraw=0,selectedClass=0,dead=false;
+let camera={x:24,y:24},nextId=10,keys={},panelOpen='';
+const $=id=>document.getElementById(id),dist=(a,b)=>Math.max(Math.abs(a.x-b.x),Math.abs(a.y-b.y));
+function message(s){$('notice').textContent=s;$('notice').classList.add('show');clearTimeout(message.t);message.t=setTimeout(()=>$('notice').classList.remove('show'),1500)}
+function save(){if(!hero)return;try{localStorage.setItem(SAVE,JSON.stringify({hero,mobs,drops,obstacles:[...obstacles]}));$('saveState').textContent='已儲存 '+new Date().toLocaleTimeString('zh-TW')}catch(e){$('saveState').textContent='無法儲存'}}
+function load(){try{const d=JSON.parse(localStorage.getItem(SAVE)||'null');if(d&&d.hero){hero=d.hero;mobs=d.mobs||[];drops=d.drops||[];obstacles=new Set(d.obstacles||[]);return true}}catch(e){}return false}
+function makeWorld(){if(obstacles.size)return;for(let y=4;y<45;y++)for(let x=4;x<45;x++){const v=(x*17+y*31+x*y*3)%97;if(v<4&&dist({x,y},{x:24,y:24})>5)obstacles.add(x+','+y)}}
+function spawnMob(x,y){mobs.push({id:nextId++,name:'史萊姆',gfx:31,x,y,hp:30,maxHp:30,exp:28,alive:true,atkAt:0,walkAt:0})}
+function newGame(name,type,sex){const c=classes[type];hero={name:name||'冒險者',type,sex,level:1,exp:0,gold:100,hp:100,maxHp:100,mp:30,maxMp:30,str:c.str,dex:c.dex,con:c.con,int:c.int,ac:10,potions:20,x:24,y:24,heading:0,statPoints:0};mobs=[];drops=[];obstacles.clear();makeWorld();[[18,20],[28,19],[20,29],[30,28],[14,26],[33,23],[26,34],[36,31]].forEach(p=>spawnMob(p[0],p[1]));}
+function pass(x,y){return x>1&&x<46&&y>1&&y<46&&!obstacles.has(x+','+y)}
+function pathfind(start,goal,adjacent){const id=(x,y)=>x+','+y,goalOK=(x,y)=>adjacent?Math.max(Math.abs(x-goal.x),Math.abs(y-goal.y))<=1:x===goal.x&&y===goal.y;if(goalOK(start.x,start.y))return[];const open=[{x:start.x,y:start.y,g:0,f:0}],came=new Map(),cost=new Map([[id(start.x,start.y),0]]);let loops=0;while(open.length&&loops++<3500){open.sort((a,b)=>a.f-b.f);const cur=open.shift(),ck=id(cur.x,cur.y);if(goalOK(cur.x,cur.y)){const out=[];let k=ck;while(came.has(k)){const p=came.get(k);out.push({x:p.x,y:p.y});k=id(p.x,p.y)}return out.reverse()}for(let h=0;h<8;h++){const x=cur.x+DX[h],y=cur.y+DY[h];if(!pass(x,y))continue;if(h%2&&(!pass(cur.x+DX[h],cur.y)||!pass(cur.x,cur.y+DY[h])))continue;if(mobs.some(m=>m.alive&&m.x===x&&m.y===y&&!(adjacent&&m.id===goal.id)))continue;const nk=id(x,y),ng=cur.g+1;if(ng>=(cost.get(nk)??Infinity))continue;cost.set(nk,ng);came.set(nk,{x:cur.x,y:cur.y});const hcost=Math.max(0,Math.max(Math.abs(x-goal.x),Math.abs(y-goal.y))-(adjacent?1:0));open.push({x,y,g:ng,f:ng+hcost})}}return null}
+function planTo(o,kind){const p=pathfind(hero,o,kind==='mob');if(!p){message('無法到達');target=null;path=[];return}target=o;path=p;pathKind=kind;$('targetlabel').textContent=o.name}
+function stepMove(x,y){if(!pass(x,y))return false;if(mobs.some(m=>m.alive&&m.x===x&&m.y===y))return false;hero.x=x;hero.y=y;camera.x=x;camera.y=y;hero.heading=0;return true}
+function damageMob(m){if(!m||!m.alive||dead)return;const d=Math.max(1,Math.floor(hero.str/3)+3+Math.floor(Math.random()*4));m.hp=Math.max(0,m.hp-d);message('攻擊 '+m.name+'，造成 '+d+' 點傷害');if(m.hp<=0){m.alive=false;hero.exp+=m.exp;const g=4+Math.floor(Math.random()*9);drops.push({id:nextId++,x:m.x,y:m.y,name:'金幣',gold:g});message('擊倒史萊姆，獲得 '+m.exp+' 經驗');const need=expNeed();if(hero.exp>=need){hero.exp-=need;hero.level++;hero.maxHp+=8;hero.maxMp+=3;hero.hp=hero.maxHp;hero.statPoints+=1;message('升級！目前等級 '+hero.level)}target=null;path=[];save()}}
+function expNeed(){return Math.floor(100+hero.level*hero.level*55)}
+function attack(){if(!target||pathKind!=='mob'||!target.alive){message('請先選取怪物');return}if(dist(hero,target)>1){const p=pathfind(hero,target,true);if(p){path=p;return}}const now=performance.now();if(now<nextAtk)return;nextAtk=now+780;damageMob(target)}
+function pickup(d){if(!d)return;hero.gold+=d.gold||0;drops=drops.filter(x=>x.id!==d.id);message('取得 '+d.gold+' 金幣');save()}
+function usePotion(){if(hero.potions<=0){message('治癒藥水不足');return}if(hero.hp>=hero.maxHp){message('體力已滿');return}hero.potions--;hero.hp=Math.min(hero.maxHp,hero.hp+38);message('使用治癒藥水，恢復體力');save()}
+function hurt(d){hero.hp=Math.max(0,hero.hp-d);if(hero.hp<=0){dead=true;$('dead').hidden=false;target=null;path=[]}save()}
+function moveTick(now){if(!path.length||now<nextMove)return;const n=path.shift();if(stepMove(n.x,n.y))nextMove=now+260;else path=[]}
+function targetTick(now){if(!target)return;if(path.length)return;if(pathKind==='mob'&&target.alive){if(dist(hero,target)<=1){if(now>=nextAtk)attack()}else{path=pathfind(hero,target,true)||[]}}else if(pathKind==='drop'){if(dist(hero,target)<=1){pickup(target);target=null}else path=pathfind(hero,target,false)||[]}}
+function aiTick(now){for(const m of mobs){if(!m.alive)continue;const d=dist(hero,m);if(d<=1){if(now>m.atkAt){m.atkAt=now+1250;const dmg=2+Math.floor(Math.random()*4);hurt(dmg);message(m.name+' 攻擊你，受到 '+dmg+' 點傷害')}continue}if(d<=7&&now>m.walkAt){m.walkAt=now+620;const dx=Math.sign(hero.x-m.x),dy=Math.sign(hero.y-m.y),h=DX.findIndex((v,i)=>v===dx&&DY[i]===dy);if(h>=0){const x=m.x+DX[h],y=m.y+DY[h];if(pass(x,y)&&!mobs.some(o=>o!==m&&o.alive&&o.x===x&&o.y===y)){m.x=x;m.y=y}}}}}
+function autoTick(){if(!auto||target)return;let best=null,bd=12;for(const m of mobs)if(m.alive){const d=dist(hero,m);if(d<bd){bd=d;best=m}}if(best)planTo(best,'mob')}
+function update(now){if(dead)return;moveTick(now);targetTick(now);aiTick(now);autoTick();if(now-lastSave>7000){lastSave=now;save()}}
+function resize(){const dpr=Math.min(2,window.devicePixelRatio||1),w=canvas.clientWidth,h=canvas.clientHeight;if(canvas.width!==Math.round(w*dpr)||canvas.height!==Math.round(h*dpr)){canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr)}}
+function render(now){resize();const dpr=canvas.width/Math.max(1,canvas.clientWidth),w=canvas.width/dpr,h=canvas.height/dpr;ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);ctx.fillStyle='#18251a';ctx.fillRect(0,0,w,h);const ox=w/2-(hero.x-hero.y)*TW/2,oy=h*.48-(hero.x+hero.y)*TH/2;const point=(x,y)=>({x:ox+(x-y)*TW/2,y:oy+(x+y)*TH/2});for(let sum=0;sum<92;sum++)for(let x=0;x<48;x++){const y=sum-x;if(y<0||y>=48)continue;const p=point(x,y);if(p.x<-TW||p.x>w+TW||p.y<-TH||p.y>h+TH)continue;const block=obstacles.has(x+','+y)||x<2||y<2||x>45||y>45;ctx.beginPath();ctx.moveTo(p.x,p.y-TH/2);ctx.lineTo(p.x+TW/2,p.y);ctx.lineTo(p.x,p.y+TH/2);ctx.lineTo(p.x-TW/2,p.y);ctx.closePath();ctx.fillStyle=block?'#29352c':((x+y)%2?'#3d6942':'#365d3c');ctx.fill();ctx.strokeStyle='#17251b';ctx.lineWidth=.7;ctx.stroke();if(!block&&(x*7+y*13)%47===0){ctx.fillStyle='#57794a';ctx.fillRect(p.x-2,p.y-2,4,4)}}const ents=[];for(const m of mobs)if(m.alive)ents.push({kind:'mob',o:m});for(const d of drops)ents.push({kind:'drop',o:d});ents.push({kind:'hero',o:hero});ents.sort((a,b)=>(a.o.x+a.o.y)-(b.o.x+b.o.y));for(const e of ents){const o=e.o,p=point(o.x,o.y);if(e.kind==='mob'){ctx.fillStyle='#0c100c88';ctx.beginPath();ctx.ellipse(p.x,p.y+2,15,6,0,0,Math.PI*2);ctx.fill();ctx.fillStyle='#80c764';ctx.beginPath();ctx.ellipse(p.x,p.y-8,13,10,0,0,Math.PI*2);ctx.fill();ctx.fillStyle='#f0f5d8';ctx.fillRect(p.x-5,p.y-12,3,3);ctx.fillRect(p.x+3,p.y-12,3,3);ctx.fillStyle='#ecdcae';ctx.font='12px sans-serif';ctx.textAlign='center';ctx.fillText(o.name,p.x,p.y-24);ctx.fillStyle='#2b1915';ctx.fillRect(p.x-13,p.y-20,26,3);ctx.fillStyle='#d45545';ctx.fillRect(p.x-13,p.y-20,26*o.hp/o.maxHp,3);if(target===o){ctx.strokeStyle='#ffe18d';ctx.lineWidth=2;ctx.beginPath();ctx.arc(p.x,p.y-8,19,0,Math.PI*2);ctx.stroke()}}else if(e.kind==='drop'){ctx.fillStyle='#f4d16b';ctx.beginPath();ctx.moveTo(p.x,p.y-8);ctx.lineTo(p.x+8,p.y);ctx.lineTo(p.x,p.y+8);ctx.lineTo(p.x-8,p.y);ctx.closePath();ctx.fill()}else{ctx.fillStyle='#0b0d0baa';ctx.beginPath();ctx.ellipse(p.x,p.y+2,16,6,0,0,Math.PI*2);ctx.fill();ctx.fillStyle=hero.type===2?'#6ba9d6':'#4f96d5';ctx.beginPath();ctx.arc(p.x,p.y-12,9,0,Math.PI*2);ctx.fill();ctx.fillStyle='#d7e5ee';ctx.fillRect(p.x-5,p.y-5,10,14);ctx.fillStyle='#f0d7a7';ctx.fillRect(p.x-3,p.y-25,6,5);ctx.fillStyle='#fff0c9';ctx.font='13px sans-serif';ctx.textAlign='center';ctx.fillText(hero.name,p.x,p.y-31)}}$('coords').textContent='座標 '+hero.x+','+hero.y}
+function ui(){if(!hero)return;$('heroName').textContent=hero.name;$('level').textContent='Lv.'+hero.level;$('ac').textContent='AC '+hero.ac;$('gold').textContent=hero.gold;$('exp').textContent=hero.exp+' / '+expNeed();$('hpbar').style.width=(100*hero.hp/hero.maxHp)+'%';$('mpbar').style.width=(100*hero.mp/hero.maxMp)+'%';$('potionBtn').textContent='治癒藥水 ×'+hero.potions;$('autoBtn').textContent='AUTO：'+(auto?'開':'關');$('targetlabel').textContent=target?target.name:'尚未選取目標'}
+function loop(now){update(now);if(now-lastDraw>24){lastDraw=now;render(now)}ui();requestAnimationFrame(loop)}
+function start(){const name=$('nameInput').value.trim()||'冒險者',type=selectedClass,sex=Number($('sexInput').value);newGame(name,type,sex);$('create').hidden=true;message('歡迎來到說話之島');ui();save()}
+function mouse(e){if(!hero||dead)return;const r=canvas.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top,w=r.width,h=r.height,ox=w/2-(hero.x-hero.y)*TW/2,oy=h*.48-(hero.x+hero.y)*TH/2,a=(mx-ox)/(TW/2),b=(my-oy)/(TH/2),x=Math.round((a+b)/2),y=Math.round((b-a)/2);if(x<0||y<0||x>=48||y>=48)return;let nearest=null,nd=Infinity;for(const m of mobs)if(m.alive){const p={x:ox+(m.x-m.y)*TW/2,y:oy+(m.x+m.y)*TH/2};const d=Math.hypot(mx-p.x,my-p.y);if(d<nd){nd=d;nearest=m}}if(nearest&&nd<24){planTo(nearest,'mob');return}for(const d of drops){const p={x:ox+(d.x-d.y)*TW/2,y:oy+(d.x+d.y)*TH/2};if(Math.hypot(mx-p.x,my-p.y)<20){planTo(d,'drop');return}}if(pass(x,y)){target=null;pathKind='';path=pathfind(hero,{x,y},false)||[]}}
+function keyboard(e){if(!hero||dead||e.target.matches('input,select'))return;const map={ArrowUp:0,w:0,ArrowRight:2,d:2,ArrowDown:4,s:4,ArrowLeft:6,a:6};if(map[e.key]!==undefined){e.preventDefault();const h=map[e.key],x=hero.x+DX[h],y=hero.y+DY[h];if(pass(x,y)){target=null;path=[{x,y}];pathKind=''}}}
+function openPanel(kind){const p=$('panel');if(panelOpen===kind){p.hidden=true;panelOpen='';return}panelOpen=kind;p.hidden=false;if(kind==='stats')p.innerHTML='<h3>角色狀態</h3><div class="item"><span>職業</span><b>'+classes[hero.type].name+'</b></div><div class="item"><span>等級</span><b>'+hero.level+'</b></div><div class="item"><span>力量 STR</span><b>'+hero.str+'</b></div><div class="item"><span>敏捷 DEX</span><b>'+hero.dex+'</b></div><div class="item"><span>體質 CON</span><b>'+hero.con+'</b></div><div class="item"><span>智力 INT</span><b>'+hero.int+'</b></div><div class="item"><span>經驗</span><b>'+hero.exp+' / '+expNeed()+'</b></div><button id="closePanel">關閉</button>';else p.innerHTML='<h3>背包</h3><div class="item"><span>金幣</span><b class="gold">'+hero.gold+'</b></div><div class="item"><span>治癒藥水</span><b>'+hero.potions+'</b></div><div class="item"><span>武器</span><b>新手短劍</b></div><button id="usePotion">使用治癒藥水</button> <button id="closePanel">關閉</button>';p.querySelector('#closePanel').onclick=()=>{p.hidden=true;panelOpen=''};const use=p.querySelector('#usePotion');if(use)use.onclick=usePotion}
+$('startBtn').onclick=start;$('classGrid').addEventListener('click',e=>{const b=e.target.closest('[data-class]');if(!b)return;selectedClass=Number(b.dataset.class);document.querySelectorAll('.classpick').forEach(x=>x.classList.toggle('active',x===b))});
+$('attackBtn').onclick=()=>{if(target&&pathKind==='mob'){if(dist(hero,target)<=1)attack();else path=pathfind(hero,target,true)||[]}else message('請先點選史萊姆')};
+$('potionBtn').onclick=usePotion;$('homeBtn').onclick=()=>{target=null;path=[];hero.x=24;hero.y=24;camera={x:24,y:24};hero.hp=hero.maxHp;message('已回到村莊');save()};
+$('autoBtn').onclick=()=>{auto=!auto;ui();message(auto?'自動狩獵已開啟':'自動狩獵已關閉')};
+$('statsBtn').onclick=()=>openPanel('stats');$('bagBtn').onclick=()=>openPanel('bag');$('saveBtn').onclick=()=>{save();message('角色已儲存')};
+$('respawn').onclick=()=>{$('dead').hidden=true;dead=false;hero.hp=hero.maxHp;hero.x=24;hero.y=24;target=null;path=[];message('你已在村莊復活');save()};
+canvas.addEventListener('click',mouse);window.addEventListener('keydown',keyboard);window.addEventListener('resize',()=>render(performance.now()));
+if(load()){makeWorld();$('create').hidden=true;ui()}else{$('create').hidden=false;$('heroName').textContent='尚未建立角色'}
+requestAnimationFrame(loop);
+})();
+</script>
+</body></html>
