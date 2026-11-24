@@ -32,6 +32,8 @@
       this.timersEnabled = settings.enableTimers !== false;
       this.tickMs = Math.max(250, asNumber(settings.tickMs, 800));
       this.save = this.readSave();
+      this.save.settings ||= {};
+      this.save.bookmarks ||= [];
       this.character = null;
       this.playerId = 1;
       this.nextObjectId = 1000;
@@ -132,6 +134,27 @@
           return;
         case 'useitem':
           this.useItem(command);
+          return;
+        case 'useskill':
+          this.useSkill(command);
+          return;
+        case 'settingsget':
+          this.emitEvent({ t: 'settings', ver: 1, json: JSON.stringify(this.save.settings || {}) });
+          return;
+        case 'settingsave':
+          this.saveSettings(command);
+          return;
+        case 'bookmark':
+          this.addBookmark(command);
+          return;
+        case 'bookmarkdel':
+          this.deleteBookmark(command);
+          return;
+        case 'home':
+          this.returnHome();
+          return;
+        case 'chat':
+          this.localChat(command);
           return;
         case 'autohunt':
           this.autoHunt = command.on === true;
@@ -254,6 +277,8 @@
       this.spawnSlime(Math.min(60, this.player.x + 4), this.player.y);
       this.emitEvent({ t: 'inventory', items: copy(this.inventory) });
       this.emitEvent({ t: 'addskill', ids: character.type === 3 ? [1, 4] : [] });
+      this.emitEvent({ t: 'bookmarks', list: copy(this.save.bookmarks || []) });
+      this.emitEvent({ t: 'settings', ver: 1, json: JSON.stringify(this.save.settings || {}) });
       if (this.timersEnabled) {
         this.tickHandle = setInterval(() => this.tick(), this.tickMs);
       }
@@ -396,13 +421,19 @@
       if (distance > 2) return;
 
       const damage = Math.max(1, Math.floor(asNumber(this.character.str, 10) / 4) + 1);
-      monster.hp = Math.max(0, monster.hp - damage);
+      this.damageMonster(monster, damage, 0, 1);
+    }
+
+    damageMonster(monster, damage, gfx, action) {
+      if (!monster || monster.dead || !this.character) return;
+      monster.hp = Math.max(0, monster.hp - Math.max(1, damage));
       this.emitEvent({
         t: 'attack',
         attacker: this.playerId,
         target: monster.id,
-        dmg: damage,
-        action: 1,
+        dmg: Math.max(1, damage),
+        gfx: gfx || 0,
+        action: action || 1,
         heading: this.heading(monster.x - this.player.x, monster.y - this.player.y)
       });
       this.emitEvent({
@@ -410,7 +441,6 @@
         id: monster.id,
         ratio: Math.round(monster.hp * 100 / monster.maxHp)
       });
-
       if (monster.hp <= 0) {
         monster.dead = true;
         this.emitEvent({ t: 'action', id: monster.id, action: 8 });
@@ -423,13 +453,117 @@
           this.respawnHandle = setTimeout(() => {
             this.emitEvent({ t: 'remove', id: deadId });
             this.monsters.delete(deadId);
-            if (this.character) {
-              this.spawnSlime(Math.min(60, this.player.x + 4), this.player.y);
-            }
+            if (this.character) this.spawnSlime(Math.min(60, this.player.x + 4), this.player.y);
           }, 1800);
         }
         this.persist();
       }
+    }
+
+    useSkill(command) {
+      if (!this.character) return;
+      const id = asNumber(command.skill, 0);
+      const skill = this.gameData && this.gameData.skills && this.gameData.skills[id];
+      if (!skill) {
+        this.emitEvent({ t: 'error', msg: '本機技能資料中沒有這項技能' });
+        return;
+      }
+      const mpCost = Math.max(0, asNumber(skill.mp, 0));
+      if (this.character.mp < mpCost) {
+        this.emitEvent({ t: 'error', msg: 'MP 不足' });
+        return;
+      }
+      this.character.mp -= mpCost;
+      this.emitEvent({ t: 'mp', mp: this.character.mp, maxMp: this.character.maxMp });
+
+      const targetId = asNumber(command.target, this.playerId);
+      if (skill.hostile) {
+        const monster = this.monsters.get(targetId);
+        if (!monster || monster.dead) return;
+        const distance = Math.max(
+          Math.abs(monster.x - this.player.x),
+          Math.abs(monster.y - this.player.y)
+        );
+        if (distance > Math.max(1, asNumber(skill.range, 1))) return;
+        const damage = Math.max(1, Math.floor(asNumber(this.character.int, 10) / 2) + 3);
+        this.damageMonster(monster, damage, asNumber(skill.gfx, 0), asNumber(skill.action, 18));
+        return;
+      }
+
+      if (id === 1 || /治癒|治療/.test(String(skill.name || ''))) {
+        this.character.hp = Math.min(
+          this.character.maxHp,
+          this.character.hp + Math.max(10, Math.floor(this.character.int * 1.5))
+        );
+        this.emitEvent({ t: 'hp', hp: this.character.hp, maxHp: this.character.maxHp });
+      } else if (asNumber(skill.dur, 0) > 0) {
+        this.emitEvent({
+          t: 'buff', id: this.playerId, key: 'offline-skill-' + id,
+          skill: id, label: skill.name || '技能',
+          time: Math.max(1, Math.floor(asNumber(skill.dur, 1) / 60))
+        });
+      }
+      this.persist();
+    }
+
+    saveSettings(command) {
+      let settings = {};
+      try {
+        const value = JSON.parse(String(command.json || '{}'));
+        if (value && typeof value === 'object' && !Array.isArray(value)) settings = value;
+      } catch (_) {
+        this.emitEvent({ t: 'settingsack', ver: command.ver || 0, err: true });
+        return;
+      }
+      this.save.settings = settings;
+      this.persist();
+      this.emitEvent({ t: 'settingsack', ver: command.ver || 1 });
+    }
+
+    addBookmark(command) {
+      if (!this.character) return;
+      const name = String(command.name || '').trim().slice(0, 24);
+      if (!name) return;
+      const entry = {
+        name: name, id: this.nextObjectId++,
+        map: 0, mapName: '說話之島',
+        x: this.player.x, y: this.player.y
+      };
+      this.save.bookmarks = (this.save.bookmarks || []).filter((item) => item.name !== name);
+      this.save.bookmarks.push(entry);
+      this.persist();
+      this.emitEvent({ t: 'bookmark', ...entry });
+    }
+
+    deleteBookmark(command) {
+      const name = String(command.name || '');
+      this.save.bookmarks = (this.save.bookmarks || []).filter((item) => item.name !== name);
+      this.persist();
+      this.emitEvent({ t: 'bookmarks', list: copy(this.save.bookmarks) });
+    }
+
+    returnHome() {
+      if (!this.character) return;
+      this.player.x = 32;
+      this.player.y = 32;
+      this.character.x = 32;
+      this.character.y = 32;
+      this.emitEvent({
+        t: 'mapid', map: 0, name: '說話之島',
+        mapVer: 'offline-map-1', portals: []
+      });
+      this.emitPlayerObject();
+      this.persist();
+    }
+
+    localChat(command) {
+      const message = String(command.text || '').trim().slice(0, 160);
+      if (!message) return;
+      this.emitEvent({
+        t: 'chat', id: this.playerId,
+        name: this.character ? this.character.name : '本機系統',
+        kind: command.kind || 0, text: message
+      });
     }
 
     awardLevels() {

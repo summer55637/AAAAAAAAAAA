@@ -36,6 +36,8 @@ engine.command({ t: 'enter', name: '離線測試' });
 assert.ok(events.some((event) => event.t === 'logintogame'));
 assert.ok(events.some((event) => event.t === 'mapid' && event.map === 0));
 assert.ok(events.some((event) => event.t === 'inventory'));
+assert.ok(events.some((event) => event.t === 'settings' && event.ver === 1));
+assert.ok(events.some((event) => event.t === 'bookmarks' && Array.isArray(event.list)));
 assert.ok(events.some((event) => event.t === 'object' && event.kind === 'monster'));
 assert.equal(engine.snapshot().activeCharacter, '離線測試');
 
@@ -60,6 +62,33 @@ const potion = engine.snapshot().inventory.find((item) => item.name === '紅色�
 engine.character.hp = 1;
 engine.command({ t: 'useitem', id: potion.id });
 assert.ok(events.some((event) => event.t === 'hp' && event.hp > 1));
+engine.command({ t: 'settingsave', ver: 1, json: JSON.stringify({ auto: { enabled: true } }) });
+assert.ok(events.some((event) => event.t === 'settingsack' && event.ver === 1));
+engine.command({ t: 'bookmark', name: '測試點' });
+assert.ok(events.some((event) => event.t === 'bookmark' && event.name === '測試點'));
+assert.equal(engine.save.bookmarks.length, 1);
+engine.command({ t: 'bookmarkdel', name: '測試點' });
+assert.equal(engine.save.bookmarks.length, 0);
+
+const mageStorage = new MemoryStorage();
+const mageEvents = [];
+const mage = new LocalGameEngine((event) => mageEvents.push(event), {
+  storage: mageStorage, enableTimers: false,
+  gameData: { expTable: [0, 125], skills: {
+    1: { name: '初級治癒術', mp: 4, hostile: false, dur: 0, action: 19 },
+    4: { name: '光箭', mp: 3, hostile: true, range: 10, gfx: 167, action: 18 }
+  } }
+});
+mage.command({ t: 'newchar', name: '測試法師', type: 3, str: 10, dex: 10, con: 10, wis: 12, cha: 10, int: 13 });
+mage.command({ t: 'enter', name: '測試法師' });
+mage.character.hp = 1;
+mage.command({ t: 'useskill', skill: 1, target: mage.playerId, x: 32, y: 32 });
+assert.ok(mage.character.hp > 1);
+const mageMob = mage.snapshot().monsters[0];
+mage.command({ t: 'move', x: 32, y: 32, heading: 2 });
+mage.command({ t: 'useskill', skill: 4, target: mageMob.id, x: mageMob.x, y: mageMob.y });
+assert.ok(mageEvents.some((event) => event.t === 'attack' && event.gfx === 167));
+mage.close();
 
 const map = createWalkMap();
 assert.equal(map.byteLength, 16 + 64 * 64);
