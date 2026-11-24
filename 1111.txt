@@ -1,0 +1,1662 @@
+REA handle 事件分派分析
+Evidence: ev_af9d02defc4a262d2bf54f72b1f3e5021fd61371e63b4d8addf04b416b02ecda
+函式範圍：L837–L1152
+Graph 節點: 66163
+Graph 關係: 63264
+
+========== REA 事件相關關係 ==========
+[resolved] calls L889: 呼叫目標：function:behavState [jsrg_node_7f79a3d59680]
+[resolved] reads L1144: binding:openNpcDialog [jsrg_node_9419bfbe3850] -> expression:openNpcDialog [jsrg_node_f4887a383981]
+[resolved] calls L963: 呼叫目標：function:later [jsrg_node_400fcd6e1e7b]
+[resolved] reads L907: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_a6d6cc6ce9ab]
+[resolved] calls L968: 呼叫目標：function:upsertObject [jsrg_node_acb082a08806]
+[resolved] reads L994: binding:o [jsrg_node_9833989fae63] -> expression:o [jsrg_node_e09ab4da967a]
+[resolved] reads L964: binding:h [jsrg_node_86ab8e618648] -> expression:h [jsrg_node_f9056eabe42e]
+[candidate] reads-property L984: property-slot:sec [jsrg_node_8998f4591612] -> expression:sec [jsrg_node_0879839fb2d6]
+[resolved] reads L1147: binding:openShopBuy [jsrg_node_8716814df13c] -> expression:openShopBuy [jsrg_node_325bc2d52839]
+[candidate] reads-property L866: property-slot:cap [jsrg_node_3beb919d0df1] -> expression:cap [jsrg_node_62a667d37e54]
+[resolved] reads L1139: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_9bbeee67bfbc]
+[candidate] reads-property L1133: property-slot:page [jsrg_node_91720d5f6a31] -> expression:page [jsrg_node_c4d0c0952b68]
+[candidate] reads-property L1064: property-slot:skill [jsrg_node_10d2a87e3981] -> expression:skill [jsrg_node_3aaf3b0df50f]
+[candidate] reads-property L1016: property-slot:tab [jsrg_node_347f80cbe02e] -> expression:tab [jsrg_node_a1075c36fd03]
+[resolved] reads L1082: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_19d7be8b640f]
+[resolved] reads L1105: binding:err [jsrg_node_7b7fa1f724b0] -> expression:err [jsrg_node_f588333e2dbc]
+[candidate] reads-property L872: property-slot:reason [jsrg_node_59e2e2331813] -> expression:reason [jsrg_node_eb5c0d6a8185]
+[resolved] reads L1002: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_2d16d8d1e2ee]
+[resolved] calls L864: 呼叫目標：function:checkBuild [jsrg_node_29af0eaa43e6]
+[candidate] reads-property L1069: property-slot:para [jsrg_node_0143dc1c4bd9] -> expression:para [jsrg_node_7919822af2db]
+[resolved] reads L925: binding:$ [jsrg_node_ffcf2643581f] -> expression:$ [jsrg_node_ba9a6886ba8d]
+[resolved] calls L851: 呼叫目標：function:openDungeonBook [jsrg_node_45b982c6b932]
+[resolved] reads L963: binding:impactWait [jsrg_node_7189829e70bc] -> expression:impactWait [jsrg_node_750b2f0f9a66]
+[resolved] reads L988: binding:addTradeItem [jsrg_node_5d1a5d419c6b] -> expression:addTradeItem [jsrg_node_d30bf0c54c8d]
+[resolved] reads L998: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_b45ac4746191]
+[resolved] reads L1035: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_8b23aa8ec92e]
+[resolved] reads L1008: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_b0225cfafdf6]
+[resolved] reads L857: binding:setReconnecting [jsrg_node_336b29a6209e] -> expression:setReconnecting [jsrg_node_a60632c2eb74]
+[resolved] reads L1078: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_805c1effcee6]
+[candidate] reads-property L838: property-slot:t [jsrg_node_f0fe5bf7f8da] -> expression:t [jsrg_node_5ef62d8ce9c0]
+[candidate] writes-property L908: expression:t [jsrg_node_88c466e81b7f] -> property-slot:t [jsrg_node_5640b1466eb8]
+[resolved] reads L1129: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_76f2fb3f0be1]
+[resolved] reads L1148: binding:openShopSell [jsrg_node_0f8b8f816d06] -> expression:openShopSell [jsrg_node_1b92c941ac1f]
+[candidate] reads-property L991: property-slot:members [jsrg_node_a4e73283d234] -> expression:members [jsrg_node_16f2776c8d91]
+[resolved] returns-to-call L1106: return-site:return [jsrg_node_6cc7ddd24ca7] -> call-site:call [jsrg_node_44c737809e07]
+[candidate] reads-property L1076: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_6a75280bc6e3]
+[candidate] reads-property L1108: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_df4f14f38bdc]
+[resolved] calls L1146: 呼叫目標：function:openPetWithdraw [jsrg_node_2802efe7b308]
+[resolved] reads L904: binding:unifiedControl [jsrg_node_841e02d92c95] -> expression:unifiedControl [jsrg_node_a843d490c60c]
+[resolved] reads L1104: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_c29eebe2da88]
+[resolved] reads L1020: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_6726c69caaef]
+[candidate] reads-property L964: property-slot:dmg [jsrg_node_9b02c04a6f7d] -> expression:dmg [jsrg_node_0fdf87f39432]
+[resolved] reads L915: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_2e8a8536d0bf]
+[candidate] reads-property L1018: property-slot:tab [jsrg_node_347f80cbe02e] -> expression:tab [jsrg_node_2033d213aa7f]
+[resolved] reads L972: binding:o [jsrg_node_ee95ea5031bd] -> expression:o [jsrg_node_d6384ca366a2]
+[candidate] writes-property L1109: expression:itemLock [jsrg_node_5bd7741a5b0e] -> property-slot:itemLock [jsrg_node_027e0f57e88c]
+[candidate] reads-property L904: property-slot:clear [jsrg_node_8b52fe1269c0] -> expression:pending.clear [jsrg_node_29ebb2c9f583]
+[resolved] reads L928: binding:refreshSelling [jsrg_node_2ea687ba8a02] -> expression:refreshSelling [jsrg_node_0ee34a9b6e42]
+[resolved] reads L929: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_0b36aea87ed7]
+[candidate] reads-property L1106: property-slot:name [jsrg_node_074d657bddde] -> expression:name [jsrg_node_e7432a214f2a]
+[resolved] reads L951: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_37e74c4361c8]
+[resolved] reads L999: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_2f0dc7ce7348]
+[resolved] reads L945: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_6cda9d0c924e]
+[candidate] reads-property L971: property-slot:rev [jsrg_node_0d7775740ebb] -> expression:rev [jsrg_node_1849e9723e96]
+[resolved] reads L942: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_32bd03f64826]
+[candidate] writes-property L1093: expression:deathLog [jsrg_node_c56bd92da6ee] -> property-slot:deathLog [jsrg_node_1e871b00de8f]
+[resolved] reads L858: binding:behavState [jsrg_node_5c0922ac9daf] -> expression:behavState [jsrg_node_8849728cbe6e]
+[candidate] reads-property L842: property-slot:msg [jsrg_node_c0e379504ea7] -> expression:msg [jsrg_node_aa79e2c6253c]
+[candidate] reads-property L1036: property-slot:name [jsrg_node_c23f4b7c3ffe] -> expression:name [jsrg_node_8b83d61ce0b6]
+[candidate] reads-property L970: property-slot:get [jsrg_node_f974938ffc13] -> expression:objects.get [jsrg_node_11b19fb6bf1d]
+[resolved] calls L872: 呼叫目標：function:backgroundLogout [jsrg_node_cdb9f2cd50ae]
+[candidate] reads-property L1104: property-slot:clear [jsrg_node_e5b249558f0e] -> expression:inv.clear [jsrg_node_763e77073d72]
+[candidate] reads-property L925: property-slot:reason [jsrg_node_59e2e2331813] -> expression:reason [jsrg_node_200a95f7a6cc]
+[candidate] reads-property L1064: property-slot:skill [jsrg_node_10d2a87e3981] -> expression:skill [jsrg_node_82b2fc5d0c2c]
+[candidate] reads-property L1106: property-slot:count [jsrg_node_cec75660788b] -> expression:item.count [jsrg_node_b0a8b2622bd5]
+[resolved] reads L1075: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_ab7f5ffa404d]
+[resolved] reads L1071: binding:left [jsrg_node_aaf4390800f5] -> expression:left [jsrg_node_c37bdd95ce44]
+[resolved] reads L866: binding:unifiedControl [jsrg_node_841e02d92c95] -> expression:unifiedControl [jsrg_node_d0fd7334158a]
+[resolved] reads L1078: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_a00987913a7f]
+[candidate] reads-property L1094: property-slot:pkEnabled [jsrg_node_1ede6b6914d5] -> expression:pkEnabled [jsrg_node_4609aebe2fed]
+[candidate] reads-property L898: property-slot:reason [jsrg_node_59e2e2331813] -> expression:reason [jsrg_node_d5453089df43]
+[candidate] reads-property L990: property-slot:partner [jsrg_node_5f41d7daec62] -> expression:partner [jsrg_node_90314b6a8838]
+[candidate] reads-property L979: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_054a8f02d69e]
+[resolved] reads L915: parameter:n [jsrg_node_442245dcd132] -> expression:n [jsrg_node_2e8195b518c2]
+[resolved] reads L1056: binding:t150 [jsrg_node_66f4588dd53d] -> expression:t150 [jsrg_node_08e717dc2c01]
+[resolved] reads L935: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_fedb2f84daeb]
+[resolved] reads L842: binding:$ [jsrg_node_ffcf2643581f] -> expression:$ [jsrg_node_66b2f2f307a8]
+[resolved] calls L866: 呼叫目標：function:onNetBack [jsrg_node_abdb321fbfbd]
+[resolved] reads L976: binding:moveObject [jsrg_node_b574389c9cc9] -> expression:moveObject [jsrg_node_3b1fdcdd443d]
+[resolved] reads L904: binding:unifiedControl [jsrg_node_841e02d92c95] -> expression:unifiedControl [jsrg_node_e19b1869f0e4]
+[resolved] writes-property L899: expression:retried [jsrg_node_382cbeb6bf3d] -> property-slot:retried [jsrg_node_e5e614289ef0]
+[candidate] reads-property L1040: property-slot:name [jsrg_node_1296f5cb4d4f] -> expression:name [jsrg_node_62097c45205c]
+[resolved] reads L987: binding:openTrade [jsrg_node_b0a32eecec2a] -> expression:openTrade [jsrg_node_0cd057919423]
+[resolved] reads L994: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_d70c13d13d0b]
+[resolved] reads L1094: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_69cc8c797c20]
+[resolved] calls L1103: 呼叫目標：function:onOverweightAttack [jsrg_node_04875c39dc1a]
+[resolved] reads L852: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_5e2a001bf904]
+[resolved] reads L1106: binding:i [jsrg_node_b4a94be5433d] -> expression:i [jsrg_node_5edc91fa50a2]
+[resolved] reads L845: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_4fdf126099c2]
+[candidate] reads-property L980: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_15d84f0b2515]
+[candidate] reads-property L1050: property-slot:level [jsrg_node_0e53bbcd3baa] -> expression:level [jsrg_node_fecbce01ea3e]
+[resolved] reads L840: binding:CATCHUP_SKIP [jsrg_node_fa8710a89d5a] -> expression:CATCHUP_SKIP [jsrg_node_0f0359a9b1ec]
+[candidate] writes-property L1029: expression:clan [jsrg_node_fb4788e6eed8] -> property-slot:clan [jsrg_node_c4281f841796]
+[candidate] reads-property L1033: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_d305864d1bd6]
+[resolved] reads L985: binding:later [jsrg_node_90db678aa14f] -> expression:later [jsrg_node_a59cbc54985f]
+[resolved] reads L1036: binding:dlg [jsrg_node_541406d6793a] -> expression:dlg [jsrg_node_6fe1f4f65ee3]
+[resolved] reads L1075: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_5b02b86793c3]
+[resolved] reads L1040: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_7152614e55de]
+[resolved] calls L896: 呼叫目標：function:showScreen [jsrg_node_c57246eb39df]
+[resolved] reads L1135: binding:dlg [jsrg_node_541406d6793a] -> expression:dlg [jsrg_node_45f3337dc1f2]
+[resolved] reads L945: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_ae5d21f973d5]
+[resolved] reads L1017: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_f647c8572aa1]
+[candidate] reads-property L939: property-slot:earth [jsrg_node_9515a4489267] -> expression:earth [jsrg_node_1990c290664a]
+[resolved] reads L1108: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_4321858435d2]
+[resolved] reads L952: binding:o [jsrg_node_0a83e95f98ef] -> expression:o [jsrg_node_1055a8d2e17b]
+[resolved] reads L999: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_be9ca98a2c8b]
+[resolved] reads L852: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_a2010dfcda89]
+[resolved] reads L944: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_1b54a743b661]
+[candidate] reads-property L1108: property-slot:delete [jsrg_node_55f0fb1dc993] -> expression:locks.delete [jsrg_node_04233f8a397a]
+[candidate] reads-property L1065: property-slot:poison [jsrg_node_4205c737698f] -> expression:poison [jsrg_node_174183c15990]
+[resolved] reads L945: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_e4d3bdcf9019]
+[candidate] reads-property L1067: property-slot:para [jsrg_node_0143dc1c4bd9] -> expression:para [jsrg_node_9c6b834c6f5f]
+[resolved] reads L889: binding:behavState [jsrg_node_5c0922ac9daf] -> expression:behavState [jsrg_node_e366d9d9016b]
+[resolved] reads L1040: binding:o [jsrg_node_eb22ef0b4c58] -> expression:o [jsrg_node_4dc9dbc1a6cf]
+[candidate] reads-property L937: property-slot:me [jsrg_node_31002e55bbf3] -> expression:me [jsrg_node_8b8812faa664]
+[resolved] reads L1059: binding:label [jsrg_node_085a087902b5] -> expression:label [jsrg_node_016c25cbd1dc]
+[resolved] reads L1064: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_21895e0dd74b]
+[candidate] reads-property L865: property-slot:b [jsrg_node_90a4956449d7] -> expression:b [jsrg_node_2c4578eb4d45]
+[candidate] reads-property L1078: property-slot:sp [jsrg_node_b818710b685a] -> expression:sp [jsrg_node_d0c261d16b99]
+[candidate] reads-property L913: property-slot:roster [jsrg_node_69421d00f7f3] -> expression:roster [jsrg_node_068f6e5f9c15]
+[candidate] reads-property L953: property-slot:gfx [jsrg_node_5a9c086bb115] -> expression:gfx [jsrg_node_12981d398b03]
+[resolved] reads L1056: binding:t52 [jsrg_node_c692a9735bc6] -> expression:t52 [jsrg_node_9f15a240b529]
+[resolved] reads L1037: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_827e50b87014]
+[resolved] reads L870: binding:backgroundLogout [jsrg_node_7a4f1efde40e] -> expression:backgroundLogout [jsrg_node_69f0651ec466]
+[resolved] calls L1147: 呼叫目標：function:openShopBuy [jsrg_node_7acd95f77951]
+[resolved] reads L1037: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_9b3322306fa0]
+[resolved] reads L971: binding:o [jsrg_node_ee95ea5031bd] -> expression:o [jsrg_node_fbea5a76bbc7]
+[resolved] reads L878: binding:behavState [jsrg_node_5c0922ac9daf] -> expression:behavState [jsrg_node_e582a1e8e359]
+[resolved] reads L1057: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_dbba59189f82]
+[resolved] writes-property L866: expression:tries [jsrg_node_3b2c8407ba7d] -> property-slot:tries [jsrg_node_8fd90abdb6b7]
+[resolved] reads L838: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_ea7d70e81eca]
+[resolved] reads L1039: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_0ccf9b7c9b6f]
+[resolved] reads L1078: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_837792c75483]
+[resolved] reads L866: binding:reportWebBackground [jsrg_node_9bdc74538364] -> expression:reportWebBackground [jsrg_node_02ca47602de1]
+[resolved] calls L1090: 呼叫目標：function:openOtp [jsrg_node_aa6d65096ab8]
+[resolved] reads L1042: binding:o [jsrg_node_f63a9e17f0ae] -> expression:o [jsrg_node_f5bcaea59fcc]
+[resolved] reads L939: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_fe68c496d6eb]
+[resolved] reads L914: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_796f1e872add]
+[candidate] reads-property L989: property-slot:done [jsrg_node_382510927843] -> expression:done [jsrg_node_d7e98a0f7ed4]
+[candidate] reads-property L866: property-slot:b [jsrg_node_90a4956449d7] -> expression:b [jsrg_node_8060d59e8767]
+[resolved] reads L1068: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_d47c3cf153a2]
+[candidate] reads-property L1105: property-slot:set [jsrg_node_411904359af8] -> expression:inv.set [jsrg_node_0ec62bfcaa6b]
+[candidate] reads-property L1068: property-slot:kind [jsrg_node_632951cc4373] -> expression:kind [jsrg_node_1477e8ffe854]
+[candidate] reads-property L1139: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_497a2307c440]
+[resolved] reads L841: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_53ebc073ade7]
+[candidate] reads-property L1003: property-slot:scroll [jsrg_node_4ebe85553254] -> expression:scroll [jsrg_node_9e226e0814f3]
+[resolved] reads L866: binding:setReconnecting [jsrg_node_336b29a6209e] -> expression:setReconnecting [jsrg_node_2c47b50447cc]
+[resolved] calls L907: 呼叫目標：function:renderChars [jsrg_node_fd7932a18601]
+[candidate] reads-property L1036: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_d2f1db4736fd]
+[candidate] reads-property L1140: property-slot:toLowerCase [jsrg_node_e6d02b1eb56c] -> expression:page.toLowerCase [jsrg_node_e7a051be3c67]
+[resolved] reads L1108: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_673bf6f6e6d0]
+[resolved] calls L838: 呼叫目標：function:noteAttackReceived [jsrg_node_01f45a2f6ab2]
+[candidate] reads-property L914: property-slot:names [jsrg_node_874c899a867f] -> expression:names [jsrg_node_d0f327cd1dce]
+[candidate] reads-property L1075: property-slot:me [jsrg_node_31002e55bbf3] -> expression:me [jsrg_node_714f7298a922]
+[resolved] reads L929: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_7f57531ea137]
+[resolved] reads L882: binding:showScreen [jsrg_node_db9eb65e80c9] -> expression:showScreen [jsrg_node_a9a622e5f8f4]
+[candidate] reads-property L1144: property-slot:npc [jsrg_node_62414a9fe536] -> expression:npc [jsrg_node_894b83d5d286]
+[resolved] reads L872: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_d8c784640e83]
+[resolved] reads L1113: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_d752b084d74a]
+[resolved] reads L937: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_3c10f35e39e2]
+[resolved] reads L898: binding:login [jsrg_node_6f84c42ae0c0] -> expression:login [jsrg_node_113a0b3370f4]
+[candidate] writes-property L1047: expression:brave [jsrg_node_f159c6cd36e4] -> property-slot:brave [jsrg_node_2110889839ac]
+[resolved] reads L1104: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_59cf9d60911c]
+[candidate] reads-property L1105: property-slot:count [jsrg_node_c190e451f368] -> expression:count [jsrg_node_a0cb76bdb0ef]
+[resolved] reads L1036: binding:o [jsrg_node_72f0a2df634a] -> expression:o [jsrg_node_5190163d79d8]
+[candidate] reads-property L1139: property-slot:craftLabel [jsrg_node_6b04d8f1668f] -> expression:craftLabel [jsrg_node_fc41fc5af343]
+[resolved] reads L1139: binding:cm [jsrg_node_60293c6131c4] -> expression:cm [jsrg_node_5d35c0d01fc5]
+[candidate] reads-property L1035: property-slot:title [jsrg_node_2c4647f57321] -> expression:title [jsrg_node_f1ea305e4ec1]
+[resolved] reads L946: binding:serverGameSec [jsrg_node_97dec66b6ffb] -> expression:serverGameSec [jsrg_node_4b8c36b61d5d]
+[candidate] reads-property L1139: property-slot:get [jsrg_node_f974938ffc13] -> expression:objects.get [jsrg_node_ddeeed11df44]
+[resolved] reads L1037: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_907a18e3bf91]
+[resolved] reads L842: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_8da2c1d5875d]
+[candidate] writes-property L942: expression:me.mp [jsrg_node_38d7521cebff] -> property-slot:mp [jsrg_node_d3f2dbbf68a0]
+[resolved] reads L937: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_8a496ec36988]
+[candidate] writes-property L1036: expression:name [jsrg_node_d7578c2bf819] -> property-slot:name [jsrg_node_87bdd4aed0ed]
+[candidate] reads-property L1007: property-slot:mails [jsrg_node_99c2878c0f6e] -> expression:mails [jsrg_node_47b34ebfd790]
+[candidate] writes-property L937: expression:me.hp [jsrg_node_2a67c4cb11f6] -> property-slot:hp [jsrg_node_7dcdd4a854c2]
+[resolved] writes-property L887: expression:token [jsrg_node_8ced196897b0] -> property-slot:token [jsrg_node_0358177b82af]
+[resolved] reads L885: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_1c27c540c7cd]
+[candidate] reads-property L923: property-slot:filter [jsrg_node_e5865490070e] -> expression:chars.filter [jsrg_node_56deaf489826]
+[candidate] reads-property L1040: property-slot:weapon [jsrg_node_50c6b393ebf5] -> expression:weapon [jsrg_node_310fe15cbf05]
+[candidate] reads-property L1002: property-slot:y [jsrg_node_5995b9707077] -> expression:y [jsrg_node_a76be73917c2]
+[resolved] reads L952: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_20345c9836f2]
+[resolved] reads L1107: binding:i [jsrg_node_3bd13d8782e8] -> expression:i [jsrg_node_360ce46cdd78]
+[resolved] calls L843: 呼叫目標：function:checkBuild [jsrg_node_29af0eaa43e6]
+[resolved] reads L998: binding:o [jsrg_node_9a4e7e8b28dc] -> expression:o [jsrg_node_92b96d208c63]
+[resolved] reads L864: binding:checkBuild [jsrg_node_36554af581dd] -> expression:checkBuild [jsrg_node_9d9bb362b1b5]
+[candidate] reads-property L929: property-slot:newSlot [jsrg_node_ac970ff337f3] -> expression:newSlot [jsrg_node_ec645016468c]
+[resolved] reads L928: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_f2c264f01b92]
+[resolved] reads L925: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_7e86dd7ee3a2]
+[candidate] returns-to-call L840: return-site:return [jsrg_node_a6dcdba01d68] -> call-site:call [jsrg_node_d720dfc5b4ec]
+[resolved] reads L1068: binding:PARA_MAX_MS [jsrg_node_58cd866655fb] -> expression:PARA_MAX_MS [jsrg_node_4dc5b6e6e0f9]
+[resolved] reads L1038: binding:onAction [jsrg_node_8070a4507f35] -> expression:onAction [jsrg_node_959630f8308a]
+[resolved] reads L963: binding:h [jsrg_node_86ab8e618648] -> expression:h [jsrg_node_4a13784c9e94]
+[resolved] calls L956: 呼叫目標：function:later [jsrg_node_400fcd6e1e7b]
+[resolved] reads L878: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_36c5110b4f18]
+[resolved] reads L1128: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_395caf147ec6]
+[resolved] reads L985: binding:o [jsrg_node_abb3ad0dbbe2] -> expression:o [jsrg_node_dbac16901ace]
+[candidate] reads-property L1123: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_b899738f168e]
+[resolved] reads L1037: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_f16d4f595f7e]
+[resolved] reads L929: binding:slotMap [jsrg_node_49c9ee8b0d16] -> expression:slotMap [jsrg_node_08cb3d73c03a]
+[resolved] reads L904: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_8038f280b672]
+[candidate] reads-property L1106: property-slot:item [jsrg_node_5452f21c0e53] -> expression:item [jsrg_node_1c7fdd7fc680]
+[candidate] reads-property L942: property-slot:mp [jsrg_node_35032f16b0b1] -> expression:mp [jsrg_node_28158faafe60]
+[candidate] reads-property L915: property-slot:has [jsrg_node_e8d61919c4c0] -> expression:selling.has [jsrg_node_a19db8471458]
+[resolved] calls L1091: 呼叫目標：function:otpResult [jsrg_node_dc581c25224d]
+[resolved] reads L1106: binding:i [jsrg_node_b4a94be5433d] -> expression:i [jsrg_node_ae8f7f84f3a8]
+[resolved] reads L848: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_5fdc4a495d85]
+[resolved] calls L904: 呼叫目標：function:renderChars [jsrg_node_fd7932a18601]
+[resolved] reads L943: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_69a571f98774]
+[candidate] reads-property L1103: property-slot:0 [jsrg_node_f5a7d1e8eaf7] -> expression:args.0 [jsrg_node_9b299ee880fe]
+[candidate] writes-property L904: expression:chars [jsrg_node_7bc973d8f163] -> property-slot:chars [jsrg_node_00f0403e7d86]
+[resolved] reads L1079: binding:renderLearn [jsrg_node_46c562cec8ff] -> expression:renderLearn [jsrg_node_32c019f0b570]
+[resolved] reads L1130: binding:openPetMenu [jsrg_node_021865867c55] -> expression:openPetMenu [jsrg_node_5a26118b3f59]
+[resolved] reads L1039: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_615330ee5d9b]
+[resolved] reads L1103: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_285f1669807f]
+[resolved] reads L904: binding:refreshSelling [jsrg_node_2ea687ba8a02] -> expression:refreshSelling [jsrg_node_384fda09eea0]
+[resolved] reads L986: binding:openYesNo [jsrg_node_9563ba772ac6] -> expression:openYesNo [jsrg_node_6de902a7e968]
+[resolved] reads L902: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_42a3d5d81789]
+[resolved] reads L1104: parameter:i [jsrg_node_92bb46e5358b] -> expression:i [jsrg_node_a6683cf820f3]
+[resolved] reads L971: binding:o [jsrg_node_ee95ea5031bd] -> expression:o [jsrg_node_a0c22c1acb9c]
+[candidate] reads-property L1085: property-slot:report [jsrg_node_94d621443500] -> expression:report [jsrg_node_b12b11423832]
+[resolved] reads L985: binding:impactWait [jsrg_node_7189829e70bc] -> expression:impactWait [jsrg_node_f3ce8e3ad0a4]
+[resolved] reads L945: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_4001237d6f3e]
+[candidate] calls L912: 呼叫目標：function:$ [jsrg_node_81c2ce8f58d1]
+[candidate] reads-property L1106: property-slot:name [jsrg_node_8476c96a0472] -> expression:item.name [jsrg_node_933c13781df9]
+[resolved] writes-property L904: expression:resumeMapInstance [jsrg_node_3b76ae8f507e] -> property-slot:resumeMapInstance [jsrg_node_8ad81fda5cf6]
+[resolved] reads L939: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_4ecf7ca83027]
+[candidate] reads-property L1099: property-slot:attr [jsrg_node_3afc7b893c69] -> expression:attr [jsrg_node_2a290f17d6fb]
+[resolved] reads L912: binding:$ [jsrg_node_ffcf2643581f] -> expression:$ [jsrg_node_de2d5902496b]
+[resolved] reads L853: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_fa87574c40df]
+[candidate] reads-property L1001: property-slot:name [jsrg_node_e5c7c843c74c] -> expression:name [jsrg_node_424a047144f5]
+[resolved] reads L1002: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_392cb06d696a]
+[candidate] reads-property L939: property-slot:wind [jsrg_node_5e1380f9eb50] -> expression:wind [jsrg_node_65d4a9338b20]
+[candidate] reads-property L945: property-slot:mapVer [jsrg_node_440e69d9ccbe] -> expression:mapVer [jsrg_node_d0ccd6b04e8e]
+[resolved] reads L1129: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_edc705d552f4]
+[resolved] reads L1033: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_233eab1cb4c6]
+[resolved] reads L1056: binding:t52 [jsrg_node_c692a9735bc6] -> expression:t52 [jsrg_node_78cc2a9376c9]
+[resolved] reads L854: binding:setRemember [jsrg_node_3180dc9978ba] -> expression:setRemember [jsrg_node_814edef81168]
+[resolved] reads L913: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_e285a469da33]
+[resolved] reads L904: binding:refreshSelling [jsrg_node_2ea687ba8a02] -> expression:refreshSelling [jsrg_node_e2d86735d91d]
+[resolved] calls L882: 呼叫目標：function:showScreen [jsrg_node_c57246eb39df]
+[resolved] reads L1040: binding:o [jsrg_node_eb22ef0b4c58] -> expression:o [jsrg_node_a5fd4f98070d]
+[resolved] reads L1034: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_d7d07530a05a]
+[resolved] reads L1016: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_af19e03a2728]
+[resolved] reads L956: binding:castDelay [jsrg_node_f8060e58b938] -> expression:castDelay [jsrg_node_a4f8347ab013]
+[resolved] reads L864: binding:TPSIG [jsrg_node_14d918c2b494] -> expression:TPSIG [jsrg_node_b805402fe4f0]
+[resolved] reads L1149: binding:openSkillBuy [jsrg_node_efc6f3974096] -> expression:openSkillBuy [jsrg_node_293ef9efccc8]
+[resolved] reads L1018: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_4b9f79d70696]
+[resolved] reads L861: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_1e877769dee3]
+[resolved] calls L1079: 呼叫目標：function:renderLearn [jsrg_node_26249d110ea8]
+[resolved] reads L1103: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_d3c1a980de4d]
+[candidate] reads-property L913: property-slot:rosterError [jsrg_node_a97c2c3d88d7] -> expression:rosterError [jsrg_node_cbd4c161c7e4]
+[candidate] reads-property L1071: property-slot:length [jsrg_node_2782c5a1498d] -> expression:length [jsrg_node_ce58f527d116]
+[candidate] reads-property L936: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_4dc8f3915186]
+[candidate] calls L951: 呼叫目標：function:otherFxFull [jsrg_node_9d44b019172e]
+[candidate] calls L861: 呼叫目標：function:$ [jsrg_node_81c2ce8f58d1]
+[resolved] reads L928: binding:rosterActive [jsrg_node_5891cbce5aa7] -> expression:rosterActive [jsrg_node_e268004fd94e]
+[resolved] reads L1103: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_846f89dd3852]
+[candidate] writes-property L943: expression:para [jsrg_node_ab6e8fd574f7] -> property-slot:para [jsrg_node_0143dc1c4bd9]
+[candidate] reads-property L946: property-slot:time [jsrg_node_b4c721efcad0] -> expression:time [jsrg_node_771e87df323c]
+[resolved] reads L1001: parameter:b [jsrg_node_22db96926199] -> expression:b [jsrg_node_16c127887ca2]
+[resolved] reads L937: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_467ccc7f4483]
+[candidate] reads-property L1105: property-slot:id [jsrg_node_b904c51e1184] -> expression:item.id [jsrg_node_d86adbe34b96]
+[candidate] reads-property L1094: property-slot:pkEnabled [jsrg_node_1ede6b6914d5] -> expression:pkEnabled [jsrg_node_081b445b25cf]
+[candidate] reads-property L1085: property-slot:huntDuplicate [jsrg_node_bbac4da88e57] -> expression:huntDuplicate [jsrg_node_bd3ad3053598]
+[resolved] calls L866: 呼叫目標：function:reportWebBackground [jsrg_node_c911775cc8fd]
+[resolved] reads L936: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_5ebd9a040312]
+[resolved] reads L913: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_16f81bd8e856]
+[resolved] reads L977: binding:o [jsrg_node_edb5f0b49626] -> expression:o [jsrg_node_f185f3099d92]
+[resolved] reads L891: binding:showScreen [jsrg_node_db9eb65e80c9] -> expression:showScreen [jsrg_node_4cc66f8d493b]
+[resolved] reads L998: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_808bfc013fbd]
+[resolved] reads L1106: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_bc0e336fccaf]
+[candidate] writes-property L1068: expression:path [jsrg_node_c83ba61359a4] -> property-slot:path [jsrg_node_e5a9f96c33f1]
+[candidate] reads-property L840: property-slot:t [jsrg_node_f0fe5bf7f8da] -> expression:t [jsrg_node_e3dd207862b1]
+[resolved] reads L1065: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_4a401b8bd9a2]
+[candidate] reads-property L959: property-slot:selfId [jsrg_node_9ad75439437e] -> expression:selfId [jsrg_node_8985d558fd6e]
+[resolved] reads L866: binding:resume [jsrg_node_40b3e2c35468] -> expression:resume [jsrg_node_79b067f00f3b]
+[candidate] reads-property L1103: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_2c3e95c47520]
+[candidate] reads-property L992: property-slot:crits [jsrg_node_58f6c3a989a7] -> expression:crits [jsrg_node_2c4cc84eefd5]
+[resolved] reads L1033: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_1c0a2fbc503a]
+[candidate] reads-property L1063: property-slot:time [jsrg_node_b4c721efcad0] -> expression:time [jsrg_node_844d86f3ef38]
+[resolved] reads L1080: parameter:id [jsrg_node_38b81f99e2b5] -> expression:id [jsrg_node_47e225f56e42]
+[resolved] reads L1040: binding:o [jsrg_node_eb22ef0b4c58] -> expression:o [jsrg_node_5813fee211cb]
+[resolved] reads L995: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_8a10db44320f]
+[candidate] writes-property L858: expression:inGame [jsrg_node_269a3d0e702b] -> property-slot:inGame [jsrg_node_2c4e0e623208]
+[candidate] reads-property L1105: property-slot:get [jsrg_node_6b2e81f7fbe3] -> expression:inv.get [jsrg_node_775b66964116]
+[resolved] calls L846: 呼叫目標：function:setGoogleAccount [jsrg_node_3dca1c3f9765]
+[candidate] writes-property L1040: expression:weapon [jsrg_node_364ef6939d08] -> property-slot:weapon [jsrg_node_0061bec4a9db]
+[resolved] calls L866: 呼叫目標：function:startCatchUp [jsrg_node_d6b2cfbf90ba]
+[resolved] reads L977: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_d17d1a3ae68d]
+[candidate] reads-property L1105: property-slot:item [jsrg_node_5452f21c0e53] -> expression:item [jsrg_node_e2b9300cb985]
+[candidate] reads-property L995: property-slot:level [jsrg_node_0e53bbcd3baa] -> expression:level [jsrg_node_ff44cfa186cf]
+[candidate] reads-property L1030: property-slot:msg [jsrg_node_c0e379504ea7] -> expression:msg [jsrg_node_c832a92249ed]
+[resolved] reads L1147: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_08005ed12dff]
+[resolved] reads L913: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_157806fedec1]
+[resolved] reads L1094: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_7ba18bed20eb]
+[candidate] writes-property L985: expression:hpRatio [jsrg_node_4b91d8439086] -> property-slot:hpRatio [jsrg_node_08772aecbe35]
+[candidate] reads-property L952: property-slot:gfx [jsrg_node_5a9c086bb115] -> expression:gfx [jsrg_node_1ac162bc941f]
+[resolved] reads L1019: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_81b7826b01bb]
+[candidate] reads-property L945: property-slot:box [jsrg_node_ef2566bfe9fc] -> expression:box [jsrg_node_35de542ceb38]
+[candidate] reads-property L1090: property-slot:what [jsrg_node_1f5d8aad70ed] -> expression:what [jsrg_node_eed1ae45d47f]
+[resolved] reads L1067: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_a402c0a03b61]
+[resolved] reads L979: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_67aa32afcf4a]
+[candidate] reads-property L902: property-slot:reason [jsrg_node_59e2e2331813] -> expression:reason [jsrg_node_1b552e110ba5]
+[resolved] reads L1091: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_48a315dfbc60]
+[resolved] reads L1001: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_16aeaf307e39]
+[resolved] reads L982: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_be6616b39ee1]
+[resolved] reads L980: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_c762bfc304d5]
+[resolved] calls L1133: 呼叫目標：function:openShopSell [jsrg_node_8405a038a8e2]
+[resolved] reads L1140: binding:openDialogPage [jsrg_node_42f5fb1b907a] -> expression:openDialogPage [jsrg_node_4e20834cd10e]
+[resolved] reads L1106: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_58766fa096b7]
+[candidate] reads-property L915: property-slot:selling [jsrg_node_808474b27052] -> expression:selling [jsrg_node_9ad415b5571a]
+[resolved] reads L1137: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_750170d57962]
+[resolved] reads L991: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_10d4ed1c9d8d]
+[resolved] reads L984: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_958df340b8f9]
+[resolved] reads L1013: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_6f1758fd110c]
+[resolved] reads L1030: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_a62594819b0e]
+[candidate] calls L922: 呼叫目標：function:$ [jsrg_node_81c2ce8f58d1]
+[resolved] writes-property L866: expression:deadline [jsrg_node_0bd03fd55897] -> property-slot:deadline [jsrg_node_766a5aa65c0c]
+[resolved] reads L921: binding:rosterActive [jsrg_node_5891cbce5aa7] -> expression:rosterActive [jsrg_node_1fb40a9ce5a9]
+[resolved] reads L971: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_21d054c768af]
+[candidate] reads-property L896: property-slot:reason [jsrg_node_59e2e2331813] -> expression:reason [jsrg_node_2b5e7a28546c]
+[resolved] reads L1054: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_ef0d09aa8ce3]
+[candidate] reads-property L945: property-slot:portals [jsrg_node_7279b4f7bf66] -> expression:portals [jsrg_node_b954228facd5]
+[resolved] reads L838: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_737a7c5bd58d]
+[resolved] reads L876: binding:resume [jsrg_node_40b3e2c35468] -> expression:resume [jsrg_node_ed0239e397dc]
+[resolved] calls L891: 呼叫目標：function:showScreen [jsrg_node_c57246eb39df]
+[candidate] reads-property L952: property-slot:py [jsrg_node_cf48df3b47f8] -> expression:py [jsrg_node_867ea8a1d161]
+[resolved] reads L883: binding:$ [jsrg_node_ffcf2643581f] -> expression:$ [jsrg_node_c83de3c01d68]
+[resolved] reads L1085: binding:showOfflineReport [jsrg_node_70432299500c] -> expression:showOfflineReport [jsrg_node_4def935531f6]
+[resolved] reads L1042: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_83ad173183be]
+[resolved] reads L1035: binding:o [jsrg_node_929243df5698] -> expression:o [jsrg_node_edfb15dffd2c]
+[candidate] reads-property L982: property-slot:id [jsrg_node_571807c8eaa3] -> expression:target.id [jsrg_node_edb91a131fed]
+[resolved] reads L1079: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_a1a0d7bb1b53]
+[resolved] reads L849: binding:openBossHunt [jsrg_node_2564b794e737] -> expression:openBossHunt [jsrg_node_c95df376a22c]
+[candidate] reads-property L1070: property-slot:0 [jsrg_node_d8352f137997] -> expression:0 [jsrg_node_1f1da517af8a]
+[resolved] reads L1043: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_f38480ad757a]
+[candidate] reads-property L1003: property-slot:mode [jsrg_node_9158356d1506] -> expression:mode [jsrg_node_dd36b6f2556f]
+[candidate] reads-property L904: property-slot:max [jsrg_node_e2dfc8ee2bde] -> expression:max [jsrg_node_2168300f0534]
+[candidate] writes-property L1120: expression:equipSets [jsrg_node_5318518cfb32] -> property-slot:equipSets [jsrg_node_4a9fffcaf322]
+[candidate] reads-property L1106: property-slot:wdmg [jsrg_node_97fc4e30dc2b] -> expression:item.wdmg [jsrg_node_f5b6bbea6948]
+[resolved] reads L912: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_8109449980ad]
+[candidate] reads-property L1063: property-slot:key [jsrg_node_0291798e5aaf] -> expression:key [jsrg_node_cc0ceb793a03]
+[resolved] reads L1103: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_de6d50701a1a]
+[resolved] calls L877: 呼叫目標：function:setReconnecting [jsrg_node_4354c0fe9284]
+[resolved] reads L1036: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_2f94341a5a50]
+[candidate] reads-property L972: property-slot:rev [jsrg_node_0d7775740ebb] -> expression:rev [jsrg_node_7805b17d485e]
+[candidate] writes-property L1078: expression:me.mrBonus [jsrg_node_5a2960e45707] -> property-slot:mrBonus [jsrg_node_0b424cde3124]
+[resolved] reads L1141: binding:openNpcDialog [jsrg_node_9419bfbe3850] -> expression:openNpcDialog [jsrg_node_b41dd2a41458]
+[resolved] reads L1123: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_22368ace79b6]
+[resolved] reads L858: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_5663111a2ea2]
+[candidate] reads-property L1082: property-slot:text [jsrg_node_29f789f18019] -> expression:text [jsrg_node_1db0904f4917]
+[resolved] reads L946: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_622ca4bc3ca0]
+[resolved] reads L1133: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_3a0f55f63aec]
+[resolved] reads L1018: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_5aeb2c9e3c72]
+[resolved] reads L1103: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_8c2b3ee255ae]
+[resolved] reads L990: binding:renderTrade [jsrg_node_5f45631f2359] -> expression:renderTrade [jsrg_node_3ade95604b47]
+[resolved] reads L901: binding:login [jsrg_node_6f84c42ae0c0] -> expression:login [jsrg_node_23e4582bd9e8]
+[resolved] reads L923: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_7b9504ab563c]
+[candidate] calls L900: 呼叫目標：function:$ [jsrg_node_81c2ce8f58d1]
+[candidate] reads-property L1037: property-slot:target [jsrg_node_a8e0aa4e26e7] -> expression:target [jsrg_node_e2d9fc45ca41]
+[resolved] reads L1119: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_87e492892b6d]
+[candidate] reads-property L907: property-slot:push [jsrg_node_fe8bb629e1e0] -> expression:chars.push [jsrg_node_e466da27e4f5]
+[resolved] reads L1078: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_bf1d1261f4bf]
+[candidate] calls L1036: 呼叫目標：function:$ [jsrg_node_81c2ce8f58d1]
+[candidate] reads-property L1064: property-slot:key [jsrg_node_0291798e5aaf] -> expression:key [jsrg_node_fcee4fbb6315]
+[candidate] reads-property L943: property-slot:para [jsrg_node_0143dc1c4bd9] -> expression:para [jsrg_node_b1fab9a69bb1]
+[resolved] reads L904: binding:gmGiveOff [jsrg_node_293fec5c9ee1] -> expression:gmGiveOff [jsrg_node_324ea9316802]
+[resolved] reads L1080: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_7d0bff9fbcc4]
+[resolved] calls L1149: 呼叫目標：function:openSkillBuy [jsrg_node_fa6d3c3284d7]
+[resolved] reads L1130: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_8fcd7a466a5f]
+[candidate] reads-property L1133: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_fdae6471e813]
+[candidate] writes-property L1129: expression:raisePending [jsrg_node_d228c0fc3e01] -> property-slot:raisePending [jsrg_node_d8cdf9b42fee]
+[candidate] reads-property L939: property-slot:water [jsrg_node_738d2835d093] -> expression:water [jsrg_node_cff37de61cbb]
+[candidate] writes-property L923: expression:selChar [jsrg_node_8128d5964b99] -> property-slot:selChar [jsrg_node_5aa1472f7e7a]
+[candidate] reads-property L1043: property-slot:level [jsrg_node_0e53bbcd3baa] -> expression:level [jsrg_node_d7a4f201c1dc]
+[candidate] reads-property L843: property-slot:b [jsrg_node_90a4956449d7] -> expression:b [jsrg_node_75dff1c84cdb]
+[resolved] reads L931: binding:renderChars [jsrg_node_ae1f22fa7be9] -> expression:renderChars [jsrg_node_aed689a73772]
+[candidate] reads-property L929: property-slot:name [jsrg_node_b2200c289a92] -> expression:char.name [jsrg_node_d79ed674ff8a]
+[candidate] reads-property L1002: property-slot:x [jsrg_node_2fa5717d956f] -> expression:x [jsrg_node_4423d875d04f]
+[resolved] reads L843: binding:resume [jsrg_node_40b3e2c35468] -> expression:resume [jsrg_node_acf237e347fb]
+[resolved] reads L1092: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_e7431b506eb5]
+[resolved] reads L994: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_617c2faaa165]
+[candidate] calls L1040: 呼叫目標：function:sunkStatus [jsrg_node_21e5bb160193]
+[resolved] reads L1139: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_7837fdab0d40]
+[resolved] reads L985: binding:o [jsrg_node_abb3ad0dbbe2] -> expression:o [jsrg_node_86b092f8614c]
+[resolved] calls L854: 呼叫目標：function:setRemember [jsrg_node_53baad2dd99d]
+[resolved] reads L904: binding:unifiedControl [jsrg_node_841e02d92c95] -> expression:unifiedControl [jsrg_node_fd44e76841ac]
+[candidate] reads-property L1002: property-slot:mapName [jsrg_node_7dfe6fca3953] -> expression:mapName [jsrg_node_81cd5dce467e]
+[resolved] reads L1036: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_3738549f232a]
+[resolved] reads L1006: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_c331fab07681]
+[resolved] reads L922: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_ac84878df1b7]
+[resolved] reads L1103: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_45f4ab4b667f]
+[resolved] reads L907: binding:renderChars [jsrg_node_ae1f22fa7be9] -> expression:renderChars [jsrg_node_b8a41ff04e5b]
+[resolved] calls L1106: 呼叫目標：function:stripN [jsrg_node_1220e731fb03]
+[candidate] reads-property L1144: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_e8873f77e0a4]
+[candidate] reads-property L1075: property-slot:selfId [jsrg_node_9ad75439437e] -> expression:selfId [jsrg_node_f03fa5df4363]
+[resolved] calls L860: 呼叫目標：function:showScreen [jsrg_node_c57246eb39df]
+[resolved] reads L959: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_ac7b6712dce4]
+[candidate] reads-property L1103: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_fa7991301eee]
+[resolved] reads L982: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_938ca5192d3a]
+[resolved] reads L994: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_59adb8d56e30]
+[resolved] reads L1122: binding:onEmblemEvent [jsrg_node_4e7a589227eb] -> expression:onEmblemEvent [jsrg_node_c52c593372b1]
+[resolved] reads L1106: binding:i [jsrg_node_b4a94be5433d] -> expression:i [jsrg_node_ded2cdb43425]
+[candidate] reads-property L1104: property-slot:forEach [jsrg_node_6201fba6a769] -> expression:items.forEach [jsrg_node_eec819b72201]
+[resolved] reads L1070: binding:left [jsrg_node_aaf4390800f5] -> expression:left [jsrg_node_d7edd69e1e70]
+[candidate] writes-property L1040: expression:buried [jsrg_node_e70863ca6d77] -> property-slot:buried [jsrg_node_223689561050]
+[candidate] writes-property L1078: expression:me.sp [jsrg_node_ca0cd02bf6cc] -> property-slot:sp [jsrg_node_0c984d7709ce]
+[resolved] reads L1117: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_f873c304cbff]
+[resolved] reads L1050: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_f019c7a194a8]
+[resolved] reads L873: binding:resumeFailed [jsrg_node_122bdd2928b0] -> expression:resumeFailed [jsrg_node_b27a2f93e4d4]
+[candidate] calls L931: 呼叫目標：function:$ [jsrg_node_81c2ce8f58d1]
+[resolved] reads L925: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_a7d4987e5a77]
+[resolved] reads L1063: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_24691422c9af]
+[candidate] reads-property L1020: property-slot:msg [jsrg_node_c0e379504ea7] -> expression:msg [jsrg_node_09176da03389]
+[candidate] reads-property L845: property-slot:account [jsrg_node_6b1abedaddd8] -> expression:account [jsrg_node_f9ca6c936555]
+[candidate] reads-property L902: property-slot:reason [jsrg_node_59e2e2331813] -> expression:reason [jsrg_node_b66f2f71c45d]
+[resolved] reads L1105: binding:prevItem [jsrg_node_1ea37edf1091] -> expression:prevItem [jsrg_node_ad072e8efad4]
+[resolved] reads L944: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_84f62f54813c]
+[candidate] reads-property L994: property-slot:get [jsrg_node_f974938ffc13] -> expression:objects.get [jsrg_node_61e1bfeb4d9e]
+[candidate] reads-property L1123: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_d5d1bfc00d2d]
+[resolved] reads L945: binding:loadMap [jsrg_node_96c5dd14139f] -> expression:loadMap [jsrg_node_d819ad917ce5]
+[candidate] reads-property L1003: property-slot:skill [jsrg_node_5337a0d38a58] -> expression:skill [jsrg_node_e819acd233c2]
+[resolved] reads L1123: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_40c416963d98]
+[candidate] reads-property L898: property-slot:last [jsrg_node_bb9a44a6b4e9] -> expression:last [jsrg_node_f3738922d2e2]
+[candidate] reads-property L1103: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_7fc9094924b6]
+[resolved] reads L902: binding:$ [jsrg_node_ffcf2643581f] -> expression:$ [jsrg_node_ff4569d60fef]
+[candidate] calls L901: 呼叫目標：function:send [jsrg_node_ea10848f2301]
+[resolved] calls L1037: 呼叫目標：function:tpHit [jsrg_node_b428f8b88917]
+[resolved] reads L1082: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_6299b463c7ea]
+[resolved] reads L939: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_a43186bff129]
+[resolved] reads L866: binding:unifiedRequest [jsrg_node_f6a0b0051c40] -> expression:unifiedRequest [jsrg_node_15649f734fda]
+[resolved] calls L1122: 呼叫目標：function:onEmblemEvent [jsrg_node_c2acd00d2045]
+[resolved] reads L838: binding:noteAttackReceived [jsrg_node_869116f332a3] -> expression:noteAttackReceived [jsrg_node_11986ddfb93e]
+[resolved] reads L843: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_96623149edad]
+[resolved] reads L945: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_c54170c63a1c]
+[resolved] reads L1043: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_31d831d08bda]
+[resolved] reads L1105: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_d8c57ee7d0a0]
+[resolved] reads L1064: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_b04f15fa51eb]
+[candidate] writes-property L1034: expression:pkRankSelf [jsrg_node_a128a81c2ca8] -> property-slot:pkRankSelf [jsrg_node_a2ded84cca65]
+[resolved] reads L1036: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_b40d856f6d8e]
+[resolved] reads L980: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_ce2425f57ea6]
+[candidate] reads-property L869: property-slot:limited [jsrg_node_77a719791b59] -> expression:limited [jsrg_node_66577ed6f0e2]
+[resolved] reads L979: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_4aa5e77f8a62]
+[resolved] reads L1123: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_1223fe2b6a6e]
+[resolved] calls L888: 呼叫目標：function:setReconnecting [jsrg_node_4354c0fe9284]
+[resolved] calls L866: 呼叫目標：function:setReconnecting [jsrg_node_4354c0fe9284]
+[resolved] reads L1003: binding:dlg [jsrg_node_541406d6793a] -> expression:dlg [jsrg_node_4bef834f9f7f]
+[candidate] reads-property L939: property-slot:fire [jsrg_node_1d4a365f400b] -> expression:fire [jsrg_node_638e819bc268]
+[resolved] reads L1106: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_80288b4bf2e8]
+[resolved] reads L1033: binding:o [jsrg_node_edb8a63daa9c] -> expression:o [jsrg_node_d44e0fa373c6]
+[candidate] reads-property L937: property-slot:hp [jsrg_node_9d1673706303] -> expression:hp [jsrg_node_2dbeb86600a7]
+[candidate] reads-property L1017: property-slot:key [jsrg_node_0291798e5aaf] -> expression:key [jsrg_node_6b3aa83c0ddd]
+[candidate] reads-property L1139: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_386adcf41576]
+[resolved] reads L943: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_126af260fce8]
+[resolved] reads L971: binding:o [jsrg_node_ee95ea5031bd] -> expression:o [jsrg_node_e3fe46835d0a]
+[resolved] calls L929: 呼叫目標：function:slotMap [jsrg_node_082637a847fd]
+[candidate] reads-property L1123: property-slot:delete [jsrg_node_55f0fb1dc993] -> expression:locks.delete [jsrg_node_cc1e91309efc]
+[resolved] reads L914: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_d5818a89f951]
+[resolved] reads L1052: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_d9fecc72cb75]
+[candidate] reads-property L998: property-slot:get [jsrg_node_f974938ffc13] -> expression:objects.get [jsrg_node_43eeba783101]
+[resolved] reads L1110: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_788153eb8b93]
+[resolved] reads L1029: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_9b5d53500e72]
+[candidate] reads-property L852: property-slot:time [jsrg_node_b4c721efcad0] -> expression:time [jsrg_node_e7b137453298]
+[resolved] reads L985: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_ecb7c787b0dc]
+[resolved] calls L989: 呼叫目標：function:endTrade [jsrg_node_cbfaa3b81f5c]
+[candidate] reads-property L964: property-slot:selfId [jsrg_node_9ad75439437e] -> expression:selfId [jsrg_node_2da700f1f070]
+[resolved] reads L1103: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_137e1e3c5051]
+[resolved] reads L930: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_f37328f8a934]
+[resolved] reads L872: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_6d1db9a1bcad]
+[candidate] reads-property L945: property-slot:name [jsrg_node_c23f4b7c3ffe] -> expression:name [jsrg_node_59adefa4bdf7]
+[candidate] reads-property L952: property-slot:gfx [jsrg_node_5a9c086bb115] -> expression:gfx [jsrg_node_ef1cdb5263a2]
+[candidate] reads-property L994: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_1525c89c777d]
+[candidate] writes-property L1094: expression:rankingData [jsrg_node_cd5240f2042e] -> property-slot:rankingData [jsrg_node_24869fe79486]
+[resolved] reads L992: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_fb9c09c08941]
+[resolved] reads L1011: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_e86b1dc51278]
+[candidate] reads-property L999: property-slot:list [jsrg_node_2c2b7a81782f] -> expression:list [jsrg_node_1b19b806ad5c]
+[candidate] reads-property L1047: property-slot:get [jsrg_node_f974938ffc13] -> expression:objects.get [jsrg_node_a98f3b818ad6]
+[candidate] writes-property L1106: expression:name [jsrg_node_f9cd40ba1677] -> property-slot:name [jsrg_node_074d657bddde]
+[resolved] reads L1106: binding:i [jsrg_node_b4a94be5433d] -> expression:i [jsrg_node_633c846d1ea3]
+[resolved] reads L1053: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_46e1e918365c]
+[candidate] reads-property L960: property-slot:hits [jsrg_node_935cf1a298ae] -> expression:hits [jsrg_node_a8abe44e567c]
+[resolved] reads L939: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_29018ce25861]
+[candidate] writes-property L878: expression:inGame [jsrg_node_669fd4f2e859] -> property-slot:inGame [jsrg_node_2c4e0e623208]
+[candidate] writes-property L1001: expression:bookmarks [jsrg_node_5b07819ecd87] -> property-slot:bookmarks [jsrg_node_ec12d898d2ce]
+[candidate] reads-property L913: property-slot:roster [jsrg_node_69421d00f7f3] -> expression:roster [jsrg_node_9f2d73a26d4f]
+[candidate] reads-property L1019: property-slot:tab [jsrg_node_347f80cbe02e] -> expression:tab [jsrg_node_74f71ab4c891]
+[resolved] reads L1079: parameter:id [jsrg_node_1944ffbc2e1a] -> expression:id [jsrg_node_4d0404717e8e]
+[resolved] reads L1096: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_a92bbd0c398b]
+[candidate] writes-property L945: expression:blocked [jsrg_node_5bc292681816] -> property-slot:blocked [jsrg_node_32ae8227128e]
+[candidate] writes-property L1067: expression:para [jsrg_node_f78c08115922] -> property-slot:para [jsrg_node_0143dc1c4bd9]
+[resolved] reads L1070: binding:left [jsrg_node_aaf4390800f5] -> expression:left [jsrg_node_dfb414655b87]
+[resolved] reads L1039: binding:o [jsrg_node_6f8ca6f85056] -> expression:o [jsrg_node_61749a6ee721]
+[candidate] reads-property L1082: property-slot:deleteAt [jsrg_node_7d5f5a543c2d] -> expression:deleteAt [jsrg_node_679d89669b95]
+[candidate] writes-property L1094: expression:pkRank [jsrg_node_81034495aabc] -> property-slot:pkRank [jsrg_node_e924c1e159d9]
+[resolved] reads L984: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_7a66021e0eca]
+[resolved] reads L1140: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_1a5d5861eb5e]
+[resolved] reads L1043: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_c7624ad0e183]
+[candidate] reads-property L901: property-slot:last [jsrg_node_bb9a44a6b4e9] -> expression:last [jsrg_node_71d987fca410]
+[candidate] reads-property L1079: property-slot:add [jsrg_node_5d06b1646634] -> expression:skills.add [jsrg_node_72969f72fd6e]
+[candidate] reads-property L1107: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_fa4f3fd75198]
+[resolved] calls L910: 呼叫目標：function:onCharRoster [jsrg_node_f404d0c39927]
+[resolved] reads L952: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_1f449d28bfad]
+[candidate] reads-property L998: property-slot:size [jsrg_node_0affc2b8ffc5] -> expression:size [jsrg_node_c971c5d95103]
+[candidate] reads-property L925: property-slot:reason [jsrg_node_59e2e2331813] -> expression:reason [jsrg_node_9ce9866c3e57]
+[candidate] reads-property L1082: property-slot:inGame [jsrg_node_2c4e0e623208] -> expression:inGame [jsrg_node_499e311d9a90]
+[candidate] writes-property L992: expression:crits [jsrg_node_a24cfe0aa4ab] -> property-slot:crits [jsrg_node_58f6c3a989a7]
+[candidate] reads-property L923: property-slot:deleted [jsrg_node_c9a11092d2f0] -> expression:deleted [jsrg_node_cda1c741277e]
+[resolved] reads L998: binding:o [jsrg_node_9a4e7e8b28dc] -> expression:o [jsrg_node_4735c2e7fe6c]
+[candidate] reads-property L841: property-slot:t [jsrg_node_f0fe5bf7f8da] -> expression:t [jsrg_node_ddc2ebc6f7c2]
+[resolved] reads L901: binding:send [jsrg_node_9d027e8fcd91] -> expression:send [jsrg_node_b32adc419d08]
+[resolved] reads L1007: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_313167b5c94f]
+[resolved] reads L1036: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_648df1dd20df]
+[resolved] reads L915: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_f964eadc13db]
+[resolved] reads L923: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_254762cbcbc9]
+[candidate] reads-property L1008: property-slot:msg [jsrg_node_c0e379504ea7] -> expression:msg [jsrg_node_863c03119483]
+[resolved] calls L850: 呼叫目標：function:openHuntPassBook [jsrg_node_1c0afb76f691]
+[resolved] reads L866: binding:unifiedControl [jsrg_node_841e02d92c95] -> expression:unifiedControl [jsrg_node_88d198541598]
+[resolved] writes-property L904: expression:phase [jsrg_node_cb5a306b143a] -> property-slot:phase [jsrg_node_1403ca9e488f]
+[candidate] writes-property L1106: expression:wdmg [jsrg_node_da98a7c8e4cb] -> property-slot:wdmg [jsrg_node_0c7ee707ca47]
+[resolved] reads L976: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_e2f9d7f7c22a]
+[resolved] reads L917: binding:renderChars [jsrg_node_ae1f22fa7be9] -> expression:renderChars [jsrg_node_8b972d1b46c2]
+[resolved] reads L863: binding:$ [jsrg_node_ffcf2643581f] -> expression:$ [jsrg_node_f823167c762a]
+[resolved] reads L1068: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_c2454743e5b6]
+[resolved] reads L1008: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_df577feb1954]
+[resolved] reads L1106: binding:i [jsrg_node_b4a94be5433d] -> expression:i [jsrg_node_0174da87b7b7]
+[resolved] reads L963: binding:t [jsrg_node_743a7da4a7f3] -> expression:t [jsrg_node_8810281d4647]
+[candidate] reads-property L1068: property-slot:on [jsrg_node_77e1988eaa49] -> expression:on [jsrg_node_009014bffca5]
+[resolved] reads L1083: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_06ca666965b6]
+[candidate] reads-property L1036: property-slot:get [jsrg_node_f974938ffc13] -> expression:objects.get [jsrg_node_e17453a7a19a]
+[resolved] reads L1120: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_1ad0a12c0fda]
+[resolved] reads L1139: binding:cm [jsrg_node_60293c6131c4] -> expression:cm [jsrg_node_7448ed25b513]
+[candidate] calls L883: 呼叫目標：function:$ [jsrg_node_81c2ce8f58d1]
+[resolved] reads L1144: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_a84bf41bd430]
+[resolved] reads L1149: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_8c8ade809d40]
+[candidate] reads-property L1075: property-slot:lawful [jsrg_node_671b3373dd84] -> expression:lawful [jsrg_node_9d27f407bc22]
+[resolved] reads L1148: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_d2222f2148df]
+[resolved] writes-property L864: expression:rtt [jsrg_node_7b2c382dec7b] -> property-slot:rtt [jsrg_node_0cb969f3a356]
+[candidate] reads-property L1070: property-slot:length [jsrg_node_2782c5a1498d] -> expression:length [jsrg_node_0be34c112cad]
+[candidate] reads-property L1002: property-slot:name [jsrg_node_c23f4b7c3ffe] -> expression:name [jsrg_node_6d3095be3d58]
+[resolved] reads L952: binding:TELEPORT_FX [jsrg_node_dd089388ce0f] -> expression:TELEPORT_FX [jsrg_node_28f3aead529c]
+[candidate] reads-property L1135: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_df70d5508ea9]
+[resolved] calls L1134: 呼叫目標：function:openSummonMenu [jsrg_node_e0d499df2996]
+[resolved] reads L1063: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_29e8d0c0371a]
+[candidate] reads-property L1039: property-slot:get [jsrg_node_f974938ffc13] -> expression:objects.get [jsrg_node_cce17fb0e0f1]
+[resolved] reads L1093: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_f0ef21adeba2]
+[candidate] reads-property L1043: property-slot:selfId [jsrg_node_9ad75439437e] -> expression:selfId [jsrg_node_a775635e9b37]
+[resolved] reads L1146: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_f35c43c6195d]
+[candidate] writes-property L945: expression:cave [jsrg_node_2c81ab14eb93] -> property-slot:cave [jsrg_node_4bd3dfa96884]
+[candidate] reads-property L853: property-slot:rate [jsrg_node_948d644cabbd] -> expression:rate [jsrg_node_0243af09e052]
+[resolved] reads L904: binding:unifiedControl [jsrg_node_841e02d92c95] -> expression:unifiedControl [jsrg_node_fb457117aedc]
+[resolved] calls L857: 呼叫目標：function:setReconnecting [jsrg_node_4354c0fe9284]
+[resolved] reads L1039: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_a94aa0ab2b70]
+[candidate] reads-property L1106: property-slot:wdmg [jsrg_node_0c7ee707ca47] -> expression:wdmg [jsrg_node_320229dafaf0]
+[candidate] reads-property L931: property-slot:char [jsrg_node_f1b3164a3129] -> expression:char [jsrg_node_fa4d9463d555]
+[candidate] writes-property L977: expression:heading [jsrg_node_5ad1aa22fcf2] -> property-slot:heading [jsrg_node_0bf5fe54652f]
+[resolved] reads L1128: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_98d3400873a2]
+[candidate] writes-property L1076: expression:lawful [jsrg_node_fee10f15f7e5] -> property-slot:lawful [jsrg_node_4ca400f9f956]
+[candidate] reads-property L1042: property-slot:level [jsrg_node_0e53bbcd3baa] -> expression:level [jsrg_node_70db557dc419]
+[resolved] reads L1047: binding:o [jsrg_node_96faaaf1550b] -> expression:o [jsrg_node_b2cc1fc883ff]
+[candidate] reads-property L1001: property-slot:bookmarks [jsrg_node_ec12d898d2ce] -> expression:bookmarks [jsrg_node_c8eb216b2dab]
+[candidate] reads-property L1064: property-slot:label [jsrg_node_16646e13a331] -> expression:label [jsrg_node_1aaa6acb5172]
+[resolved] reads L896: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_15e417d1684e]
+[candidate] reads-property L944: property-slot:map [jsrg_node_214c033fa572] -> expression:map [jsrg_node_034077c62f48]
+[candidate] reads-property L961: property-slot:id [jsrg_node_52d9bdba9f25] -> expression:id [jsrg_node_02908fe55e6b]
+[resolved] reads L1057: binding:bKey [jsrg_node_2e9f22fed55e] -> expression:bKey [jsrg_node_391b3780ee71]
+[resolved] reads L1096: binding:ELF_ATTR_NAME [jsrg_node_6946ea4ef5db] -> expression:ELF_ATTR_NAME [jsrg_node_705becc38e36]
+[resolved] reads L865: binding:checkBuild [jsrg_node_36554af581dd] -> expression:checkBuild [jsrg_node_6acc19a62d11]
+[resolved] reads L951: binding:MINE_ONLY_FX [jsrg_node_45bb33a922fa] -> expression:MINE_ONLY_FX [jsrg_node_bf2b38159979]
+[candidate] reads-property L977: property-slot:get [jsrg_node_f974938ffc13] -> expression:objects.get [jsrg_node_01b88c2429de]
+[resolved] reads L916: binding:next [jsrg_node_ed0328b87da6] -> expression:next [jsrg_node_239c3d066386]
+[resolved] reads L1037: binding:tpHit [jsrg_node_d888feff9819] -> expression:tpHit [jsrg_node_6648f247b102]
+[resolved] reads L1065: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_4718f77fdbe6]
+[resolved] reads L929: binding:m [jsrg_node_ff17ef9bd87d] -> expression:m [jsrg_node_0bf18fc9b850]
+[candidate] reads-property L1080: property-slot:forEach [jsrg_node_55df4ba91141] -> expression:ids.forEach [jsrg_node_43dff8598854]
+[resolved] reads L936: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_7339b3d568a9]
+[resolved] reads L1076: binding:o [jsrg_node_b0e2a3e8a067] -> expression:o [jsrg_node_522d4ea48f11]
+[candidate] reads-property L1040: property-slot:get [jsrg_node_f974938ffc13] -> expression:objects.get [jsrg_node_a1ab2bb32fb9]
+[resolved] reads L995: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_4fb5c7947bf0]
+[candidate] reads-property L1043: property-slot:time [jsrg_node_b4c721efcad0] -> expression:time [jsrg_node_cf58ba74098e]
+[candidate] reads-property L1082: property-slot:kind [jsrg_node_632951cc4373] -> expression:kind [jsrg_node_eced51c25c7a]
+[candidate] reads-property L843: property-slot:token [jsrg_node_d58b08c7556f] -> expression:token [jsrg_node_f0c192553b96]
+[candidate] reads-property L1008: property-slot:msg [jsrg_node_c0e379504ea7] -> expression:msg [jsrg_node_3522a503bb86]
+[resolved] reads L972: binding:o [jsrg_node_ee95ea5031bd] -> expression:o [jsrg_node_1963b562a464]
+[resolved] calls L953: 呼叫目標：function:later [jsrg_node_400fcd6e1e7b]
+[candidate] reads-property L995: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_c316865b46c3]
+[candidate] reads-property L1037: property-slot:selfId [jsrg_node_9ad75439437e] -> expression:selfId [jsrg_node_3924f5814adc]
+[resolved] reads L964: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_20894ffa76d1]
+[resolved] reads L1033: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_815f13b78689]
+[resolved] reads L1123: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_cce3ea042234]
+[resolved] reads L964: binding:h [jsrg_node_86ab8e618648] -> expression:h [jsrg_node_7db37c4f0284]
+[resolved] reads L1070: binding:PARA_LABEL [jsrg_node_0b0133745e6a] -> expression:PARA_LABEL [jsrg_node_ca26551ed65c]
+[resolved] reads L945: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_d577e2f701ef]
+[resolved] returns-to-call L1106: return-site:return [jsrg_node_6cc7ddd24ca7] -> call-site:call [jsrg_node_8ae921ab61a9]
+[candidate] reads-property L1068: property-slot:kind [jsrg_node_632951cc4373] -> expression:kind [jsrg_node_6892b3ee67f0]
+[resolved] reads L864: binding:TPSIG [jsrg_node_14d918c2b494] -> expression:TPSIG [jsrg_node_ce3f879a2bf8]
+[candidate] reads-property L1123: property-slot:locked [jsrg_node_ae54f1bb7841] -> expression:locked [jsrg_node_17128d3c77ec]
+[resolved] reads L894: parameter:onReady [jsrg_node_67b6d62e7f44] -> expression:onReady [jsrg_node_3aab7545a70c]
+[candidate] reads-property L1040: property-slot:weapon [jsrg_node_50c6b393ebf5] -> expression:weapon [jsrg_node_b3364a97b2f6]
+[resolved] reads L977: binding:o [jsrg_node_edb5f0b49626] -> expression:o [jsrg_node_d19c547a8d46]
+[resolved] reads L1037: binding:onAttack [jsrg_node_acb69bcca70e] -> expression:onAttack [jsrg_node_3e1a872b8d0e]
+[candidate] reads-property L1020: property-slot:msg [jsrg_node_c0e379504ea7] -> expression:msg [jsrg_node_129c354f42d0]
+[resolved] reads L977: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_8944714d2929]
+[resolved] reads L942: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_5b7ccc12af96]
+[resolved] reads L905: binding:gmGiveOn [jsrg_node_327376aea621] -> expression:gmGiveOn [jsrg_node_0d78713e91a8]
+[resolved] reads L1139: binding:cm [jsrg_node_60293c6131c4] -> expression:cm [jsrg_node_19c78596c3cf]
+[resolved] reads L1146: binding:openPetWithdraw [jsrg_node_a6dcf51f5940] -> expression:openPetWithdraw [jsrg_node_ac21bcbb96ee]
+[resolved] reads L861: binding:$ [jsrg_node_ffcf2643581f] -> expression:$ [jsrg_node_cbb2f04b4456]
+[resolved] calls L921: 呼叫目標：function:refreshSelling [jsrg_node_b43b9f225624]
+[resolved] reads L839: binding:e [jsrg_node_b7ba302cb74c] -> expression:e [jsrg_node_d8ee9f60a495]
+[resolved] reads L961: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_d125a3c23484]
+[resolved] reads L1106: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_000ebc7d5e53]
+[candidate] reads-property L961: property-slot:get [jsrg_node_f974938ffc13] -> expression:objects.get [jsrg_node_42ad68f2be82]
+[resolved] writes L1056: expression:label [jsrg_node_14a3b414384a] -> binding:label [jsrg_node_085a087902b5]
+[resolved] reads L900: binding:$ [jsrg_node_ffcf2643581f] -> expression:$ [jsrg_node_a91750c4559e]
+[resolved] reads L1134: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_1034c02ba725]
+[candidate] reads-property L846: property-slot:email [jsrg_node_cb9f7554d736] -> expression:email [jsrg_node_ff9f9f61fb63]
+[resolved] reads L1080: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_03bdd2958580]
+[candidate] reads-property L864: property-slot:pingAt [jsrg_node_c9efc87c491d] -> expression:pingAt [jsrg_node_add80d1594f9]
+[resolved] reads L866: binding:onNetBack [jsrg_node_0a811747c99e] -> expression:onNetBack [jsrg_node_cdfee5958046]
+[resolved] writes-property L864: expression:lastPong [jsrg_node_268150b8b73b] -> property-slot:lastPong [jsrg_node_a176bfb984af]
+[resolved] reads L968: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_7432b7367932]
+[candidate] reads-property L915: property-slot:size [jsrg_node_9d722510f484] -> expression:size [jsrg_node_8b23ed5c3abf]
+[resolved] reads L915: binding:next [jsrg_node_ed0328b87da6] -> expression:next [jsrg_node_402fc91a28e9]
+[resolved] reads L982: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_f31e0ac408bf]
+[resolved] reads L950: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_e4f5f9d70796]
+[candidate] calls L951: 呼叫目標：function:otherPc [jsrg_node_d1c0a21b617c]
+[resolved] reads L980: binding:clearPicked [jsrg_node_fe1bbceb4cca] -> expression:clearPicked [jsrg_node_98fdcd33161d]
+[candidate] writes-property L930: expression:newSlot [jsrg_node_b6721a573133] -> property-slot:newSlot [jsrg_node_ac970ff337f3]
+[candidate] reads-property L1103: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_798a9d8e1d0a]
+[candidate] writes-property L999: expression:bookmarks [jsrg_node_477fa10ea57d] -> property-slot:bookmarks [jsrg_node_ec12d898d2ce]
+[candidate] reads-property L1019: property-slot:page [jsrg_node_91720d5f6a31] -> expression:page [jsrg_node_b8f76692e19a]
+[resolved] reads L929: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_675b6300e98a]
+[candidate] reads-property L1106: property-slot:count [jsrg_node_b639075eca42] -> expression:count [jsrg_node_647899c7eb94]
+[resolved] reads L1047: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_f3bea2417f9b]
+[candidate] writes-property L1035: expression:title [jsrg_node_e102b4689439] -> property-slot:title [jsrg_node_0bf63684a05f]
+[resolved] reads L1114: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_6d1e449c2971]
+[resolved] reads L1112: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_7cfaf88ea877]
+[candidate] reads-property L1065: property-slot:selfId [jsrg_node_9ad75439437e] -> expression:selfId [jsrg_node_e4eda216a12e]
+[resolved] reads L872: binding:backgroundLogout [jsrg_node_7a4f1efde40e] -> expression:backgroundLogout [jsrg_node_aa9fd5a5fd5c]
+[candidate] writes-property L1039: expression:gfx [jsrg_node_36e07ccdf936] -> property-slot:gfx [jsrg_node_6fb544334d8f]
+[resolved] reads L946: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_3cc176f8186f]
+[resolved] reads L1104: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_60d7b8eb85b4]
+[resolved] reads L956: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_d67cf180c0a9]
+[resolved] reads L913: binding:onCharRoster [jsrg_node_7c71634daeba] -> expression:onCharRoster [jsrg_node_d1f97d002b68]
+[candidate] reads-property L972: property-slot:gfx [jsrg_node_5a9c086bb115] -> expression:gfx [jsrg_node_cdadec807df2]
+[candidate] reads-property L964: property-slot:id [jsrg_node_52d9bdba9f25] -> expression:id [jsrg_node_8d7c2096d13c]
+[resolved] reads L1106: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_a4b5bf8605c8]
+[candidate] reads-property L1139: property-slot:craft [jsrg_node_70731b45172a] -> expression:craft [jsrg_node_c654ea9d6d62]
+[candidate] reads-property L1106: property-slot:name [jsrg_node_8476c96a0472] -> expression:item.name [jsrg_node_fc41564948a6]
+[resolved] reads L840: binding:catchUp [jsrg_node_c042c7f76db5] -> expression:catchUp [jsrg_node_102d2aea58a3]
+[resolved] reads L917: binding:same [jsrg_node_86e6e438198f] -> expression:same [jsrg_node_bce927756ca3]
+[candidate] reads-property L1030: property-slot:msg [jsrg_node_c0e379504ea7] -> expression:msg [jsrg_node_bbe5cf224c12]
+[candidate] reads-property L1107: property-slot:get [jsrg_node_6b2e81f7fbe3] -> expression:inv.get [jsrg_node_2f4c5472c92b]
+[resolved] reads L907: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_a1ccb478f819]
+[candidate] reads-property L1106: property-slot:get [jsrg_node_6b2e81f7fbe3] -> expression:inv.get [jsrg_node_5def4fcde876]
+[resolved] reads L887: binding:resume [jsrg_node_40b3e2c35468] -> expression:resume [jsrg_node_f3634bcf6f83]
+[resolved] reads L942: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_f36a71067411]
+[candidate] reads-property L1146: property-slot:kind [jsrg_node_632951cc4373] -> expression:kind [jsrg_node_400dfa5137f8]
+[resolved] reads L1030: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_67bcc2f92b43]
+[candidate] writes-property L852: expression:shana [jsrg_node_97150fae8e3f] -> property-slot:shana [jsrg_node_d405d0ddd6c4]
+[resolved] reads L960: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_3d9ea0317345]
+[resolved] calls L1103: 呼叫目標：function:serverMsg [jsrg_node_7900361603e5]
+[resolved] reads L1056: binding:bKey [jsrg_node_2e9f22fed55e] -> expression:bKey [jsrg_node_8caf66ccc453]
+[resolved] reads L1036: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_830055a81ba5]
+[resolved] reads L945: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_106142d407cd]
+[resolved] calls L988: 呼叫目標：function:addTradeItem [jsrg_node_dbf3072a0704]
+[resolved] reads L1068: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_525ffbb8732b]
+[candidate] reads-property L1001: property-slot:name [jsrg_node_c23f4b7c3ffe] -> expression:name [jsrg_node_5ba4f666cf0c]
+[resolved] reads L1106: binding:i [jsrg_node_b4a94be5433d] -> expression:i [jsrg_node_30e558044c55]
+[resolved] reads L915: binding:next [jsrg_node_ed0328b87da6] -> expression:next [jsrg_node_83542b4f59ad]
+[resolved] reads L898: binding:login [jsrg_node_6f84c42ae0c0] -> expression:login [jsrg_node_0d96f9a9fee2]
+[candidate] reads-property L904: property-slot:t [jsrg_node_5640b1466eb8] -> expression:t [jsrg_node_f1fd2a29afc4]
+[resolved] reads L1025: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_132dcb06e590]
+[resolved] reads L1106: binding:i [jsrg_node_b4a94be5433d] -> expression:i [jsrg_node_daa7f1afb7b9]
+[resolved] reads L1034: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_fec0000e852c]
+[resolved] reads L1103: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_6f7a17edb946]
+[resolved] reads L1106: binding:stripN [jsrg_node_d6e179734e55] -> expression:stripN [jsrg_node_a59422a86a80]
+[candidate] writes-property L1033: expression:pkRank [jsrg_node_35f85f9a5a1b] -> property-slot:pkRank [jsrg_node_34181c743ded]
+[candidate] writes-property L845: expression:account [jsrg_node_6d53f45de23c] -> property-slot:account [jsrg_node_06f25249c5e3]
+[resolved] reads L1079: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_54426d595a88]
+[candidate] writes-property L994: expression:third [jsrg_node_350d8a3e1a8e] -> property-slot:third [jsrg_node_8c5ab71a10d1]
+[candidate] reads-property L1019: property-slot:page [jsrg_node_91720d5f6a31] -> expression:page [jsrg_node_e0e96dcc2b66]
+[candidate] writes-property L998: expression:light [jsrg_node_1cd3820d1303] -> property-slot:light [jsrg_node_d65d4c7900c9]
+[candidate] reads-property L907: property-slot:char [jsrg_node_f1b3164a3129] -> expression:char [jsrg_node_de5974ae20ba]
+[candidate] reads-property L1040: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_005bb2834a93]
+[candidate] reads-property L1089: property-slot:what [jsrg_node_1f5d8aad70ed] -> expression:what [jsrg_node_6e9987ee8ebb]
+[resolved] reads L1070: binding:left [jsrg_node_aaf4390800f5] -> expression:left [jsrg_node_d193b84e8aa0]
+[resolved] reads L1078: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_a1fa932fa649]
+[candidate] writes-property L1071: expression:para [jsrg_node_4c35cca53121] -> property-slot:para [jsrg_node_0143dc1c4bd9]
+[resolved] reads L961: binding:h [jsrg_node_86ab8e618648] -> expression:h [jsrg_node_3596f9319c59]
+[resolved] reads L1108: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_a9d510b95e64]
+[resolved] reads L1105: binding:prevItem [jsrg_node_1ea37edf1091] -> expression:prevItem [jsrg_node_a31ea77317b2]
+[candidate] writes-property L904: expression:maxChars [jsrg_node_07eaa54c6bcc] -> property-slot:maxChars [jsrg_node_d00d963080ef]
+[resolved] reads L898: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_80f1f39d2f49]
+[candidate] reads-property L939: property-slot:me [jsrg_node_31002e55bbf3] -> expression:me [jsrg_node_618848b7ed7b]
+[resolved] calls L963: 呼叫目標：function:impactWait [jsrg_node_ad1f9858750e]
+[candidate] reads-property L922: property-slot:later [jsrg_node_b1728f074875] -> expression:later [jsrg_node_55c53e10ab61]
+[resolved] reads L970: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_b2b526a92c48]
+[resolved] reads L1068: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_1abc17ca2ad4]
+[candidate] writes-property L921: expression:roster [jsrg_node_d1dd4625a6a8] -> property-slot:roster [jsrg_node_1cd5dc7358d8]
+[candidate] reads-property L979: property-slot:delete [jsrg_node_1296404912db] -> expression:objects.delete [jsrg_node_8a46d13f992a]
+[candidate] reads-property L1070: property-slot:length [jsrg_node_2782c5a1498d] -> expression:length [jsrg_node_1d253ef72265]
+[resolved] reads L1106: binding:oldCount [jsrg_node_2a6e8ec15b6c] -> expression:oldCount [jsrg_node_df6a22deed15]
+[candidate] reads-property L1139: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_4e1a05ccbe47]
+[resolved] reads L1056: binding:t150 [jsrg_node_66f4588dd53d] -> expression:t150 [jsrg_node_ea988ff664d3]
+[resolved] reads L985: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_548bf0e827d7]
+[resolved] reads L985: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_b41eae45a95e]
+[candidate] reads-property L952: property-slot:has [jsrg_node_9511926e09cc] -> expression:has [jsrg_node_dfff6aa133ee]
+[resolved] reads L904: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_432df26b896e]
+[candidate] reads-property L956: property-slot:y [jsrg_node_5995b9707077] -> expression:y [jsrg_node_bbe7771594df]
+[candidate] writes-property L1109: expression:locks [jsrg_node_014c96df485d] -> property-slot:locks [jsrg_node_1348de8c81a6]
+[candidate] reads-property L1127: property-slot:page [jsrg_node_91720d5f6a31] -> expression:page [jsrg_node_c4719d88d7cd]
+[resolved] calls L956: 呼叫目標：function:addEffect [jsrg_node_e336ca7e8f45]
+[candidate] reads-property L982: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_8903d0caaca1]
+[resolved] reads L1008: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_5c89c35db458]
+[resolved] reads L1042: binding:o [jsrg_node_f63a9e17f0ae] -> expression:o [jsrg_node_1ea29299ead1]
+[resolved] reads L1105: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_99d6c1cc3903]
+[candidate] reads-property L1035: property-slot:get [jsrg_node_f974938ffc13] -> expression:objects.get [jsrg_node_9836c8254e10]
+[resolved] reads L846: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_993707644107]
+[resolved] reads L1002: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_5c5859fe32bf]
+[candidate] writes-property L939: expression:me [jsrg_node_e97969ceb59f] -> property-slot:me [jsrg_node_31002e55bbf3]
+[resolved] reads L972: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_0f9de0370001]
+[resolved] reads L1003: binding:dlg [jsrg_node_541406d6793a] -> expression:dlg [jsrg_node_ae36e3a282d6]
+[candidate] reads-property L1003: property-slot:listOnly [jsrg_node_1b2187c6df87] -> expression:listOnly [jsrg_node_f48f309750d7]
+[candidate] reads-property L929: property-slot:newSlot [jsrg_node_ac970ff337f3] -> expression:newSlot [jsrg_node_533d1988572b]
+[resolved] reads L888: binding:setReconnecting [jsrg_node_336b29a6209e] -> expression:setReconnecting [jsrg_node_63dac0876c03]
+[resolved] reads L1068: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_f59c51d008a8]
+[resolved] writes-property L904: expression:cap [jsrg_node_25fc38a30f1e] -> property-slot:cap [jsrg_node_3beb919d0df1]
+[candidate] writes-property L982: expression:path [jsrg_node_6c81f066dd1a] -> property-slot:path [jsrg_node_e5a9f96c33f1]
+[resolved] reads L984: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_36a6bd75c182]
+[candidate] writes-property L942: expression:me.maxMp [jsrg_node_ae7ae8c5d4a1] -> property-slot:maxMp [jsrg_node_4fafd88dab69]
+[resolved] reads L1120: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_45199a5dfa1c]
+[resolved] reads L1094: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_10c41f9f978e]
+[candidate] writes-property L1007: expression:mail [jsrg_node_9341b6ffeb16] -> property-slot:mail [jsrg_node_2e60c4170194]
+[resolved] reads L933: binding:enterGame [jsrg_node_5dede5f75e96] -> expression:enterGame [jsrg_node_eda3af216c65]
+[resolved] reads L952: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_9a561891b610]
+[candidate] reads-property L1036: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_14bd6187ef68]
+[resolved] calls L929: 呼叫目標：function:saveSlotMap [jsrg_node_8f480a27abe9]
+[resolved] reads L963: binding:t [jsrg_node_743a7da4a7f3] -> expression:t [jsrg_node_81f2de2ddc76]
+[candidate] writes-property L904: expression:selling [jsrg_node_c33025f99d5d] -> property-slot:selling [jsrg_node_808474b27052]
+[candidate] reads-property L963: property-slot:x [jsrg_node_87d7e2f3aeca] -> expression:x [jsrg_node_e5ec9c43d90c]
+[candidate] reads-property L964: property-slot:selfId [jsrg_node_9ad75439437e] -> expression:selfId [jsrg_node_826944457ddc]
+[resolved] reads L922: binding:$ [jsrg_node_ffcf2643581f] -> expression:$ [jsrg_node_8a0b17281c66]
+[resolved] reads L1082: binding:$ [jsrg_node_ffcf2643581f] -> expression:$ [jsrg_node_5a8028854d8e]
+[candidate] reads-property L1139: property-slot:craftDirect [jsrg_node_5300e8b8416b] -> expression:craftDirect [jsrg_node_6bab006770fb]
+[candidate] reads-property L943: property-slot:map [jsrg_node_214c033fa572] -> expression:map [jsrg_node_b684924044ff]
+[resolved] reads L1040: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_e37e3ddb9ce8]
+[candidate] reads-property L1036: property-slot:name [jsrg_node_c23f4b7c3ffe] -> expression:name [jsrg_node_f47a9cd0d59e]
+[candidate] reads-property L864: property-slot:pingAt [jsrg_node_c9efc87c491d] -> expression:pingAt [jsrg_node_71f686b3533c]
+[resolved] reads L989: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_acada3b90058]
+[candidate] reads-property L898: property-slot:reason [jsrg_node_59e2e2331813] -> expression:reason [jsrg_node_854538cc5c51]
+[candidate] reads-property L1035: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_e99b2ed1b76c]
+[resolved] reads L1116: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_e0c3de76b551]
+[candidate] reads-property L945: property-slot:map [jsrg_node_214c033fa572] -> expression:map [jsrg_node_9c32b16be3f9]
+[resolved] reads L904: binding:unifiedControl [jsrg_node_841e02d92c95] -> expression:unifiedControl [jsrg_node_271b6eea6d3b]
+[resolved] reads L931: binding:$ [jsrg_node_ffcf2643581f] -> expression:$ [jsrg_node_99297d4e640f]
+[resolved] reads L904: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_9a15700bb76c]
+[candidate] reads-property L840: property-slot:has [jsrg_node_c37dae8b3762] -> expression:has [jsrg_node_0b937437d226]
+[resolved] reads L1106: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_ae71e54349ea]
+[resolved] reads L972: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_390705626d2e]
+[resolved] reads L1103: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_942125d9de36]
+[resolved] reads L1064: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_84f9ba6ead2a]
+[resolved] reads L1085: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_334d871f666f]
+[resolved] reads L1090: binding:openOtp [jsrg_node_50144376dd23] -> expression:openOtp [jsrg_node_31e611c92733]
+[candidate] reads-property L1109: property-slot:ids [jsrg_node_2be8deeb83c3] -> expression:ids [jsrg_node_08f0baaadad0]
+[resolved] reads L910: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_8f95d3a4e01b]
+[resolved] reads L991: binding:updateParty [jsrg_node_8c99bf7e48ec] -> expression:updateParty [jsrg_node_b97f353bfe99]
+[resolved] reads L1123: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_43d0fabca29c]
+[candidate] reads-property L1096: property-slot:attr [jsrg_node_3afc7b893c69] -> expression:attr [jsrg_node_9f6f85cb9627]
+[resolved] reads L957: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_b7ec826b0eb7]
+[resolved] calls L1137: 呼叫目標：function:npcPageArrived [jsrg_node_1b405b04b517]
+[candidate] writes-property L916: expression:selling [jsrg_node_2599a4baaa11] -> property-slot:selling [jsrg_node_808474b27052]
+[candidate] reads-property L1034: property-slot:kills [jsrg_node_c7182c00de62] -> expression:kills [jsrg_node_12aff6cc151a]
+[resolved] writes-property L856: expression:token [jsrg_node_ebdf70fb0572] -> property-slot:token [jsrg_node_0358177b82af]
+[resolved] reads L929: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_f136e1e9c014]
+[resolved] reads L956: binding:later [jsrg_node_90db678aa14f] -> expression:later [jsrg_node_78a9b90f5b7c]
+[candidate] reads-property L840: property-slot:on [jsrg_node_09a9fdae04ba] -> expression:on [jsrg_node_be2f81c40799]
+[candidate] reads-property L915: property-slot:size [jsrg_node_be84cb345d0e] -> expression:selling.size [jsrg_node_d37c1d27e802]
+[resolved] reads L1091: binding:otpResult [jsrg_node_ce6c19548df6] -> expression:otpResult [jsrg_node_c39fe2223b03]
+[resolved] writes-property L904: expression:lastState [jsrg_node_c815e7e67441] -> property-slot:lastState [jsrg_node_4d620c93bb17]
+[candidate] reads-property L935: property-slot:level [jsrg_node_25c6b524c4ca] -> expression:me.level [jsrg_node_afa860dd4d1e]
+[resolved] reads L1099: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_bfbe69618d97]
+[candidate] reads-property L1104: property-slot:id [jsrg_node_8946e5e6f391] -> expression:id [jsrg_node_ea2398b98fa0]
+[resolved] reads L1049: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_299ac15adfcc]
+[candidate] reads-property L1063: property-slot:key [jsrg_node_0291798e5aaf] -> expression:key [jsrg_node_34c36ed57e11]
+[resolved] reads L1035: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_aea737e00ccc]
+[resolved] reads L956: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_103d37f91ec6]
+[resolved] reads L942: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_ab055a35ad8c]
+[candidate] writes-property L889: expression:inGame [jsrg_node_e499ff16f4e3] -> property-slot:inGame [jsrg_node_2c4e0e623208]
+[resolved] reads L963: binding:t [jsrg_node_743a7da4a7f3] -> expression:t [jsrg_node_d1d445bd4fdf]
+[resolved] reads L945: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_cf009c36974d]
+[resolved] reads L902: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_a4536c06062a]
+[resolved] reads L1040: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_6033c1a63eb2]
+[candidate] reads-property L959: property-slot:caster [jsrg_node_854d7125bcaf] -> expression:caster [jsrg_node_e7bc1d2ed369]
+[candidate] reads-property L1096: property-slot:elf [jsrg_node_ac2e4abd5b16] -> expression:elf [jsrg_node_0964723d19fc]
+[resolved] writes-property L864: expression:pingAt [jsrg_node_368202a8a521] -> property-slot:pingAt [jsrg_node_c9efc87c491d]
+[candidate] reads-property L963: property-slot:push [jsrg_node_95bd5bd2fb47] -> expression:floaters.push [jsrg_node_43c82f006b75]
+[resolved] reads L850: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_7d8d8444fb5f]
+[resolved] reads L1047: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_4fa5befb1fd0]
+[candidate] reads-property L1052: property-slot:level [jsrg_node_0e53bbcd3baa] -> expression:level [jsrg_node_05dc4ae03310]
+[resolved] reads L866: binding:startCatchUp [jsrg_node_c20e2dee47d5] -> expression:startCatchUp [jsrg_node_191cc98ad090]
+[resolved] reads L1033: binding:o [jsrg_node_edb8a63daa9c] -> expression:o [jsrg_node_bc7d4e99d220]
+[resolved] reads L1135: binding:dlg [jsrg_node_541406d6793a] -> expression:dlg [jsrg_node_44df3abe79f2]
+[resolved] reads L945: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_8ed7cd22ef4e]
+[resolved] calls L1140: 呼叫目標：function:openDialogPage [jsrg_node_a9f826361aba]
+[resolved] reads L931: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_92e87f26b782]
+[resolved] reads L1087: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_7f2a1318e235]
+[resolved] reads L990: binding:trade [jsrg_node_7413d154f958] -> expression:trade [jsrg_node_a132ac0cb5aa]
+[resolved] reads L1042: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_d47250824d4c]
+[resolved] reads L970: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_f28cca8da53d]
+[resolved] reads L1076: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_06f0aabad25b]
+[resolved] reads L908: binding:refreshSelling [jsrg_node_2ea687ba8a02] -> expression:refreshSelling [jsrg_node_03804f8f4260]
+[resolved] reads L985: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_e4c41c99766b]
+[resolved] reads L908: binding:refreshSelling [jsrg_node_2ea687ba8a02] -> expression:refreshSelling [jsrg_node_05d8f8464370]
+[resolved] calls L928: 呼叫目標：function:rosterActive [jsrg_node_7deb8f836209]
+[candidate] reads-property L994: property-slot:level [jsrg_node_0e53bbcd3baa] -> expression:level [jsrg_node_52b3c8b0b93c]
+[resolved] reads L1128: binding:confirmSealedCraft [jsrg_node_aae00d1f710b] -> expression:confirmSealedCraft [jsrg_node_15fa7fb34382]
+[resolved] reads L1040: binding:o [jsrg_node_eb22ef0b4c58] -> expression:o [jsrg_node_1f37f5b2fe56]
+[resolved] reads L945: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_c9873857b6da]
+[resolved] reads L1103: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_800b87dd9b5f]
+[resolved] reads L1107: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_5c60f932fa7b]
+[resolved] reads L964: binding:h [jsrg_node_86ab8e618648] -> expression:h [jsrg_node_09c142731386]
+[resolved] reads L959: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_395407c9aad4]
+[candidate] calls L1103: 呼叫目標：function:diagRing [jsrg_node_fbee30cf3373]
+[resolved] reads L1040: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_72828f141e5f]
+[resolved] reads L915: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_009afb6768b3]
+[resolved] reads L1111: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_d2e0730ccd2c]
+[resolved] reads L1107: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_69dd383ee7b5]
+[candidate] reads-property L1034: property-slot:rank [jsrg_node_090aba0f6d47] -> expression:rank [jsrg_node_cb548f655fc1]
+[candidate] reads-property L985: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_61cec286c65f]
+[resolved] calls L1144: 呼叫目標：function:openNpcDialog [jsrg_node_4516590d4dbf]
+[resolved] reads L843: binding:checkBuild [jsrg_node_36554af581dd] -> expression:checkBuild [jsrg_node_a8a60653eb43]
+[candidate] reads-property L1057: property-slot:get [jsrg_node_71eee23e15f0] -> expression:buffs.get [jsrg_node_87d64aae690c]
+[candidate] reads-property L998: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_a36e1ca63419]
+[candidate] reads-property L987: property-slot:name [jsrg_node_c23f4b7c3ffe] -> expression:name [jsrg_node_217eed9d02ff]
+[resolved] reads L935: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_5eb101c479da]
+[candidate] reads-property L904: property-slot:clear [jsrg_node_c730b2d8c65d] -> expression:sentAt.clear [jsrg_node_6212268e0494]
+[candidate] reads-property L963: property-slot:dmg [jsrg_node_9b02c04a6f7d] -> expression:dmg [jsrg_node_27e368e9063f]
+[candidate] reads-property L942: property-slot:maxMp [jsrg_node_a8643b88cf37] -> expression:maxMp [jsrg_node_7348de1bb14c]
+[resolved] reads L962: binding:t [jsrg_node_743a7da4a7f3] -> expression:t [jsrg_node_3555eb5e7754]
+[candidate] reads-property L1106: property-slot:item [jsrg_node_5452f21c0e53] -> expression:item [jsrg_node_1a807b8e28ff]
+[resolved] reads L843: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_43442fd323a7]
+[candidate] reads-property L929: property-slot:newSlot [jsrg_node_ac970ff337f3] -> expression:newSlot [jsrg_node_6ac9b9f0a7a0]
+[candidate] reads-property L1078: property-slot:me [jsrg_node_31002e55bbf3] -> expression:me [jsrg_node_2c5fa28b3d63]
+[resolved] reads L1105: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_877919d7ab65]
+[resolved] reads L1107: binding:i [jsrg_node_3bd13d8782e8] -> expression:i [jsrg_node_a4a2a8ac27c9]
+[resolved] calls L990: 呼叫目標：function:renderTrade [jsrg_node_b0cd413a264c]
+[resolved] reads L1109: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_3262480fe480]
+[resolved] reads L1106: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_f76533d453cc]
+[candidate] reads-property L1054: property-slot:name [jsrg_node_87a8ea163032] -> expression:selChar.name [jsrg_node_98c097e49bf2]
+[resolved] reads L904: binding:unifiedControl [jsrg_node_841e02d92c95] -> expression:unifiedControl [jsrg_node_7b6ee26d6b6c]
+[resolved] reads L842: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_e3d5de2e94f8]
+[resolved] reads L1141: binding:pend [jsrg_node_a14396dca969] -> expression:pend [jsrg_node_dd6da2ccd732]
+[candidate] writes-property L1075: expression:me.lawful [jsrg_node_05eff24ce2cd] -> property-slot:lawful [jsrg_node_215f59e02893]
+[resolved] reads L1001: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_d6b32a925dd2]
+[resolved] writes-property L896: expression:retried [jsrg_node_46c47cfd11b7] -> property-slot:retried [jsrg_node_e5e614289ef0]
+[resolved] reads L1139: binding:craftEnabled [jsrg_node_54c75c9349bb] -> expression:craftEnabled [jsrg_node_f7a0ba1752d2]
+[resolved] writes L1057: expression:label [jsrg_node_d1553d0d24b9] -> binding:label [jsrg_node_085a087902b5]
+[resolved] reads L1140: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_e6daa22503f2]
+[resolved] reads L1038: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_bb58cd0885c7]
+[candidate] reads-property L1129: property-slot:page [jsrg_node_91720d5f6a31] -> expression:page [jsrg_node_c4939411f633]
+[resolved] reads L1020: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_0d57911fe2cd]
+[resolved] calls L913: 呼叫目標：function:onCharRoster [jsrg_node_f404d0c39927]
+[candidate] reads-property L1017: property-slot:tab [jsrg_node_347f80cbe02e] -> expression:tab [jsrg_node_85eed38fd929]
+[candidate] reads-property L936: property-slot:me [jsrg_node_31002e55bbf3] -> expression:me [jsrg_node_2f626305e754]
+[resolved] reads L1123: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_131506af1016]
+[resolved] reads L1135: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_1e7633fe71d5]
+[candidate] reads-property L1090: property-slot:what [jsrg_node_1f5d8aad70ed] -> expression:what [jsrg_node_59efb6591c52]
+[candidate] writes-property L984: expression:pink [jsrg_node_117a03538fc8] -> property-slot:pink [jsrg_node_ae746d11cbee]
+[candidate] writes-property L945: expression:mapVer [jsrg_node_3fd3308ca6ff] -> property-slot:mapVer [jsrg_node_b4e0ea620a89]
+[resolved] reads L864: binding:TPSIG [jsrg_node_14d918c2b494] -> expression:TPSIG [jsrg_node_0993822a103f]
+[candidate] reads-property L854: property-slot:token [jsrg_node_d58b08c7556f] -> expression:token [jsrg_node_4e66c59b9256]
+[resolved] reads L1035: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_825092674319]
+[resolved] calls L1112: 呼叫目標：function:unifiedAutoEvent [jsrg_node_7baa1a3f373d]
+[resolved] calls L866: 呼叫目標：function:unifiedRequest [jsrg_node_bd0b333e748f]
+[candidate] reads-property L1080: property-slot:delete [jsrg_node_14b2faeb0ae0] -> expression:skills.delete [jsrg_node_ee7279750306]
+[resolved] reads L1103: binding:err [jsrg_node_b456df4cf19b] -> expression:err [jsrg_node_664592a76ab2]
+[resolved] reads L956: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_d04480e37786]
+[resolved] calls L1037: 呼叫目標：function:onAttack [jsrg_node_6b898535a22f]
+[resolved] reads L848: binding:openHighPet [jsrg_node_6d4b39a91988] -> expression:openHighPet [jsrg_node_0fa43cfc3477]
+[resolved] reads L1105: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_0d625a58c702]
+[candidate] reads-property L950: property-slot:get [jsrg_node_f974938ffc13] -> expression:objects.get [jsrg_node_a55dcede3bf4]
+[resolved] reads L980: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_507d33646d13]
+[resolved] reads L1064: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_75a0887a0ed6]
+[candidate] reads-property L985: property-slot:ratio [jsrg_node_02b0a0c935c7] -> expression:ratio [jsrg_node_3605458a8946]
+[resolved] reads L1108: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_fc749dc4c5fa]
+[resolved] reads L1085: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_2514a19b6d50]
+[candidate] reads-property L1033: property-slot:rank [jsrg_node_090aba0f6d47] -> expression:rank [jsrg_node_273f39253bf4]
+[candidate] writes-property L1103: expression:bagFullAt [jsrg_node_563cf861038e] -> property-slot:bagFullAt [jsrg_node_41bd8e5c65ae]
+[resolved] calls L873: 呼叫目標：function:resumeFailed [jsrg_node_cca235bfed83]
+[resolved] reads L1039: binding:o [jsrg_node_6f8ca6f85056] -> expression:o [jsrg_node_7cef90b579de]
+[resolved] reads L851: binding:openDungeonBook [jsrg_node_faf05a00781c] -> expression:openDungeonBook [jsrg_node_26394a21fb8f]
+[resolved] reads L869: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_a444fe9c8c07]
+[resolved] calls L976: 呼叫目標：function:moveObject [jsrg_node_1b8bc9cc125b]
+[resolved] calls L1069: 呼叫目標：function:paraState [jsrg_node_00ea7cdf1e6b]
+[resolved] reads L850: binding:openHuntPassBook [jsrg_node_e3595afac594] -> expression:openHuntPassBook [jsrg_node_d258202430c5]
+[candidate] reads-property L1059: property-slot:level [jsrg_node_0e53bbcd3baa] -> expression:level [jsrg_node_b2dec99d7443]
+[resolved] reads L950: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_3e94a3b70162]
+[resolved] reads L1076: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_1e3ad862fd7c]
+[candidate] reads-property L970: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_f7c0d378e027]
+[resolved] reads L913: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_19d0c903c78e]
+[resolved] reads L1017: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_b25006659b9f]
+[resolved] reads L929: binding:m [jsrg_node_ff17ef9bd87d] -> expression:m [jsrg_node_3094057ddedd]
+[resolved] reads L1144: binding:dlg [jsrg_node_541406d6793a] -> expression:dlg [jsrg_node_66e9defb0cf1]
+[candidate] reads-property L980: property-slot:id [jsrg_node_27231ceab975] -> expression:picked.id [jsrg_node_8099e0a5f8f0]
+[candidate] reads-property L964: property-slot:dmg [jsrg_node_9b02c04a6f7d] -> expression:dmg [jsrg_node_e49f71fa2b5a]
+[candidate] reads-property L1123: property-slot:add [jsrg_node_e891fcd1e56e] -> expression:locks.add [jsrg_node_5baf1384539e]
+[candidate] reads-property L1104: property-slot:set [jsrg_node_411904359af8] -> expression:inv.set [jsrg_node_6615f1064390]
+[resolved] reads L849: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_1d0031d813bf]
+[resolved] reads L839: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_e9bd35bade30]
+[candidate] reads-property L1036: property-slot:mode [jsrg_node_9158356d1506] -> expression:mode [jsrg_node_30b072dcbc87]
+[candidate] reads-property L1033: property-slot:get [jsrg_node_f974938ffc13] -> expression:objects.get [jsrg_node_5e7eae6f1435]
+[resolved] reads L1084: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_87155d395266]
+[candidate] reads-property L1135: property-slot:mode [jsrg_node_9158356d1506] -> expression:mode [jsrg_node_9cdd05270dec]
+[resolved] reads L953: binding:o [jsrg_node_0a83e95f98ef] -> expression:o [jsrg_node_c0f64c806eb1]
+[candidate] reads-property L943: property-slot:mapId [jsrg_node_6564cea4c668] -> expression:mapId [jsrg_node_f10e52b6315c]
+[resolved] writes-property L904: expression:resumeMapAt [jsrg_node_6385a3616a31] -> property-slot:resumeMapAt [jsrg_node_b4740077a94e]
+[resolved] reads L1089: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_4389e30b6c6f]
+[resolved] reads L982: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_9e2a3d406236]
+[resolved] reads L1036: binding:$ [jsrg_node_ffcf2643581f] -> expression:$ [jsrg_node_db2303899fe3]
+[candidate] reads-property L1040: property-slot:kind [jsrg_node_d9206051217d] -> expression:kind [jsrg_node_08c1a44685e4]
+[resolved] reads L1003: binding:dlg [jsrg_node_541406d6793a] -> expression:dlg [jsrg_node_7b4ce2a59385]
+[resolved] reads L896: binding:showScreen [jsrg_node_db9eb65e80c9] -> expression:showScreen [jsrg_node_b4dd15a3ca13]
+[resolved] calls L928: 呼叫目標：function:refreshSelling [jsrg_node_b43b9f225624]
+[resolved] reads L845: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_0c494f0075c7]
+[resolved] reads L1052: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_baf8bfe4d963]
+[resolved] reads L943: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_6318551f3b9d]
+[resolved] reads L1020: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_63489a95955e]
+[resolved] reads L953: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_c31c7b6ee423]
+[resolved] calls L933: 呼叫目標：function:enterGame [jsrg_node_61c981703551]
+[resolved] reads L866: binding:checkBuild [jsrg_node_36554af581dd] -> expression:checkBuild [jsrg_node_f5a2ea22d107]
+[resolved] reads L1141: binding:pend [jsrg_node_a14396dca969] -> expression:pend [jsrg_node_25f4273078f0]
+[candidate] writes-property L946: expression:gameTimeOff [jsrg_node_18a77fabe1ae] -> property-slot:gameTimeOff [jsrg_node_7b0c8160cf87]
+[resolved] calls L991: 呼叫目標：function:updateParty [jsrg_node_18f41576a047]
+[resolved] reads L952: binding:o [jsrg_node_0a83e95f98ef] -> expression:o [jsrg_node_922e568f4aaa]
+[resolved] calls L980: 呼叫目標：function:clearPicked [jsrg_node_4d006caf4c6f]
+[candidate] reads-property L1078: property-slot:mr [jsrg_node_612d3aac4aac] -> expression:mr [jsrg_node_36b5843e45f0]
+[resolved] reads L910: binding:onCharRoster [jsrg_node_7c71634daeba] -> expression:onCharRoster [jsrg_node_524e198cf5b1]
+[resolved] reads L864: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_098c035ce8d3]
+[candidate] reads-property L1139: property-slot:get [jsrg_node_f974938ffc13] -> expression:objects.get [jsrg_node_41a4af19d54d]
+[resolved] reads L863: binding:setRemember [jsrg_node_3180dc9978ba] -> expression:setRemember [jsrg_node_68a868384656]
+[resolved] reads L945: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_9cfcd204f3e8]
+[resolved] reads L1036: binding:dlg [jsrg_node_541406d6793a] -> expression:dlg [jsrg_node_dd76c7e79454]
+[resolved] reads L1047: binding:o [jsrg_node_96faaaf1550b] -> expression:o [jsrg_node_f18a151a44cd]
+[candidate] reads-property L1123: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_898f25a7acde]
+[resolved] reads L921: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_282d258a35c9]
+[candidate] reads-property L1093: property-slot:list [jsrg_node_2c2b7a81782f] -> expression:list [jsrg_node_f5001ae9476d]
+[resolved] reads L1105: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_85d158d7f16c]
+[resolved] reads L1017: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_602edc84a9fe]
+[candidate] reads-property L1037: property-slot:selfId [jsrg_node_9ad75439437e] -> expression:selfId [jsrg_node_b42eb75326fd]
+[resolved] reads L1139: binding:openCraft [jsrg_node_d594827e9a59] -> expression:openCraft [jsrg_node_aad23688d631]
+[resolved] reads L1059: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_a8d0c337d37a]
+[resolved] reads L877: binding:setReconnecting [jsrg_node_336b29a6209e] -> expression:setReconnecting [jsrg_node_e56cf4fef2da]
+[resolved] calls L863: 呼叫目標：function:setRemember [jsrg_node_53baad2dd99d]
+[resolved] calls L931: 呼叫目標：function:renderChars [jsrg_node_fd7932a18601]
+[resolved] reads L953: binding:later [jsrg_node_90db678aa14f] -> expression:later [jsrg_node_1b920d34cfdd]
+[candidate] reads-property L1043: property-slot:level [jsrg_node_0e53bbcd3baa] -> expression:level [jsrg_node_1101c86a5938]
+[candidate] reads-property L1042: property-slot:get [jsrg_node_f974938ffc13] -> expression:objects.get [jsrg_node_22d2237c80f3]
+[resolved] reads L1075: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_08f67368c091]
+[resolved] calls L917: 呼叫目標：function:renderChars [jsrg_node_fd7932a18601]
+[candidate] reads-property L925: property-slot:reason [jsrg_node_59e2e2331813] -> expression:reason [jsrg_node_ddfb77493d88]
+[resolved] reads L1082: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_470d521d83b4]
+[resolved] reads L860: binding:showScreen [jsrg_node_db9eb65e80c9] -> expression:showScreen [jsrg_node_3444b069f4ff]
+[candidate] reads-property L842: property-slot:msg [jsrg_node_c0e379504ea7] -> expression:msg [jsrg_node_2df5f94659f2]
+[candidate] reads-property L995: property-slot:selfId [jsrg_node_9ad75439437e] -> expression:selfId [jsrg_node_544e391e8181]
+[resolved] reads L995: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_9af8deeed064]
+[resolved] reads L943: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_b8d6aecb5ef5]
+[resolved] reads L904: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_bd818861c16e]
+[resolved] reads L1049: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_9f320dd73f93]
+[resolved] reads L904: binding:refreshSelling [jsrg_node_2ea687ba8a02] -> expression:refreshSelling [jsrg_node_e376f4c6808c]
+[resolved] reads L1012: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_eb53897d5a9f]
+[candidate] reads-property L952: property-slot:px [jsrg_node_d648c5ea935e] -> expression:px [jsrg_node_08055e05d9e8]
+[candidate] calls L842: 呼叫目標：function:$ [jsrg_node_81c2ce8f58d1]
+[resolved] calls L987: 呼叫目標：function:openTrade [jsrg_node_48ea7e5d2261]
+[candidate] reads-property L912: property-slot:inGame [jsrg_node_2c4e0e623208] -> expression:inGame [jsrg_node_486ab6a94601]
+[candidate] reads-property L1139: property-slot:some [jsrg_node_64241e396006] -> expression:craft.some [jsrg_node_1ad3cb8c4036]
+[candidate] reads-property L984: property-slot:sec [jsrg_node_8998f4591612] -> expression:sec [jsrg_node_8c1f2a5b86bc]
+[resolved] reads L1030: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_c6e630c23a59]
+[resolved] reads L916: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_57e46e170bbc]
+[candidate] reads-property L945: property-slot:instance [jsrg_node_3770baa66ede] -> expression:instance [jsrg_node_c0a0ca02c2bc]
+[candidate] reads-property L1065: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_d8123de814c9]
+[candidate] reads-property L1039: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_52621078f601]
+[resolved] reads L1134: binding:openSummonMenu [jsrg_node_7bc655ec0e7d] -> expression:openSummonMenu [jsrg_node_bdc32023ef49]
+[resolved] reads L851: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_b92f8c370347]
+[resolved] reads L998: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_9f67f1c91a67]
+[candidate] reads-property L905: property-slot:give [jsrg_node_e2fafdccc41e] -> expression:give [jsrg_node_8eb1181eda34]
+[resolved] reads L923: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_ec69abde420d]
+[resolved] reads L864: binding:TPSIG [jsrg_node_14d918c2b494] -> expression:TPSIG [jsrg_node_8504f1e452ad]
+[resolved] reads L1069: binding:paraState [jsrg_node_45d315b964c0] -> expression:paraState [jsrg_node_e3134ac01d7e]
+[resolved] reads L1068: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_e4de6e1bc795]
+[candidate] writes-property L1106: expression:count [jsrg_node_eadcea02b0eb] -> property-slot:count [jsrg_node_b639075eca42]
+[resolved] reads L1130: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_f2be6312457e]
+[resolved] reads L1104: parameter:i [jsrg_node_92bb46e5358b] -> expression:i [jsrg_node_b4e1a8e333fb]
+[resolved] reads L925: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_996175e5def8]
+[candidate] writes-property L904: expression:roster [jsrg_node_27f63b3c88db] -> property-slot:roster [jsrg_node_1cd5dc7358d8]
+[resolved] reads L1003: binding:dlg [jsrg_node_541406d6793a] -> expression:dlg [jsrg_node_8803345cde02]
+[resolved] reads L1047: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_9a32a710c178]
+[resolved] reads L963: binding:h [jsrg_node_86ab8e618648] -> expression:h [jsrg_node_985bb54f20b5]
+[candidate] writes-property L1107: expression:name [jsrg_node_7def513d98b5] -> property-slot:name [jsrg_node_f170b5166e8f]
+[resolved] reads L1103: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_620a391328f1]
+[resolved] reads L1042: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_c546d9ccf183]
+[candidate] reads-property L962: property-slot:kind [jsrg_node_b825b5713ad7] -> expression:kind [jsrg_node_2775addff1d4]
+[resolved] reads L931: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_ced0cc377655]
+[resolved] reads L865: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_8af71c9a7e2e]
+[resolved] reads L1090: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_deaeb78b0f2d]
+[resolved] reads L953: binding:castDelay [jsrg_node_f8060e58b938] -> expression:castDelay [jsrg_node_1e88cb152386]
+[resolved] calls L986: 呼叫目標：function:openYesNo [jsrg_node_9ae2c0a7a45b]
+[resolved] reads L1071: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_4b13179a4470]
+[resolved] reads L1106: binding:countOnly [jsrg_node_6316464d1193] -> expression:countOnly [jsrg_node_e50e55f3c146]
+[resolved] reads L1064: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_00829fdd7dd2]
+[candidate] reads-property L980: property-slot:clickSelect [jsrg_node_a00eaac66197] -> expression:clickSelect [jsrg_node_3789c4c1574e]
+[resolved] reads L936: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_ce7e1e5e2334]
+[resolved] calls L1100: 呼叫目標：function:closeDialog [jsrg_node_9e2d238b80e2]
+[candidate] reads-property L956: property-slot:gfx [jsrg_node_5a9c086bb115] -> expression:gfx [jsrg_node_36132288f290]
+[resolved] reads L904: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_9d5372df31ae]
+[candidate] reads-property L852: property-slot:time [jsrg_node_b4c721efcad0] -> expression:time [jsrg_node_7a02554a8321]
+[candidate] calls L863: 呼叫目標：function:$ [jsrg_node_81c2ce8f58d1]
+[resolved] reads L988: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_0f40cdbd20de]
+[resolved] reads L1001: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_a2efd4688e42]
+[candidate] reads-property L985: property-slot:get [jsrg_node_f974938ffc13] -> expression:objects.get [jsrg_node_fc66fd302f38]
+[candidate] reads-property L1137: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_64c015c39213]
+[resolved] writes-property L843: expression:token [jsrg_node_54eca9d244a1] -> property-slot:token [jsrg_node_0358177b82af]
+[resolved] reads L989: binding:endTrade [jsrg_node_7936915bcc07] -> expression:endTrade [jsrg_node_1538aecee357]
+[resolved] reads L992: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_e59755ace9e7]
+[resolved] reads L1079: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_00c44345f03f]
+[resolved] reads L923: binding:renderChars [jsrg_node_ae1f22fa7be9] -> expression:renderChars [jsrg_node_87d685f1ef24]
+[candidate] reads-property L1047: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_a932cb387359]
+[candidate] reads-property L1039: property-slot:gfx [jsrg_node_5a9c086bb115] -> expression:gfx [jsrg_node_11f3fe56bed0]
+[candidate] reads-property L1076: property-slot:lawful [jsrg_node_671b3373dd84] -> expression:lawful [jsrg_node_17d50b54be75]
+[candidate] reads-property L923: property-slot:name [jsrg_node_bf6a9e7544a1] -> expression:name [jsrg_node_1660eddc8422]
+[candidate] writes-property L928: expression:roster [jsrg_node_6d16f6cceaae] -> property-slot:roster [jsrg_node_1cd5dc7358d8]
+[resolved] reads L1035: binding:o [jsrg_node_929243df5698] -> expression:o [jsrg_node_e18da55132d5]
+[resolved] reads L1103: binding:diagRing [jsrg_node_87d65a7d4635] -> expression:diagRing [jsrg_node_5f5f1e2e60d4]
+[candidate] reads-property L977: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_9dcd1e794a65]
+[resolved] reads L923: parameter:c [jsrg_node_03814d697b7b] -> expression:c [jsrg_node_525c290fedfa]
+[resolved] calls L1038: 呼叫目標：function:onAction [jsrg_node_6e013b817b79]
+[resolved] reads L957: binding:onRangeSkill [jsrg_node_4d13f38385f5] -> expression:onRangeSkill [jsrg_node_44614dac43d5]
+[resolved] calls L1139: 呼叫目標：function:openCraft [jsrg_node_bd65c0fd7be3]
+[resolved] reads L991: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_1017d905948f]
+[resolved] reads L899: binding:login [jsrg_node_6f84c42ae0c0] -> expression:login [jsrg_node_29b50d049888]
+[resolved] calls L904: 呼叫目標：function:gmGiveOff [jsrg_node_aa875d5783bc]
+[candidate] writes-property L982: expression:target [jsrg_node_c08a5d5dc9d0] -> property-slot:target [jsrg_node_7f3b98b3989c]
+[resolved] calls L953: 呼叫目標：function:addEffect [jsrg_node_e336ca7e8f45]
+[resolved] reads L1107: binding:i [jsrg_node_3bd13d8782e8] -> expression:i [jsrg_node_c3c23884bc6c]
+[candidate] reads-property L861: property-slot:msg [jsrg_node_c0e379504ea7] -> expression:msg [jsrg_node_442b9c87809a]
+[candidate] reads-property L1128: property-slot:page [jsrg_node_91720d5f6a31] -> expression:page [jsrg_node_811deae1ed94]
+[resolved] reads L1064: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_97a6dc9a53f6]
+[resolved] reads L971: binding:o [jsrg_node_ee95ea5031bd] -> expression:o [jsrg_node_a89bdb5883d0]
+[resolved] reads L951: binding:otherFxFull [jsrg_node_982d69ddda4e] -> expression:otherFxFull [jsrg_node_2a345f174acb]
+[candidate] reads-property L1021: property-slot:tab [jsrg_node_347f80cbe02e] -> expression:tab [jsrg_node_971cef19c560]
+[candidate] reads-property L1103: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_ac74a516d6b2]
+[resolved] calls L1106: 呼叫目標：function:stripN [jsrg_node_1220e731fb03]
+[resolved] reads L1109: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_6a7ff836222b]
+[candidate] writes-property L904: expression:t [jsrg_node_2d9ac295d5bf] -> property-slot:t [jsrg_node_5640b1466eb8]
+[resolved] reads L937: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_6bcfe5f25c05]
+[candidate] reads-property L1134: property-slot:page [jsrg_node_91720d5f6a31] -> expression:page [jsrg_node_269028f2a315]
+[resolved] reads L1007: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_7e66df6cc524]
+[candidate] reads-property L971: property-slot:skinRev [jsrg_node_b829f42e802d] -> expression:skinRev [jsrg_node_edca82cc4d73]
+[candidate] reads-property L963: property-slot:y [jsrg_node_6948c0dd1cae] -> expression:y [jsrg_node_3809ef2c1463]
+[candidate] reads-property L1065: property-slot:poison [jsrg_node_4205c737698f] -> expression:poison [jsrg_node_8263b5058edf]
+[resolved] reads L1021: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_853fc1925bfe]
+[resolved] reads L866: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_b59bc2b70cc3]
+[candidate] reads-property L1092: property-slot:ids [jsrg_node_2be8deeb83c3] -> expression:ids [jsrg_node_19ca7f7db66a]
+[candidate] reads-property L1106: property-slot:id [jsrg_node_5d293febb4b2] -> expression:id [jsrg_node_83258cc92923]
+[candidate] reads-property L1030: property-slot:msg [jsrg_node_c0e379504ea7] -> expression:msg [jsrg_node_0e4b203971cf]
+[resolved] reads L953: binding:addEffect [jsrg_node_8fa2a5ac8c49] -> expression:addEffect [jsrg_node_cce19925a821]
+[resolved] reads L1043: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_e5b79321efda]
+[resolved] reads L939: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_5a0a8a6ae936]
+[candidate] reads-property L953: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_1fc15a7d832c]
+[resolved] reads L1043: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_f105428e60cd]
+[resolved] reads L1014: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_0d31a8331608]
+[candidate] writes-property L936: expression:selfId [jsrg_node_b485c0d04fce] -> property-slot:selfId [jsrg_node_9ad75439437e]
+[resolved] calls L953: 呼叫目標：function:castDelay [jsrg_node_847d27738c9e]
+[candidate] reads-property L846: property-slot:email [jsrg_node_cb9f7554d736] -> expression:email [jsrg_node_76c786ed8fbe]
+[candidate] reads-property L1107: property-slot:id [jsrg_node_6c963909a1bb] -> expression:id [jsrg_node_262a0bdbca76]
+[candidate] reads-property L1108: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_565bf60065f3]
+[candidate] reads-property L1054: property-slot:myName [jsrg_node_0b0acb136ea7] -> expression:myName [jsrg_node_57b5432fe08b]
+[resolved] reads L1106: binding:err [jsrg_node_648a77017f73] -> expression:err [jsrg_node_6ebab779ce2d]
+[resolved] reads L952: binding:o [jsrg_node_0a83e95f98ef] -> expression:o [jsrg_node_ebd5061dfe2a]
+[candidate] reads-property L964: property-slot:id [jsrg_node_52d9bdba9f25] -> expression:id [jsrg_node_b8672ca36ad8]
+[resolved] calls L956: 呼叫目標：function:castDelay [jsrg_node_847d27738c9e]
+[resolved] reads L904: binding:unifiedControl [jsrg_node_841e02d92c95] -> expression:unifiedControl [jsrg_node_350d9c3f1f2a]
+[candidate] reads-property L1106: property-slot:wdmg [jsrg_node_97fc4e30dc2b] -> expression:item.wdmg [jsrg_node_76930dab2691]
+[resolved] reads L994: binding:o [jsrg_node_9833989fae63] -> expression:o [jsrg_node_0750929e8f66]
+[candidate] reads-property L1130: property-slot:page [jsrg_node_91720d5f6a31] -> expression:page [jsrg_node_b78ebc66658b]
+[resolved] calls L957: 呼叫目標：function:onRangeSkill [jsrg_node_0d93156c53b6]
+[candidate] reads-property L898: property-slot:retried [jsrg_node_e5e614289ef0] -> expression:retried [jsrg_node_641425d089f9]
+[resolved] reads L852: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_3a9cf51984bb]
+[candidate] calls L946: 呼叫目標：function:serverGameSec [jsrg_node_cfb080a2a12b]
+[resolved] reads L1146: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_62d5b6b05b9e]
+[resolved] reads L870: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_6ec746dafe77]
+[candidate] reads-property L1105: property-slot:id [jsrg_node_b904c51e1184] -> expression:item.id [jsrg_node_6a6c0d76dd22]
+[resolved] calls L866: 呼叫目標：function:checkBuild [jsrg_node_29af0eaa43e6]
+[resolved] reads L1075: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_b25e25059aaa]
+[resolved] reads L1107: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_daf2bde99da2]
+[resolved] reads L1068: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_f85be9c9c580]
+[candidate] reads-property L914: property-slot:names [jsrg_node_874c899a867f] -> expression:names [jsrg_node_ce501dad8b11]
+[resolved] reads L1122: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_50446337462a]
+[resolved] reads L1059: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_0c23f6233662]
+[resolved] reads L1127: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_f0daceddf14e]
+[candidate] writes-property L990: expression:partnerOk [jsrg_node_3424c0e79e28] -> property-slot:partnerOk [jsrg_node_8e2295f85d22]
+[resolved] reads L856: binding:resume [jsrg_node_40b3e2c35468] -> expression:resume [jsrg_node_8acfa06dda08]
+[resolved] reads L866: binding:resume [jsrg_node_40b3e2c35468] -> expression:resume [jsrg_node_5f1e9c8a6ff5]
+[candidate] writes-property L936: expression:me [jsrg_node_7055ada535a9] -> property-slot:me [jsrg_node_31002e55bbf3]
+[candidate] reads-property L971: property-slot:kind [jsrg_node_7b5a56cdcef7] -> expression:kind [jsrg_node_a7c3623dd7b6]
+[resolved] reads L1063: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_ae5d99c30c2d]
+[resolved] reads L1069: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_a103ab1627da]
+[resolved] reads L964: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_9374915d0516]
+[candidate] reads-property L1008: property-slot:msg [jsrg_node_c0e379504ea7] -> expression:msg [jsrg_node_88df06d2f639]
+[resolved] reads L1054: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_3caa1d53ae90]
+[resolved] reads L921: binding:refreshSelling [jsrg_node_2ea687ba8a02] -> expression:refreshSelling [jsrg_node_c6ff10e2e7be]
+[candidate] reads-property L991: property-slot:partyType [jsrg_node_0d23dfa968bc] -> expression:partyType [jsrg_node_9a3791ac433a]
+[resolved] reads L1103: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_b3239eb1605f]
+[candidate] reads-property L1037: property-slot:target [jsrg_node_a8e0aa4e26e7] -> expression:target [jsrg_node_18f73539e209]
+[candidate] calls L902: 呼叫目標：function:$ [jsrg_node_81c2ce8f58d1]
+[resolved] reads L1106: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_7d9228f44857]
+[candidate] writes-property L972: expression:skinRev [jsrg_node_8ec3d5331a3d] -> property-slot:skinRev [jsrg_node_b829f42e802d]
+[resolved] reads L963: binding:later [jsrg_node_90db678aa14f] -> expression:later [jsrg_node_fe67fe2234ce]
+[resolved] reads L904: binding:unifiedControl [jsrg_node_841e02d92c95] -> expression:unifiedControl [jsrg_node_a460b7e610c2]
+[resolved] reads L1040: binding:sunkStatus [jsrg_node_a7e66b013c2a] -> expression:sunkStatus [jsrg_node_b47cf59fb5da]
+[resolved] reads L942: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_42217aae3f4b]
+[resolved] reads L1144: binding:dlg [jsrg_node_541406d6793a] -> expression:dlg [jsrg_node_6e2844b12d6e]
+[resolved] reads L1007: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_f9f79f17302d]
+[resolved] reads L1036: binding:o [jsrg_node_72f0a2df634a] -> expression:o [jsrg_node_c65449362dcd]
+[candidate] reads-property L945: property-slot:cave [jsrg_node_434156776d14] -> expression:cave [jsrg_node_92d1c8772c9d]
+[resolved] reads L894: parameter:onReady [jsrg_node_67b6d62e7f44] -> expression:onReady [jsrg_node_b5c2c3a86574]
+[resolved] calls L865: 呼叫目標：function:checkBuild [jsrg_node_29af0eaa43e6]
+[resolved] reads L898: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_9c251b852ab4]
+[candidate] reads-property L1049: property-slot:selfId [jsrg_node_9ad75439437e] -> expression:selfId [jsrg_node_78d052408b91]
+[resolved] reads L889: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_4284bb22a5f2]
+[resolved] reads L986: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_c83040bb1027]
+[resolved] reads L1056: binding:label [jsrg_node_085a087902b5] -> expression:label [jsrg_node_dae30418451c]
+[resolved] reads L1016: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_779858fad9cb]
+[resolved] reads L1116: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_fba750181368]
+[resolved] reads L985: binding:o [jsrg_node_abb3ad0dbbe2] -> expression:o [jsrg_node_44920ea764ad]
+[candidate] reads-property L942: property-slot:me [jsrg_node_31002e55bbf3] -> expression:me [jsrg_node_8125b80bf514]
+[candidate] reads-property L1076: property-slot:get [jsrg_node_f974938ffc13] -> expression:objects.get [jsrg_node_4ed2a03427ca]
+[resolved] reads L1037: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_c3b212c62706]
+[resolved] reads L953: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_2038b993d5ce]
+[candidate] reads-property L1042: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_a2101b5cfb2f]
+[candidate] calls L892: 呼叫目標：function:$ [jsrg_node_81c2ce8f58d1]
+[candidate] reads-property L1107: property-slot:name [jsrg_node_c23f4b7c3ffe] -> expression:name [jsrg_node_2703c6dde5e2]
+[resolved] calls L848: 呼叫目標：function:openHighPet [jsrg_node_8986dc943b81]
+[candidate] writes-property L945: expression:portals [jsrg_node_5623fb2aa0c8] -> property-slot:portals [jsrg_node_80a3516267f1]
+[resolved] reads L1100: binding:closeDialog [jsrg_node_34ff274dd865] -> expression:closeDialog [jsrg_node_2f110c34d864]
+[resolved] reads L982: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_289cdfc124d6]
+[candidate] reads-property L908: property-slot:t [jsrg_node_5640b1466eb8] -> expression:t [jsrg_node_152c60ae9d26]
+[candidate] reads-property L1059: property-slot:time [jsrg_node_b4c721efcad0] -> expression:time [jsrg_node_83a8b6584c10]
+[resolved] reads L1076: binding:o [jsrg_node_b0e2a3e8a067] -> expression:o [jsrg_node_8ba595925437]
+[resolved] writes-property L866: expression:dirty [jsrg_node_23378e9f426f] -> property-slot:dirty [jsrg_node_5eec72440bb1]
+[candidate] reads-property L971: property-slot:skinRev [jsrg_node_b829f42e802d] -> expression:skinRev [jsrg_node_c95564afb7bf]
+[candidate] reads-property L1106: property-slot:id [jsrg_node_b904c51e1184] -> expression:item.id [jsrg_node_2bbcf45de85b]
+[resolved] reads L977: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_af131874a51d]
+[resolved] reads L1065: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_41dda10fd693]
+[resolved] reads L923: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_3faa19e02a5e]
+[resolved] reads L1076: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_82db825e287d]
+[resolved] reads L1139: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_bba6fb7a36bc]
+[candidate] reads-property L1075: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_3a8021d434ba]
+[candidate] reads-property L952: property-slot:mapId [jsrg_node_6564cea4c668] -> expression:mapId [jsrg_node_38cffee386ee]
+[resolved] reads L1094: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_2ecaebda00bf]
+[resolved] reads L991: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_63795304ca3e]
+[candidate] calls L925: 呼叫目標：function:$ [jsrg_node_81c2ce8f58d1]
+[resolved] reads L936: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_359b3915257b]
+[resolved] reads L896: binding:login [jsrg_node_6f84c42ae0c0] -> expression:login [jsrg_node_e79ce1fcd4d9]
+[resolved] reads L951: binding:otherPc [jsrg_node_570b66260ec8] -> expression:otherPc [jsrg_node_233eb1a30994]
+[resolved] reads L853: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_7e39ac33bd25]
+[candidate] reads-property L935: property-slot:level [jsrg_node_0e53bbcd3baa] -> expression:level [jsrg_node_eb91338506e3]
+[resolved] writes L1052: expression:label [jsrg_node_d96dd88933e8] -> binding:label [jsrg_node_085a087902b5]
+[candidate] writes-property L972: expression:skin [jsrg_node_ae773f2ac2dd] -> property-slot:skin [jsrg_node_c6334ec270e1]
+[resolved] reads L1079: parameter:id [jsrg_node_63e9859301da] -> expression:id [jsrg_node_529eb4cd832f]
+[resolved] reads L968: binding:upsertObject [jsrg_node_186eb849eb91] -> expression:upsertObject [jsrg_node_9c0b5d269584]
+[resolved] calls L921: 呼叫目標：function:rosterActive [jsrg_node_7deb8f836209]
+[resolved] reads L1112: binding:unifiedAutoEvent [jsrg_node_0b5de87d512d] -> expression:unifiedAutoEvent [jsrg_node_b85142ad6fd8]
+[resolved] calls L858: 呼叫目標：function:behavState [jsrg_node_7f79a3d59680]
+[candidate] reads-property L1020: property-slot:msg [jsrg_node_c0e379504ea7] -> expression:msg [jsrg_node_67cf3b20449e]
+[candidate] reads-property L1144: property-slot:mode [jsrg_node_9158356d1506] -> expression:mode [jsrg_node_10d3c649d7d8]
+[resolved] reads L1094: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_046d8122b927]
+[resolved] reads L1144: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_f8d86de905ef]
+[candidate] reads-property L1043: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_319a0fab9ec3]
+[candidate] reads-property L1006: property-slot:unread [jsrg_node_8e3b423fe782] -> expression:unread [jsrg_node_b3e9d8ac8aa6]
+[resolved] reads L1106: binding:i [jsrg_node_b4a94be5433d] -> expression:i [jsrg_node_12ce84a718ff]
+[resolved] reads L1137: binding:npcPageArrived [jsrg_node_cab0d545fbda] -> expression:npcPageArrived [jsrg_node_493b32a0ffaf]
+[candidate] reads-property L985: property-slot:ratio [jsrg_node_02b0a0c935c7] -> expression:ratio [jsrg_node_967edbe44269]
+[candidate] reads-property L1053: property-slot:level [jsrg_node_0e53bbcd3baa] -> expression:level [jsrg_node_584a2e91359a]
+[resolved] reads L964: binding:h [jsrg_node_86ab8e618648] -> expression:h [jsrg_node_7f321662245b]
+[resolved] reads L956: binding:addEffect [jsrg_node_8fa2a5ac8c49] -> expression:addEffect [jsrg_node_cfc154ca97c8]
+[resolved] reads L908: binding:refreshSelling [jsrg_node_2ea687ba8a02] -> expression:refreshSelling [jsrg_node_b2ec012971cf]
+[candidate] writes-property L923: expression:chars [jsrg_node_8634adff02a1] -> property-slot:chars [jsrg_node_00f0403e7d86]
+[resolved] reads L1001: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_2be22a390ec2]
+[resolved] reads L1019: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_9a6c1a0eb866]
+[resolved] reads L864: binding:conn [jsrg_node_56905ac71708] -> expression:conn [jsrg_node_41e95300604b]
+[resolved] reads L1133: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_135792df0db3]
+[resolved] reads L1134: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_e2aaeed58dc0]
+[resolved] calls L923: 呼叫目標：function:renderChars [jsrg_node_fd7932a18601]
+[candidate] writes-property L1068: expression:pendingCast [jsrg_node_670fce5203c7] -> property-slot:pendingCast [jsrg_node_907670a70c9e]
+[resolved] calls L1085: 呼叫目標：function:showOfflineReport [jsrg_node_53dc4daa187d]
+[resolved] calls L1130: 呼叫目標：function:openPetMenu [jsrg_node_e8fe8dc18fd0]
+[resolved] reads L1029: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_5b964788fe03]
+[resolved] reads L945: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_528b12f170cc]
+[resolved] reads L1133: binding:openShopSell [jsrg_node_0f8b8f816d06] -> expression:openShopSell [jsrg_node_4f2ce235c288]
+[resolved] reads L1106: binding:i [jsrg_node_b4a94be5433d] -> expression:i [jsrg_node_ef311479ef66]
+[resolved] reads L1106: parameter:n [jsrg_node_9ac811fc66b5] -> expression:n [jsrg_node_d686f72d7961]
+[candidate] reads-property L1036: property-slot:npc [jsrg_node_62414a9fe536] -> expression:npc [jsrg_node_fd0fe35dcf83]
+[resolved] reads L1034: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_f44aaa81b0a8]
+[resolved] calls L905: 呼叫目標：function:gmGiveOn [jsrg_node_10335db530c9]
+[resolved] reads L962: binding:t [jsrg_node_743a7da4a7f3] -> expression:t [jsrg_node_9bc75febcb8e]
+[candidate] reads-property L1135: property-slot:npc [jsrg_node_62414a9fe536] -> expression:npc [jsrg_node_194c4743af21]
+[candidate] writes-property L853: expression:atkRate [jsrg_node_3015fe47ac76] -> property-slot:atkRate [jsrg_node_ec38f0422900]
+[resolved] reads L1082: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_1a25ec3e67d4]
+[candidate] reads-property L913: property-slot:roster [jsrg_node_1cd5dc7358d8] -> expression:roster [jsrg_node_1634e441e314]
+[candidate] reads-property L1052: property-slot:myType [jsrg_node_391d1d3594b9] -> expression:myType [jsrg_node_eb8f9efba1b4]
+[resolved] reads L1037: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_f748ca80d29e]
+[resolved] reads L939: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_ef61e66f6ff5]
+[resolved] reads L984: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_3bcd65104889]
+[resolved] reads L892: binding:$ [jsrg_node_ffcf2643581f] -> expression:$ [jsrg_node_d00ece1f9957]
+[resolved] reads L936: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_9c46fad01601]
+[resolved] reads L1115: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_735326a11000]
+[resolved] reads L952: binding:addEffect [jsrg_node_8fa2a5ac8c49] -> expression:addEffect [jsrg_node_ce212617c6bc]
+[candidate] reads-property L1049: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_3d3bafdf5463]
+[resolved] writes-property L876: expression:token [jsrg_node_4ecafdc3da59] -> property-slot:token [jsrg_node_0358177b82af]
+[resolved] reads L1040: binding:o [jsrg_node_eb22ef0b4c58] -> expression:o [jsrg_node_f2ab9cdf1d01]
+[candidate] reads-property L992: property-slot:target [jsrg_node_a8e0aa4e26e7] -> expression:target [jsrg_node_147fd1a2c343]
+[resolved] reads L959: binding:MINE_ONLY [jsrg_node_a5b568e8f57e] -> expression:MINE_ONLY [jsrg_node_987f7d36c5d3]
+[resolved] reads L846: binding:setGoogleAccount [jsrg_node_ef1c14a8dedf] -> expression:setGoogleAccount [jsrg_node_7fabf1442261]
+[resolved] reads L1109: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_dd94eab388d0]
+[resolved] reads L1139: binding:cm [jsrg_node_60293c6131c4] -> expression:cm [jsrg_node_b7a6ea5ffdec]
+[candidate] reads-property L1140: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_bfc1ab7a31bc]
+[candidate] reads-property L991: property-slot:clanParty [jsrg_node_ed968e528c4f] -> expression:clanParty [jsrg_node_166b1e3555df]
+[resolved] calls L878: 呼叫目標：function:behavState [jsrg_node_7f79a3d59680]
+[resolved] calls L1148: 呼叫目標：function:openShopSell [jsrg_node_8405a038a8e2]
+[resolved] reads L1106: binding:stripN [jsrg_node_d6e179734e55] -> expression:stripN [jsrg_node_c035284ececf]
+[resolved] reads L1075: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_81f3a3168cbc]
+[candidate] reads-property L1140: property-slot:page [jsrg_node_91720d5f6a31] -> expression:page [jsrg_node_efc4ce87d1bf]
+[candidate] reads-property L1105: property-slot:item [jsrg_node_5452f21c0e53] -> expression:item [jsrg_node_5d4ce860d28b]
+[candidate] reads-property L1064: property-slot:time [jsrg_node_b4c721efcad0] -> expression:time [jsrg_node_7fcba77bd5b6]
+[candidate] reads-property L977: property-slot:heading [jsrg_node_d8782e224ab6] -> expression:heading [jsrg_node_795fc6607253]
+[candidate] reads-property L982: property-slot:target [jsrg_node_7f3b98b3989c] -> expression:target [jsrg_node_a6a89c654c8e]
+[candidate] reads-property L1108: property-slot:delete [jsrg_node_82ca53fe4dd5] -> expression:inv.delete [jsrg_node_160a816ec47f]
+[resolved] reads L937: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_1e730b53e360]
+[candidate] reads-property L984: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_b3f0b34d2f3d]
+[resolved] reads L1002: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_efef63342fb7]
+[resolved] reads L854: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_4fbca8570911]
+[candidate] reads-property L1079: property-slot:filter [jsrg_node_1bad0d6ae188] -> expression:ids.filter [jsrg_node_ce0b48fee32e]
+[candidate] reads-property L951: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_8465bba166f1]
+[resolved] reads L840: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_1b77eef9af67]
+[resolved] reads L990: binding:trade [jsrg_node_7413d154f958] -> expression:trade [jsrg_node_029431a487c4]
+[resolved] calls L870: 呼叫目標：function:backgroundLogout [jsrg_node_cdb9f2cd50ae]
+[candidate] writes-property L937: expression:me.maxHp [jsrg_node_297c6b5025ac] -> property-slot:maxHp [jsrg_node_d004a83d02ad]
+[resolved] reads L905: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_4c5fdc740610]
+[candidate] reads-property L1037: property-slot:attacker [jsrg_node_96058bef4fbd] -> expression:attacker [jsrg_node_da1a1b4e8c35]
+[resolved] calls L1141: 呼叫目標：function:openNpcDialog [jsrg_node_4516590d4dbf]
+[candidate] reads-property L1047: property-slot:level [jsrg_node_0e53bbcd3baa] -> expression:level [jsrg_node_ff773f57478a]
+[candidate] reads-property L885: property-slot:sec [jsrg_node_8998f4591612] -> expression:sec [jsrg_node_4fa38888be45]
+[resolved] reads L1103: binding:serverMsg [jsrg_node_948afeb303cf] -> expression:serverMsg [jsrg_node_6bbd31c2ab23]
+[resolved] reads L1090: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_0e4f4786997e]
+[candidate] reads-property L1116: property-slot:n [jsrg_node_a512dfba49d6] -> expression:n [jsrg_node_65346b3fa422]
+[resolved] reads L1106: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_12c60947bd9e]
+[resolved] reads L987: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_bc3c6ba187a3]
+[resolved] calls L952: 呼叫目標：function:addEffect [jsrg_node_e336ca7e8f45]
+[resolved] reads L1118: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_96488d1f942a]
+[resolved] calls L1128: 呼叫目標：function:confirmSealedCraft [jsrg_node_e3bcea455b8d]
+[candidate] reads-property L984: property-slot:pink [jsrg_node_ae746d11cbee] -> expression:pink [jsrg_node_c05abf95bcfd]
+[candidate] reads-property L950: property-slot:id [jsrg_node_24b1fb219e39] -> expression:id [jsrg_node_6ea630449402]
+[resolved] reads L929: binding:saveSlotMap [jsrg_node_b9d05ae8c4b6] -> expression:saveSlotMap [jsrg_node_fe1b6eb3c260]
+[resolved] reads L846: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_263badcb6171]
+[resolved] reads L904: binding:renderChars [jsrg_node_ae1f22fa7be9] -> expression:renderChars [jsrg_node_d4f586562d4b]
+[resolved] reads L1065: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_b556d1c8a439]
+[candidate] reads-property L864: property-slot:b [jsrg_node_90a4956449d7] -> expression:b [jsrg_node_bef241c018b2]
+[candidate] reads-property L944: property-slot:mapId [jsrg_node_6564cea4c668] -> expression:mapId [jsrg_node_4893c708f9dc]
+[resolved] reads L963: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_8c1886dca392]
+[resolved] reads L1019: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_09c1d658c884]
+[resolved] reads L1139: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_c36aac658b06]
+[candidate] reads-property L937: property-slot:maxHp [jsrg_node_cd95a5b78eea] -> expression:maxHp [jsrg_node_119e850353ab]
+[candidate] writes-property L1116: expression:pkCount [jsrg_node_86665122cb5b] -> property-slot:pkCount [jsrg_node_7a75af7e9426]
+[resolved] writes-property L904: expression:resumeMapKey [jsrg_node_385609288327] -> property-slot:resumeMapKey [jsrg_node_8126fa20d5ce]
+[candidate] reads-property L945: property-slot:blocked [jsrg_node_46cc0662b8c6] -> expression:blocked [jsrg_node_e3707ee7a31b]
+[resolved] reads L1093: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_ceab4f1dcfea]
+[candidate] calls L1082: 呼叫目標：function:$ [jsrg_node_81c2ce8f58d1]
+[resolved] reads L1103: binding:onOverweightAttack [jsrg_node_f3278da01450] -> expression:onOverweightAttack [jsrg_node_f449e8310e9a]
+[resolved] reads L1140: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_e8763c62bc09]
+[resolved] reads L1096: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_9c345dad6c9d]
+[resolved] reads L1121: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_75aebdf0974f]
+[candidate] writes-property L1042: expression:speed [jsrg_node_8ced230b11ea] -> property-slot:speed [jsrg_node_1a43363f7f99]
+[resolved] reads L1139: binding:st [jsrg_node_7c67b3068bfe] -> expression:st [jsrg_node_76b5c00bc309]
+[resolved] calls L985: 呼叫目標：function:impactWait [jsrg_node_ad1f9858750e]
+[resolved] calls L849: 呼叫目標：function:openBossHunt [jsrg_node_22e76eeeba6b]
+[resolved] calls L985: 呼叫目標：function:later [jsrg_node_400fcd6e1e7b]
+[candidate] reads-property L956: property-slot:x [jsrg_node_2fa5717d956f] -> expression:x [jsrg_node_f8c0e3c7bed3]
+[candidate] reads-property L931: property-slot:push [jsrg_node_fe8bb629e1e0] -> expression:chars.push [jsrg_node_ecca8493513d]
+[resolved] reads L1105: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_1eb82b3acc96]
+[candidate] reads-property L963: property-slot:dmg [jsrg_node_9b02c04a6f7d] -> expression:dmg [jsrg_node_f8134116aeaa]
+[resolved] calls L945: 呼叫目標：function:loadMap [jsrg_node_75f86c42bf4f]
+[resolved] writes L869: expression:webBgLimited [jsrg_node_0ae3e95d6208] -> binding:webBgLimited [jsrg_node_2642c29a1fb1]
+[candidate] reads-property L1120: property-slot:sets [jsrg_node_6d5ebea319c8] -> expression:sets [jsrg_node_26817ef0a30b]
+[resolved] reads L1019: parameter:ev [jsrg_node_e813de6630ef] -> expression:ev [jsrg_node_ffbe0acaa6e9]
+
+========== REA 字串常數 ==========
+L1013: "function"
+L1040: "monster"
+L1056: "風之疾走"
+L1016: "browse"
+L1043: "加速"
+L1011: "function"
+L1079: "none"
+L964: "hit"
+L1128: "sealcraft"
+L1135: "craft"
+L1129: "RaiseAttr"
+L1012: "function"
+L1093: "deathlog"
+L1096: "只有妖精可以選擇屬性。"
+L1043: "緩速術"
+L878: "function"
+L1034: "function"
+L1106: "wdmg"
+L1009: "mail"
+L1064: ""
+L1050: "勇敢"
+L971: "pc"
+L1019: "sales"
+L1065: "中毒"
+L1094: "undefined"
+L1103: "function"
+L1031: "clan"
+L913: "operator literal"
+L1116: "char"
+L1094: "rank"
+L1090: "鑽石拍賣"
+L945: ""
+L1056: "神聖疾走"
+L866: "function"
+L1116: "undefined"
+L1116: "function"
+L1120: "char"
+L1087: "function"
+L935: "function"
+L1070: "麻痺"
+L889: "function"
+L1065: "麻痺毒"
+L962: "item"
+L858: "function"
+L940: "undefined"
+L1114: "function"
+L1036: "pet"
+L1144: "menu"
+L1099: ""
+L1090: "function"
+L1026: "auction"
+L940: "char"
+L1094: "boolean"
+L1018: "mine"
+L1120: "undefined"
+L1110: "function"
+L1093: "undefined"
+L872: "background_timeout"
+L1120: "function"
+L867: "function"
+L1113: "function"
+L1070: ""
+L963: "MISS"
+L1130: "anicom"
+L1057: "風之疾走"
+L971: "operator literal"
+L1003: "teleport"
+L1094: "char"
+L964: "missme"
+L1054: "_"
+L1106: ""
+L1096: ""
+L1064: "戰鬥強化卷軸"
+L1019: "operator literal"
+L838: "attack"
+L866: "hidden"
+L1133: "nosell"
+L1065: "paralyze"
+L1134: "moncom"
+L1111: "function"
+L964: "miss"
+L1002: ""
+L1021: "buy"
+L1017: "detail"
+L964: "hurt"
+L940: "function"
+L839: "function"
+L1105: "operator literal"
+L1115: "function"
+L1021: "auction"
+L861: "你已被封鎖"
+字串常數數量: 91
+
+========== 事件分支及狀態更新來源碼核對 ==========
+L842: case 'error': $('#login-msg').textContent = ev.msg; log(ev.msg, 'err'); break;
+L843: case 'session': resume.token = ev.token; checkBuild(ev.b); break;
+L844: case 'gaccount': // Google 登入對應到的遊戲帳號(每個帳號的快捷欄等設定用這個分開存);信箱記下來,下次「進入遊戲」自 動帶入
+L848: case 'highpet': openHighPet(ev); break;
+L849: case 'bosshunt': openBossHunt(ev); break;
+L850: case 'hbook': openHuntPassBook(ev); break;
+L851: case 'dbook': openDungeonBook(ev); break; // 地監記憶書:目的地清單(伺服器點書時送來)
+L852: case 'shana': st.shana = ev.time > 0; setBuff('shana', '夏娜的變形卷軸', ev.time); break; // 伺服器 L1Shana:攻擊 / 施法 / 硬直照 SHANA_PER_MIN
+L853: case 'atkrate': st.atkRate = ev.rate; break; // 變速變身卷軸:伺服器 AcceleratorChecker 也乘這個
+L854: case 'remember': setRemember(ev.token); break;
+L855: case 'banned': // 被管理員封鎖:斷線、回登入畫面,不要自動重連
+L858: st.inGame = false; clearEventHuntTimer(); behavState(); if (typeof dutchReset === 'function') dutchReset();
+L863: case 'rememberfail': setRemember(null); $('#login-msg').textContent = '自動登入已失效,請用 Google 登入'; break;
+L864: case 'pong': conn.lastPong = Date.now(); if (TPSIG.pingAt) { TPSIG.rtt = Math.min(60000, Math.round(performance.now() - TPSIG.pingAt)); TPSIG.pingAt = 0; } checkBuild(ev.b); break;
+L865: case 'build': checkBuild(ev.b); break;
+L866: case 'resumed': if (typeof marketResume === 'function') marketResume(); if (typeof dutchResume === 'function') dutchResume(); if (unifiedControl.cap) { unifiedControl.dirty = true; unifiedRequest('resume'); } reportWebBackground(document.visibilityState === 'hidden'); startCatchUp(); resume.tries = 0; resume.deadline = 0; setReconnecting(false); toast('已重新連線'); onNetBack(); checkBuild(ev.b);
+L869: case 'webbg': webBgLimited = ev.limited === true; break;
+L870: case 'bglogout': backgroundLogout(ev); break;
+L871: case 'resumefail':
+L875: case 'kicked': // 同一個帳號在別的分頁 / 裝置登入了:這邊斷線,不要再自動重連(會把對方踢掉)
+L878: st.inGame = false; clearEventHuntTimer(); behavState(); if (typeof dutchReset === 'function') dutchReset();
+L885: case 'idlewarn': toast(`停在選角畫面太久,${ev.sec} 秒後會自動斷線(點一下畫面可繼續)`); break; // gateway:選角畫面 閒置 3 分鐘斷線的預告
+L886: case 'idle': // 選角畫面閒置太久被 gateway 斷線:和 kicked 一樣不要自動重連,回到登入畫面
+L889: st.inGame = false; clearEventHuntTimer(); behavState(); if (typeof dutchReset === 'function') dutchReset();
+L894: case 'serverversion': onReady && onReady(); break;
+L895: case 'loginresult':
+L901: setTimeout(() => send(login.last), 2000);
+L904: case 'charamount': delete unifiedControl.resumeMapKey; delete unifiedControl.resumeMapInstance; delete unifiedControl.resumeMapAt; unifiedControl.phase = 'legacy'; unifiedControl.cap = null; unifiedControl.pending.clear(); unifiedControl.sentAt.clear(); unifiedControl.lastState = -1; st.chars = []; st.selling = new Set(); st.roster = null; st.maxChars = ev.max; clearTimeout(refreshSelling.t); refreshSelling.t = setTimeout(refreshSelling, 300); renderChars(); gmGiveOff(); break;
+L905: case 'gm': if (ev.give) gmGiveOn(); break; // 只有 GM 角色進遊戲時,伺服器(gateway)才會送這個(altsettings GmGiveItemEnabled)
+L906: case 'charlist':
+L907: st.chars.push(ev.char); renderChars();
+L910: case 'charroster': onCharRoster(ev); break;
+L911: case 'selling': {
+L917: if (!same) renderChars();
+L920: case 'deletecharok':
+L923: st.chars = st.chars.filter((c) => c.name !== st.deleted); st.selChar = null; renderChars(); break;
+L924: case 'newcharstatus':
+L927: case 'newchar': {
+L931: st.chars.push(ev.char); renderChars(); $('#newchar-form').classList.add('hidden'); break;
+L933: case 'logintogame': enterGame(); break;
+L934: case 'status':
+L936: st.selfId = ev.id; st.me = { ...st.me, ...ev }; updateHud(); break;
+L937: case 'hp': if (st.me) { st.me.hp = ev.hp; st.me.maxHp = ev.maxHp; updateHud(); } break;
+L938: case 'attrdef': // 11/06:四屬性抗性(伺服器 S_OwnCharAttrDef);人物面板顯示，開著的話立刻重畫
+L939: st.me = { ...st.me, fire: ev.fire, water: ev.water, wind: ev.wind, earth: ev.earth };
+L942: case 'mp': if (st.me) { st.me.mp = ev.mp; st.me.maxMp = ev.maxMp; updateHud(); } break;
+L943: case 'mapid': if (st.para && ev.map !== st.mapId) { st.para = null; setBuff('para', '', 0); } // 換地圖清掉麻痺類 的鎖(伺服器也清)
+L946: case 'gametime': st.gameTimeOff = ev.time - serverGameSec(Date.now()); break; // 只記手機時鐘和伺服器的差(通常 0)
+L947: case 'effect': {
+L956: case 'effectat': later(castDelay(), () => addEffect({ gfx: ev.gfx, x: ev.x, y: ev.y })); break;
+L957: case 'rangeskill': onRangeSkill(ev); break;
+L958: case 'rangedmg': // 範圍攻擊魔法的傷害數字(伺服器 S_WebRangeDamage,緊接在 rangeskill 後面):等特效打到再跳
+L968: case 'object': upsertObject(ev); break;
+L969: case 'skin': { // Ordered after CHARPACK/POLY; never create an object from a cosmetic event.
+L976: case 'move': moveObject(ev); break;
+L977: case 'heading': { const o = st.objects.get(ev.id); if (o) o.heading = ev.heading; break; }
+L978: case 'remove':
+L984: case 'pink': (st.pink ??= new Map()).set(ev.id, ev.sec > 0 ? performance.now() + ev.sec * 1000 : 0); break; // 10/31 先動手粉紅名(伺服器 S_PinkName,180 秒)
+L985: case 'hpmeter': { const o = st.objects.get(ev.id); if (o) later(impactWait(o), () => { o.hpRatio = ev.ratio > 100 ? -1 : ev.ratio; }); break; } // 0xFF(255)= 隱藏血條(離開 / 解散隊伍 L1Party 送),不是 255%
+L986: case 'yesno': openYesNo(ev); break;
+L987: case 'trade': openTrade(ev.name); break;
+L988: case 'tradeadd': addTradeItem(ev); break;
+L989: case 'tradestatus': endTrade(ev.done); break;
+L990: case 'tradepartnerok': trade.partnerOk = true; renderTrade(); toast(`${trade.partner} 已確定交易`); break;
+L991: case 'party': updateParty(ev.members, ev.partyType, ev.clanParty); break;
+L992: case 'crit': (st.crits ??= new Map()).set(ev.target, performance.now()); break; // 下一個打這個目標的數字是暴擊
+L993: case 'liquor': { // 三段加速(種類 8):走路、攻擊再快 1.15 倍(伺服器 AcceleratorChecker 一樣 × 0.87)
+L998: case 'light': { const o = st.objects.get(ev.id); if (o) o.light = ev.size; break; } // 日光術 / 燈:光圈大小
+L999: case 'bookmarks': st.bookmarks = ev.list; break; // 記憶座標(登入時整份)
+L1000: case 'bookmark': // 新增一筆記憶座標
+L1005: case 'mail': // 信箱(伺服器 C_WebMail / L1Mail):只有 unread = 紅點更新;有 mails = 整份資料
+L1011: case 'renameresult': if (typeof renameResult === 'function') renameResult(ev); break; // 改名卡結果(hud.js;事件名不用 rename:S.CHANGENAME 物件改名已經是 t:'rename')
+L1012: case 'dutch': if (typeof onDutch === 'function') onDutch(ev); break;
+L1013: case 'eva': if (typeof evaEvent === 'function') evaEvent(ev); break; // 伊娃的寶藏(eva.js;伺服器 C_WebEva)
+L1014: case 'charmarket': onCharMarket(ev); break;
+L1015: case 'auction': // 拍賣行(伺服器 C_WebAuction / L1Auction):tab = browse / detail(一種道具的各單價)/ mine / buy(購買結果只有 msg)
+L1028: case 'clan': // 血盟面板資料(伺服器 C_WebClan)
+L1033: case 'pkrank': { const o = st.objects.get(ev.id); if (o) o.pkRank = ev.rank; break; }
+L1034: case 'pkrankself': st.pkRankSelf = { rank: ev.rank, kills: ev.kills }; if (typeof renderBuffs === 'function') renderBuffs(); break;
+L1035: case 'title': { const o = st.objects.get(ev.id); if (o) o.title = ev.title; break; }
+L1036: case 'rename': { const o = st.objects.get(ev.id); if (o) o.name = ev.name; if (dlg.mode === 'pet' && dlg.npc === ev.id) $('#dlg-title').textContent = ev.name; break; }
+L1037: case 'attack': if (ev.target && ev.target === st.selfId && ev.attacker !== st.selfId) tpHit(); onAttack(ev); break;
+L1038: case 'action': onAction(ev); break;
+L1039: case 'poly': { const o = st.objects.get(ev.id); if (o) o.gfx = ev.gfx; break; }
+L1040: case 'weapon': { const o = st.objects.get(ev.id); if (o) { o.weapon = ev.weapon; if (o.kind === 'monster') o.buried = sunkStatus(ev.weapon, o.name); } break; } // 怪鑽出土(appearOnGround)也會送這個
+L1041: case 'haste': {
+L1046: case 'brave': {
+L1063: case 'buff': if (isEventHuntCountdown(ev.key)) { setEventHuntTimer(ev.key, ev.time); break; }
+L1065: case 'poison': if (ev.id === st.selfId) setBuff('poison', ev.poison === 'paralyze' ? '麻痺毒' : '中毒', ev.poison ? -1 : 0); break;
+L1066: case 'paralysis': { // 麻痺類狀態開始 / 解除:開始時清掉排好的路線和待放的魔法,解鎖那一刻不會一口氣衝出去
+L1074: case 'lawful':
+L1075: if (ev.id === st.selfId && st.me) { st.me.lawful = ev.lawful; updateHud(); }
+L1078: case 'spmr': if (st.me) { st.me.sp = ev.sp; st.me.mrBonus = ev.mr; updateHud(); } break;
+L1079: case 'addskill': ev.ids.filter((id) => st.game?.skills?.[id]?.name !== 'none').forEach((id) => st.skills.add(id)); renderSkills(); renderLearn(); break; // none:沒有這個魔法的空位(例如 3 階第 8 格)
+L1080: case 'delskill': ev.ids.forEach((id) => st.skills.delete(id)); renderSkills(); break;
+L1081: case 'chat':
+L1084: case 'excludes': case 'exclude': onExclude(ev); break;
+L1085: case 'offlinereport': if (!ev.huntDuplicate) showOfflineReport(ev.report); break;
+L1086: case 'huntledger': break; // statsEvent consumes the server-confirmed cumulative snapshot
+L1087: case 'huntstats': if (typeof huntApiResult === 'function') huntApiResult(ev); break;
+L1088: case 'otpneed':
+L1091: case 'otp': otpResult(ev); break;
+L1092: case 'deadpets': showResTargets(ev.ids); break; // 復活卷軸:死掉的寵物(項圈)
+L1093: case 'deathlog': st.deathLog = ev.list; if (typeof panel !== 'undefined' && panel.name === 'deathlog') renderPanel(); break; // 死亡紀錄(gateway 查 DB)
+L1094: case 'ranking': if (typeof ev.pkEnabled === 'boolean') st.pkRank = ev.pkEnabled; st.rankingData = ev; if (typeof panel !== 'undefined' && panel.name === 'char' && panel.tab === 'rank') renderPanel(); break; // 排行榜(gateway 查 DB)
+L1095: case 'elfattrfail': // 艾利溫選屬性失敗(gateway 查 DB 先擋下):不是妖精 / 已經有屬性
+L1098: case 'elfattr': { // 艾利溫選屬性成功
+L1103: case 'servermsg': diagRing('msgLog', { t: performance.now(), id: ev.id }, 10); if (ev.id === 263 || ev.id === 82) st.bagFullAt = performance.now(); if (ev.id === 110) onOverweightAttack(); if (whisperServerError(ev)) break; if (typeof msgSeen === 'function') msgSeen(ev); if (typeof msgHidden === 'function' && msgHidden(ev)) break; try { if (gainMsgHold(ev)) break; } catch (err) { console.warn('gainMsgHold hook', err); } log(ev.id === 81 ? `目前線上人數:${ev.args[0]} 人(含離線掛機)` : serverMsg(ev), 'sys'); break; // 81:/who 的回覆(S_WhoAmount)
+L1104: case 'inventory': collectionInventoryChanged(); st.inv.clear(); ev.items.forEach((i) => st.inv.set(i.id, i)); renderInv(); break;
+L1105: case 'additem': collectionInventoryChanged(); { const prevItem = st.inv.get(ev.item.id); st.inv.set(ev.item.id, ev.item); renderInv(); try { itemGainNotice(prevItem ? { count: prevItem.count } : null, ev.item); } catch (err) { console.warn('itemGainNotice hook', err); } break; } // 同編號重送(穿脫 / 鑑定 / 狀態更新)用前後數量比,不算獲得
+L1106: case 'itemupdate': collectionInventoryChanged(); { const i = st.inv.get(ev.item.id); if (i) { const oldCount = i.count; const stripN = (n) => String(n || '').replace(/ \(\d+\)$/, ''); const countOnly = stripN(i.name) === stripN(ev.item.name) && (!('wdmg' in ev.item) || ev.item.wdmg === (i.wdmg ?? 0)); i.name = ev.item.name; i.count = ev.item.count; if ('wdmg' in ev.item) i.wdmg = ev.item.wdmg; renderInv(i.id, countOnly); try { itemGainNotice({ count: oldCount }, i); } catch (err) { console.warn('itemGainNotice hook', err); } } break; } // 10/29:只有數量變(射箭、喝水)走增量更新,不整排重 建快捷欄(弓箭角色每 0.65 秒一箭,整排 canvas 重建讓內顯筆電掉幀)
+L1107: case 'itemname': collectionInventoryChanged(); { const i = st.inv.get(ev.id); if (i) { i.name = ev.name; renderInv(i.id); } break; }
+L1108: case 'delitem': collectionInventoryChanged(); st.inv.delete(ev.id); st.locks.delete(ev.id); renderInv(); break;
+L1109: case 'locks': collectionInventoryChanged(); st.locks = new Set(ev.ids || []); st.itemLock = true; renderInv(); break; // 進遊戲、背包送完之後送一次:所有上鎖的道具(開關關著伺服器不送 = 沒有上鎖功能)
+L1110: case 'settings': if (typeof srvSetOnEvent === 'function') srvSetOnEvent(ev); break; // AUTO 設定存伺服器:進遊戲後的伺服器版本 / 存檔衝突時的最新版(hud.js)
+L1111: case 'settingsack': if (typeof srvSetAck === 'function') srvSetAck(ev); break; // 設定存檔成功(新版本)/ 放棄
+L1112: case 'unifiedhunt': unifiedAutoEvent(ev); break;
+L1113: case 'orengate': if (typeof orenGateEvent === 'function') orenGateEvent(ev); break; // ORENGATE_1119
+L1114: case 'autosupply': if (typeof srvSupplyEvent === 'function') srvSupplyEvent(ev); break; // 伺服器補給開關(登入一 次、切換時廣播)
+L1115: case 'autospent': if (typeof srvSpentEvent === 'function') srvSpentEvent(ev); break; // 伺服器替你付費喝 / 買的金幣
+L1116: case 'pk': st.pkCount = ev.n; if (typeof panel !== 'undefined' && panel.name === 'char' && typeof renderPanel === 'function') renderPanel(); break; // 11/03 目前 PK 次數(伺服器登入時 / 變動時送;贖罪卷軸視窗用)
+L1117: case 'dailyquest': dailyQuestEvent(ev); break;
+L1118: case 'collection': collectionEvent(ev); break;
+L1119: case 'appearance': appearanceEvent(ev); break;
+L1120: case 'equipsets': st.equipSets = ev.sets || []; if (typeof syncEquipQuick === 'function') syncEquipQuick(); if (typeof panel !== 'undefined' && panel.name === 'char') renderPanelSoon(); break; // 進遊戲 / 查詢 / 存 / 清除之後的整份裝備組;開關關著伺服器不送 = 不顯示
+L1121: case 'equipapplied': equipSetApplied(ev); break; // 套用結果:換了幾件、沒換成功的件名和原因
+L1122: case 'emblem': onEmblemEvent(ev); break; // S_CharReset 0x3c:某個角色(盟員)的盟徽換了 / 被刪
+L1123: case 'lock': collectionInventoryChanged(); if (ev.locked) st.locks.add(ev.id); else st.locks.delete(ev.id); renderInv(ev.id); break; // 上鎖 / 解鎖成功
+L1124: case 'html':
+L1146: case 'retrievelist': if (ev.kind === 12) openPetWithdraw(ev); break; // 寵物管理員:領出寵物
+L1147: case 'shopbuy': openShopBuy(ev); break;
+L1148: case 'shopsell': openShopSell(ev); break;
+L1149: case 'skillbuylist': openSkillBuy(ev); break;
+L1150: case 'disconnect': clearEventHuntTimer(); log('伺服器要求中斷連線', 'err'); break;
+
+========== handle 函式內呼叫目標 ==========
+L889 [resolved] behavState
+L963 [resolved] later
+L968 [resolved] upsertObject
+L864 [resolved] checkBuild
+L851 [resolved] openDungeonBook
+L1146 [resolved] openPetWithdraw
+L872 [resolved] backgroundLogout
+L866 [resolved] onNetBack
+L1103 [resolved] onOverweightAttack
+L896 [resolved] showScreen
+L1147 [resolved] openShopBuy
+L1090 [resolved] openOtp
+L907 [resolved] renderChars
+L838 [resolved] noteAttackReceived
+L843 [resolved] checkBuild
+L956 [resolved] later
+L1091 [resolved] otpResult
+L904 [resolved] renderChars
+L912 [candidate] $
+L882 [resolved] showScreen
+L1079 [resolved] renderLearn
+L951 [candidate] otherFxFull
+L861 [candidate] $
+L866 [resolved] reportWebBackground
+L846 [resolved] setGoogleAccount
+L866 [resolved] startCatchUp
+L1133 [resolved] openShopSell
+L922 [candidate] $
+L891 [resolved] showScreen
+L877 [resolved] setReconnecting
+L900 [candidate] $
+L1036 [candidate] $
+L1149 [resolved] openSkillBuy
+L1040 [candidate] sunkStatus
+L854 [resolved] setRemember
+L1106 [resolved] stripN
+L860 [resolved] showScreen
+L931 [candidate] $
+L901 [candidate] send
+L1037 [resolved] tpHit
+L1122 [resolved] onEmblemEvent
+L888 [resolved] setReconnecting
+L866 [resolved] setReconnecting
+L929 [resolved] slotMap
+L989 [resolved] endTrade
+L910 [resolved] onCharRoster
+L850 [resolved] openHuntPassBook
+L883 [candidate] $
+L1134 [resolved] openSummonMenu
+L857 [resolved] setReconnecting
+L953 [resolved] later
+L921 [resolved] refreshSelling
+L951 [candidate] otherPc
+L1103 [resolved] serverMsg
+L988 [resolved] addTradeItem
+L963 [resolved] impactWait
+L956 [resolved] addEffect
+L929 [resolved] saveSlotMap
+L1137 [resolved] npcPageArrived
+L1140 [resolved] openDialogPage
+L928 [resolved] rosterActive
+L1103 [candidate] diagRing
+L1144 [resolved] openNpcDialog
+L990 [resolved] renderTrade
+L913 [resolved] onCharRoster
+L1112 [resolved] unifiedAutoEvent
+L866 [resolved] unifiedRequest
+L1037 [resolved] onAttack
+L873 [resolved] resumeFailed
+L976 [resolved] moveObject
+L1069 [resolved] paraState
+L928 [resolved] refreshSelling
+L933 [resolved] enterGame
+L991 [resolved] updateParty
+L980 [resolved] clearPicked
+L863 [resolved] setRemember
+L931 [resolved] renderChars
+L917 [resolved] renderChars
+L842 [candidate] $
+L987 [resolved] openTrade
+L986 [resolved] openYesNo
+L1100 [resolved] closeDialog
+L863 [candidate] $
+L1038 [resolved] onAction
+L1139 [resolved] openCraft
+L904 [resolved] gmGiveOff
+L953 [resolved] addEffect
+L1106 [resolved] stripN
+L953 [resolved] castDelay
+L956 [resolved] castDelay
+L957 [resolved] onRangeSkill
+L946 [candidate] serverGameSec
+L866 [resolved] checkBuild
+L902 [candidate] $
+L865 [resolved] checkBuild
+L892 [candidate] $
+L848 [resolved] openHighPet
+L925 [candidate] $
+L921 [resolved] rosterActive
+L858 [resolved] behavState
+L923 [resolved] renderChars
+L1085 [resolved] showOfflineReport
+L1130 [resolved] openPetMenu
+L905 [resolved] gmGiveOn
+L878 [resolved] behavState
+L1148 [resolved] openShopSell
+L870 [resolved] backgroundLogout
+L1141 [resolved] openNpcDialog
+L952 [resolved] addEffect
+L1128 [resolved] confirmSealedCraft
+L1082 [candidate] $
+L985 [resolved] impactWait
+L849 [resolved] openBossHunt
+L985 [resolved] later
+L945 [resolved] loadMap
+
+========== REA 未知項目 ==========
+未知數量: 1698
+{
+  "unknown-value": 851,
+  "ambiguous-target": 543,
+  "dynamic-call": 293,
+  "dynamic-property": 11
+}
+
+完整報告: D:\Natisha-Research-Evidence\rea-handle-event-map-20261124.json
