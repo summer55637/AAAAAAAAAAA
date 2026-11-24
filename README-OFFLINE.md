@@ -24,3 +24,9 @@
 - `offline-engine.test.cjs`：Node.js 測試，應以 `node offline-engine.test.cjs` 執行。
 
 **目前尚未完成：** 原版 HTML／完整 HUD DOM、原始地圖與圖集／SPR／UI 音效素材，以及完整服務端遊戲規則的本機化。現在的 `index.html` 仍是第一階段佔位原型，不能視為原版畫面已經接好。
+
+## 原版相容畫面預覽
+- 啟動本機伺服器後另開 `http://127.0.0.1:8000/original-client.html`。
+- `index.html` 保留第一階段獨立原型；`original-client.html` 是原版 app/HUD 接線測試入口。
+- 離線版地圖模組已停用線上地圖索引重試，地面以本機 walk mask 與替代圖磚顯示。
+- 目前已在隔離環境測試引擎協定與 JavaScript 語法；尚未在你的 Windows 瀏覽器實際驗證頁面視覺與全部按鈕行為。

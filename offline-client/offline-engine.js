@@ -418,7 +418,8 @@
         Math.abs(monster.x - this.player.x),
         Math.abs(monster.y - this.player.y)
       );
-      if (distance > 2) return;
+      const attackRange = command.ranged === true ? 12 : 2;
+      if (distance > attackRange) return;
 
       const damage = Math.max(1, Math.floor(asNumber(this.character.str, 10) / 4) + 1);
       this.damageMonster(monster, damage, 0, 1);
@@ -600,7 +601,7 @@
         Math.abs(drop.x - this.player.x),
         Math.abs(drop.y - this.player.y)
       );
-      if (distance > 2) return;
+      if (distance > 3) return; // 與原版 autoLoot 的三格拾取範圍一致。
       this.drops.delete(id);
       const existing = this.inventory.find((item) => item.itemId === drop.itemId);
       if (existing) existing.count += drop.count;

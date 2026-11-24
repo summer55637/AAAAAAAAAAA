@@ -53,6 +53,11 @@ const L1MAP = (() => {
   const mapLoads = {};
   const idxFail = {}; // id -> { n, at }:區塊表暫時抓不到(斷線、5xx、逾時),at 之後再抓;at = Infinity 表示正在重抓
   function loadMapInfo(id) {
+    if (window.NATISHA_OFFLINE === true) {
+      maps[id] = null; // 離線模式明確使用 app.js 的本機遮罩與替代地磚，不發出網路請求。
+      mapLoads[id] ||= Promise.resolve(null);
+      return mapLoads[id];
+    }
     const f = idxFail[id];
     if (f && performance.now() >= f.at) { f.at = Infinity; delete mapLoads[id]; } // 上次是暫時失敗:時間到就重抓
     if (!(id in mapLoads)) {
