@@ -62,6 +62,18 @@ const potion = engine.snapshot().inventory.find((item) => item.name === '紅色�
 engine.character.hp = 1;
 engine.command({ t: 'useitem', id: potion.id });
 assert.ok(events.some((event) => event.t === 'hp' && event.hp > 1));
+// A dead character cannot move until the local revive command arrives.
+engine.spawnSlime(engine.player.x, engine.player.y + 1);
+engine.character.hp = 1;
+engine.lastMonsterAttack = Date.now() - 3000;
+engine.tick();
+assert.equal(engine.dead, true);
+const deathPosition = engine.snapshot().player;
+engine.command({ t: 'move', x: deathPosition.x, y: deathPosition.y, heading: 2 });
+assert.deepEqual(engine.snapshot().player, deathPosition);
+engine.command({ t: 'restart' });
+assert.equal(engine.dead, false);
+assert.equal(engine.character.hp, engine.character.maxHp);
 engine.command({ t: 'settingsave', ver: 1, json: JSON.stringify({ auto: { enabled: true } }) });
 assert.ok(events.some((event) => event.t === 'settingsack' && event.ver === 1));
 engine.command({ t: 'bookmark', name: '測試點' });
@@ -76,7 +88,8 @@ const mage = new LocalGameEngine((event) => mageEvents.push(event), {
   storage: mageStorage, enableTimers: false,
   gameData: { expTable: [0, 125], skills: {
     1: { name: '初級治癒術', mp: 4, hostile: false, dur: 0, action: 19 },
-    4: { name: '光箭', mp: 3, hostile: true, range: 10, gfx: 167, action: 18 }
+    4: { name: '光箭', mp: 3, hostile: true, range: 10, gfx: 167, action: 18 },
+    29: { name: '緩速術', mp: 2, hostile: false, range: 0, gfx: 752, dur: 64, action: 19 }
   } }
 });
 mage.command({ t: 'newchar', name: '測試法師', type: 3, str: 10, dex: 10, con: 10, wis: 12, cha: 10, int: 13 });
@@ -88,6 +101,9 @@ const mageMob = mage.snapshot().monsters[0];
 mage.command({ t: 'move', x: 32593, y: 32922, heading: 2 });
 mage.command({ t: 'useskill', skill: 4, target: mageMob.id, x: mageMob.x, y: mageMob.y });
 assert.ok(mageEvents.some((event) => event.t === 'attack' && event.gfx === 167));
+// Original HUD marks this hostile skill as hostile, but the exported table does not.
+mage.command({ t: 'useskill', skill: 29, target: mageMob.id, x: mageMob.x, y: mageMob.y });
+assert.ok(mageEvents.some((event) => event.t === 'attack' && event.gfx === 752));
 mage.close();
 
 const map = createWalkMap();

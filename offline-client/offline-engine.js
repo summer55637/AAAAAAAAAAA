@@ -5,6 +5,13 @@
   const CLASS_GFX = [[0, 1], [61, 48], [138, 37], [734, 1186], [2786, 2796], [6658, 6661], [6671, 6650]];
   const CLASS_HP = [14, 18, 14, 10, 14, 16, 12];
   const CLASS_MP = [8, 4, 10, 12, 8, 10, 12];
+  // Mirror hostile-target corrections applied by the original HUD.
+  const HOSTILE_SKILLS = new Set([29, 36, 39, 40, 44, 64, 71, 76, 87, 133, 152, 153, 157, 167, 173, 174, 183, 188, 193]);
+  function normalizeGameData(data) {
+    if (!data || typeof data !== 'object' || !data.skills || typeof data.skills !== 'object') return data;
+    for (const id of HOSTILE_SKILLS) if (data.skills[id]) data.skills[id].hostile = true;
+    return data;
+  }
 
   function asNumber(value, fallback) {
     const result = Number(value);
@@ -29,13 +36,14 @@
       const settings = options || {};
       this.emit = typeof emit === 'function' ? emit : function () {};
       this.storage = settings.storage || this.getStorage();
-      this.gameData = settings.gameData || null;
+      this.gameData = normalizeGameData(settings.gameData || null);
       this.timersEnabled = settings.enableTimers !== false;
       this.tickMs = Math.max(250, asNumber(settings.tickMs, 800));
       this.save = this.readSave();
       this.save.settings ||= {};
       this.save.bookmarks ||= [];
       this.character = null;
+      this.dead = false;
       this.playerId = 1;
       this.nextObjectId = 1000;
       this.player = { x: 32593, y: 32922, heading: 2 };
@@ -52,7 +60,7 @@
         root.fetch('game.json').then(function (response) {
           return response.ok ? response.json() : null;
         }).then((data) => {
-          if (data) this.gameData = data;
+          if (data) this.gameData = normalizeGameData(data);
         }).catch(function () {});
       }
     }
@@ -252,6 +260,7 @@
 
       this.stopTimers();
       this.character = character;
+      this.dead = asNumber(character.hp, 0) <= 0;
       this.playerId = 1;
       this.player = {
         x: asNumber(character.x, 32593),
@@ -275,7 +284,8 @@
         portals: []
       });
       this.emitPlayerObject();
-      this.spawnSlime(Math.min(32763, this.player.x + 4), this.player.y);
+      if (this.dead) this.emitEvent({ t: 'action', id: this.playerId, action: 8 });
+      else this.spawnSlime(Math.min(32763, this.player.x + 4), this.player.y);
       this.emitEvent({ t: 'inventory', items: copy(this.inventory) });
       this.emitEvent({ t: 'addskill', ids: character.type === 3 ? [1, 4] : [] });
       this.emitEvent({ t: 'bookmarks', list: copy(this.save.bookmarks || []) });
@@ -340,7 +350,7 @@
     }
 
     movePlayer(command) {
-      if (!this.character) return;
+      if (!this.character || this.dead) return;
       let x, y, dx, dy;
       // 原版 C_Move 封包是「出發座標 + heading」，並非目的座標。
       // app.js 在送出前才更新玩家本機座標，因此以本機引擎自己的權威位置走一格。
@@ -411,7 +421,7 @@
     }
 
     attack(command) {
-      if (!this.character) return;
+      if (!this.character || this.dead) return;
       const id = asNumber(command.id, asNumber(command.target, -1));
       const monster = this.monsters.get(id);
       if (!monster || monster.dead) return;
@@ -463,32 +473,52 @@
     }
 
     useSkill(command) {
-      if (!this.character) return;
+      if (!this.character || this.dead) return;
       const id = asNumber(command.skill, 0);
       const skill = this.gameData && this.gameData.skills && this.gameData.skills[id];
       if (!skill) {
         this.emitEvent({ t: 'error', msg: '本機技能資料中沒有這項技能' });
         return;
       }
-      const mpCost = Math.max(0, asNumber(skill.mp, 0));
-      if (this.character.mp < mpCost) {
-        this.emitEvent({ t: 'error', msg: 'MP 不足' });
-        return;
-      }
-      this.character.mp -= mpCost;
-      this.emitEvent({ t: 'mp', mp: this.character.mp, maxMp: this.character.maxMp });
-
       const targetId = asNumber(command.target, this.playerId);
+      let monster = null;
       if (skill.hostile) {
-        const monster = this.monsters.get(targetId);
-        if (!monster || monster.dead) return;
+        monster = this.monsters.get(targetId);
+        if (!monster || monster.dead) {
+          this.emitEvent({ t: 'error', msg: '找不到可施法的怪物目標' });
+          return;
+        }
         const distance = Math.max(
           Math.abs(monster.x - this.player.x),
           Math.abs(monster.y - this.player.y)
         );
-        if (distance > Math.max(1, asNumber(skill.range, 1))) return;
+        // The original client uses a default 10-tile range when game data says 0.
+        const configuredRange = asNumber(skill.range, 0);
+        const range = configuredRange > 0 ? configuredRange : 10;
+        if (distance > range) {
+          this.emitEvent({ t: 'error', msg: '目標超出技能射程' });
+          return;
+        }
+      }
+      const mpCost = Math.max(0, asNumber(skill.mp, 0));
+      const hpCost = Math.max(0, asNumber(skill.hp, 0));
+      if (this.character.mp < mpCost) {
+        this.emitEvent({ t: 'error', msg: 'MP 不足' });
+        return;
+      }
+      if (hpCost && this.character.hp <= hpCost) {
+        this.emitEvent({ t: 'error', msg: 'HP 不足' });
+        return;
+      }
+      this.character.mp -= mpCost;
+      this.character.hp -= hpCost;
+      this.emitEvent({ t: 'mp', mp: this.character.mp, maxMp: this.character.maxMp });
+      if (hpCost) this.emitEvent({ t: 'hp', hp: this.character.hp, maxHp: this.character.maxHp });
+
+      if (skill.hostile) {
         const damage = Math.max(1, Math.floor(asNumber(this.character.int, 10) / 2) + 3);
         this.damageMonster(monster, damage, asNumber(skill.gfx, 0), asNumber(skill.action, 18));
+        this.persist();
         return;
       }
 
@@ -594,7 +624,7 @@
     }
 
     pickup(command) {
-      if (!this.character) return;
+      if (!this.character || this.dead) return;
       const id = asNumber(command.id, -1);
       const drop = this.drops.get(id);
       if (!drop) return;
@@ -619,7 +649,7 @@
     }
 
     useItem(command) {
-      if (!this.character) return;
+      if (!this.character || this.dead) return;
       const id = asNumber(command.id, -1);
       const item = this.inventory.find((entry) => entry.id === id);
       if (!item) return;
@@ -638,7 +668,7 @@
     }
 
     tick() {
-      if (!this.character || this.closed) return;
+      if (!this.character || this.closed || this.dead) return;
       const now = Date.now();
       for (const monster of this.monsters.values()) {
         if (monster.dead) continue;
@@ -647,12 +677,17 @@
         const distance = Math.max(Math.abs(dx), Math.abs(dy));
         if (distance > 1 && now - monster.lastStep > 1200) {
           monster.lastStep = now;
-          monster.x += Math.sign(dx);
-          monster.y += Math.sign(dy);
-          this.emitEvent({
-            t: 'move', id: monster.id, x: monster.x, y: monster.y,
-            heading: this.heading(dx, dy)
-          });
+          const nextX = Math.max(32256, Math.min(32767, monster.x + Math.sign(dx)));
+          const nextY = Math.max(32768, Math.min(33279, monster.y + Math.sign(dy)));
+          const occupied = Array.from(this.monsters.values()).some((other) => other !== monster && !other.dead && other.x === nextX && other.y === nextY);
+          if ((nextX !== this.player.x || nextY !== this.player.y) && !occupied && (nextX !== monster.x || nextY !== monster.y)) {
+            monster.x = nextX;
+            monster.y = nextY;
+            this.emitEvent({
+              t: 'move', id: monster.id, x: monster.x, y: monster.y,
+              heading: this.heading(dx, dy)
+            });
+          }
         } else if (distance <= 1 && now - this.lastMonsterAttack > 2200) {
           this.lastMonsterAttack = now;
           this.character.hp = Math.max(0, this.character.hp - 1);
@@ -664,7 +699,9 @@
             t: 'hp', hp: this.character.hp, maxHp: this.character.maxHp
           });
           if (this.character.hp <= 0) {
+            this.dead = true;
             this.emitEvent({ t: 'action', id: this.playerId, action: 8 });
+            break;
           }
         }
       }
@@ -675,12 +712,16 @@
 
     revive() {
       if (!this.character) return;
+      this.dead = false;
       this.character.hp = this.character.maxHp;
       this.player.x = 32593;
       this.player.y = 32922;
       this.character.x = 32593;
       this.character.y = 32922;
       this.emitPlayerObject();
+      for (const monster of this.monsters.values()) this.emitEvent({ t: 'remove', id: monster.id });
+      this.monsters.clear();
+      this.spawnSlime(Math.min(32763, this.player.x + 4), this.player.y);
       this.emitEvent({
         t: 'hp', hp: this.character.hp, maxHp: this.character.maxHp
       });
@@ -696,6 +737,7 @@
         this.persist();
       }
       this.character = null;
+      this.dead = false;
       this.monsters.clear();
       this.drops.clear();
       this.autoHunt = false;
@@ -734,6 +776,7 @@
       this.save = { version: 1, nextCharacterId: 1, characters: [] };
       this.persist();
       this.character = null;
+      this.dead = false;
       this.monsters.clear();
       this.drops.clear();
       this.inventory = [];
